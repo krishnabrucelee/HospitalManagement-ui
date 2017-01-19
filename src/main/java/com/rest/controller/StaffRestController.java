@@ -37,7 +37,7 @@ public class StaffRestController {
 	 * @param staff
 	 * @return staff
 	 */
-	@RequestMapping(value = "/addStaff", method = RequestMethod.POST)
+	@RequestMapping(value = "/createStaff", method = RequestMethod.POST)
 	public String addStaff(@RequestBody HashMap<String, Object> staff) {
 		System.out.println("Inside Controller");
 		ModelAndView mav = new ModelAndView("staff");

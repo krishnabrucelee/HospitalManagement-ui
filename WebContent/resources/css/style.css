@@ -38,8 +38,11 @@ h1.heading{
 	width: 75%;
 	margin:10px auto;
 }
-.centered_form label{
+.modal-body label, .centered_form label{
 	display: block;
+}
+.modal-body .checkbox-inline, .modal-body .radio-inline{
+    display: inline-block;
 }
 .centered_form tr th{
 	background-color: #ccc;
@@ -87,7 +90,7 @@ td.dropdown > span{
 .signin form{
 	margin-top: 40px;
 }
-.signin .form-group{
+.form-group{
 	margin-bottom: 20px;
 }
 .signin .main{
@@ -364,7 +367,7 @@ footer p{
 }
 .dashboard_block.dropdown-menu .inner_block{
 	width: 360px;
-    height: 520px;
+    max-height: 520px;
     overflow: hidden;
 }
 .dashboard_block.dropdown-menu .inner_block:hover{
@@ -425,7 +428,8 @@ footer p{
     cursor: pointer;
 }
 .right_block{
-	overflow : hidden;
+	width: calc(100% - 230px);
+    float: left;
 }
 .Registration form{
 	width: 70%;
@@ -443,4 +447,40 @@ footer p{
     padding: 4px 8px;
     margin: 6px;
     display: inline-block;
+}
+.modal-header{
+    background-color: #e7e7e7;
+    color: #011638;
+}
+.heading .modal-demo{
+    float: right;
+}
+
+
+/*********** Start datetimepicker ************/
+
+.datetimepicker-wrapper {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.datetimepicker-wrapper > input {
+  margin-bottom: 0 !important;
+  width: 130px;
+}
+
+.datetimepicker-wrapper [ng-model=hours], 
+.datetimepicker-wrapper [ng-model=minutes] {
+  width: 46px !important;
+}
+
+.datetimepickerStyle{
+	margin-top: -30px;
+}
+
+.form-group table{
+	width: 100%;
+}
+.date_only .datetimepicker-wrapper, .date_only .datetimepicker-wrapper > input{
+	width: 100%;
 }

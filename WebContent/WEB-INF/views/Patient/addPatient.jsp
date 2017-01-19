@@ -87,7 +87,61 @@
 				    <textarea class="form-control" rows="5" data-ng-model="patient.patientAddress" placeholder="Enter Your Address"></textarea>
 				  </div>
 			  </div>
+			  
+			  <div data-ng-if="patient.patientType == 'Inpatient'">
+				<label>Select Room:</label>
+			  <div class="row">
+			  		<div class="form-group col-md-4">
+				    <label>Class Type:</label>
+				    <select class="form-control" data-ng-model="classType">
+						<option>Class A</option>
+					     <option>Class B</option>
+					      <option>Class C</option>
+					       <option>Class D</option>
+					        <option>Class E</option>
+					  </select>
+				  </div>
 
+				  <div class="form-group col-md-4 col-md-offset-2">
+				    <label>Enter Floor:</label>
+				    <input type="text" name="" class="form-control" data-ng-model="floor" placeholder="Enter Floor Number">
+				  </div>
+				  
+				   <div class="col-md-4">
+                    <button type="button" data-ng-click="listRoomByFilter(classType, floor)" class="btn btn-default col-md-4">Search Ward</button>  
+                </div>       
+			  </div>
+			  
+			  <div data-ng-show = "roomList != null">
+			    <table class="table centered_form table-bordered table-responsive">
+                <thead>
+                  <tr>
+                    <th>Floor Number</th>
+                    <th>Custom Ward Number</th>
+                    <th>Number Of Beds</th>
+                    <th>Class Type</th>
+                    <th>Ward Number</th>
+                    <th>Price</th>
+                    <th>Available</th>
+                    <th>Options</th>
+                  </tr>
+                </thead>
+                <tbody data-ng-repeat="room in rooms">
+                  <tr>
+                    <td>{{room.floorNumber}}</td>
+                    <td>{{room.customWardNumber}}</td>
+                    <td>{{room.numberOfBeds}}</td>
+                    <td>{{room.classType}}</td>
+                    <td>{{room.wardNumber}}</td>
+                    <td>{{room.price}}</td>
+                    <td>{{room.isAvailable}}</td>
+                    <td><button type="button" data-ng-click="addRoomToPatient(room)" class="btn btn-default col-md-4">Select Room</button> </td>
+                   </tr>
+                  
+                </tbody>
+              </table>
+			  </div>
+			</div>
 			  <div class="row">
                 <div class="col-md-4">
                     <button type="submit" class="btn btn-default col-md-4">Submit</button>  

@@ -3,10 +3,22 @@
  */
 package com.rest.serviceImpl;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.HashMap;
+
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestTemplate;
 
+import com.rest.config.SpringRestConfig;
 import com.rest.service.RoleRestService;
 
 /**
@@ -14,37 +26,49 @@ import com.rest.service.RoleRestService;
  *
  */
 @Service
-public class RoleRestServiceImpl {/*
+public class RoleRestServiceImpl implements RoleRestService {
 
-	*//**
-	 * Role dao
-	 *//*
 	@Autowired
-	RoleDao roledao;
+	RestTemplate restTemplate;
 	
 	@Override
-	public JSONObject addRole(JSONObject role) {
-		return roledao.addRole(role);
+	public HashMap<String, Object> listRoleDetails() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			ResponseEntity<JSONObject> postRes = restTemplate.exchange(new URI(SpringRestConfig.restUrl + "listRole"), HttpMethod.GET, request,JSONObject.class);
+			
+			result = postRes.getBody();
+
+			System.out.println("list Role=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
-	public JSONObject listRole() {
-		return roledao.listRole();
-	}
+	public HashMap<String, Object> createRole(HashMap<String, Object> role) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
 
-	@Override
-	public JSONObject updateRole(JSONObject role) {
-		return roledao.updateRole(role);
-	}
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(role, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "addRole"), request,
+					HashMap.class);
 
-	@Override
-	public JSONObject deleteRole(JSONObject roleId) {
-		return roledao.deleteRole(roleId);
+			System.out.println("Add Role=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
-	@Override
-	public Role addRoleFromStaff(Role role) {
-		return roledao.addRoleFromStaff(role);
-	}
+}
 
-*/}

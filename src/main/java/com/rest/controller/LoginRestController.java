@@ -38,17 +38,33 @@ public class LoginRestController {
 
 		HashMap<String, Object> login = loginService.checkLoginUser(user);
 		System.out.println(login);
-		if (login.get("user") != null) {
+		if (login.get("user") != null && login.get("result").equals(true)) {
 			HashMap<String, Object> userMap = login;
 			
 			
 			ArrayList<HashMap<String, Object>> usersList = (ArrayList<HashMap<String, Object>>) userMap.get("user");
-			
+			session.setAttribute("user", usersList);
 			for (HashMap<String, Object> hasRole : usersList) {
 				session.setAttribute("userId", hasRole.get("userId"));
 				 session.setAttribute("email", hasRole.get("userEmail"));
 				 session.setAttribute("name", hasRole.get("userName"));
 				 session.setAttribute("type", hasRole.get("professionType"));
+				 
+				 if (hasRole.get("professionType").equals("Doctor")) {
+					 
+					 HashMap<String, Object> doctorEmail = new HashMap<>();
+					 doctorEmail.put("email", hasRole.get("userEmail"));
+					 HashMap<String, Object> doctorDetails = loginService.getDoctorDetailsByEmail(doctorEmail);
+					 session.setAttribute("doctorDetails", doctorDetails.get("Doctor"));
+				 }
+				 
+				 if (hasRole.get("professionType").equals("Nurse")) {
+					 
+					 HashMap<String, Object> doctorEmail = new HashMap<>();
+					 doctorEmail.put("email", hasRole.get("userEmail"));
+					 HashMap<String, Object> nurseDetails = loginService.getNurseDetailsByEmail(doctorEmail);
+					 session.setAttribute("nurseDetails", nurseDetails.get("Nurse"));
+				 }
 				
 				System.out.println("Role is : " + hasRole.get("role"));
 				session.setAttribute("role", hasRole.get("role"));
@@ -61,13 +77,16 @@ public class LoginRestController {
 
 					session.setAttribute("roleList", roleList);
 					
-					/*for (HashMap<String, Object> hasPermission : roleList) {
+					for (HashMap<String, Object> hasPermission : roleList) {
 						System.out.println("permission is : " + hasPermission.get("action") + " for module " + hasPermission.get("module"));
 						session.setAttribute("permission", hasPermission.get("action"));
 						session.setAttribute("module", hasPermission.get("module"));
-					}*/
+					}
 				}
 			}
+			return "home";
+		} else {
+			return "Logout/accessDenied";
 		}
 		// Userr userStatus =null;
 		// try {
@@ -125,6 +144,6 @@ public class LoginRestController {
 		// else {
 		// m.addFlashAttribute("error","Either User name or Password is wrong");
 		// }
-		return "home";
+		
 	}
 }

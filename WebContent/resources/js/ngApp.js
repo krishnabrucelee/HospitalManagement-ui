@@ -1,1 +1,1 @@
-var ngApp = angular.module('ngModule', [ 'ngAnimate', 'ngSanitize', 'ui.bootstrap' ]);
+var ngApp = angular.module('ngModule', [ 'ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ngDialog', 'ui.bootstrap.datetimepicker']);

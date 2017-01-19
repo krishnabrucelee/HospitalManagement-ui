@@ -3,6 +3,7 @@ package com.rest.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -58,9 +59,42 @@ public class PatientRestController {
 	}
 	
 	@RequestMapping(value = "/listPatientDetails")
-	public @ResponseBody HashMap<String, Object> listPatient() {
+	public @ResponseBody HashMap<String, Object> listPatient(HttpSession session) {
 		HashMap<String, Object> patient = patientRestService.listPatient();
+		patient.put("sessionDetails", session.getAttribute("role"));
 		System.out.println(patient.get("Patient"));
 		return patient;
+	}
+	
+	@RequestMapping(value = "/viewPatient", method = RequestMethod.GET)
+	public String viewPatient(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Patient/viewPatient";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
+	@RequestMapping(value = "/viewPatientById", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> viewPatientById(@RequestBody HashMap<String, Object> patient, HttpSession session) {
+		
+		System.out.println(patient.get("id"));
+
+		HashMap<String, Object> patientSearch = patientRestService.listByPatientId(patient);
+		System.out.println(patientSearch);
+		if(session != null && session.getAttribute("user") != null) {			
+			patientSearch.put("user", session.getAttribute("user"));
+		} if (session != null && session.getAttribute("doctorDetails") != null) {
+			patientSearch.put("Doctor", session.getAttribute("doctorDetails"));
+		} if (session != null && session.getAttribute("nurseDetails") != null) {
+				patientSearch.put("Nurse", session.getAttribute("nurseDetails"));
+			}
+		else {
+			System.err.println("Session is Invalid. UserId Must be required to Generate PNR. Try Login again");
+			patientSearch.put("status",false);
+			patientSearch.put("reason","Session is Invalid. UserId Must be required to Generate PNR. Try Login again");
+			return patientSearch;
+		}
+		return patientSearch;
 	}
 }
