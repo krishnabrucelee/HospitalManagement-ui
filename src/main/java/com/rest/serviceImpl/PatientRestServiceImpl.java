@@ -94,8 +94,21 @@ public class PatientRestServiceImpl  implements PatientRestService {
 	 */
 	@Override
 	public HashMap<String, Object> listByPatientId(HashMap<String, Object> patientId) {
-		// TODO Auto-generated method stub
-		return null;
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(patientId, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "getPatientDetailsById"), request,
+					HashMap.class);
+
+			System.out.println("getBusDetailsById=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 }

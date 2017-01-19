@@ -46,4 +46,40 @@ public class LoginServiceImpl implements LoginService {
 		return result;
 	}
 
+	@Override
+	public HashMap<String, Object> getDoctorDetailsByEmail(HashMap<String,Object> email) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(email, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "getDoctorByEmail"), request, HashMap.class);
+
+			System.out.println(result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> getNurseDetailsByEmail(HashMap<String, Object> nurseEmail) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(nurseEmail, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "getNurseByEmail"), request, HashMap.class);
+
+			System.out.println(result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

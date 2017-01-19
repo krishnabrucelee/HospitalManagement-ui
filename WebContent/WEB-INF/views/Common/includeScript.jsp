@@ -7,3 +7,8 @@
     <script src="resources/js/ngApp.js" ></script>
     <link rel="stylesheet" href="resources/css/3.3.7_bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <script type="text/javascript" src="resources/js/ngDialog.js"></script>
+    <script type="text/javascript" src="resources/js/datetimepicker.js"></script>
+   
+  
+    

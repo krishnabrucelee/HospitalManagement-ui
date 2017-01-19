@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <c:set var="role" value='<%=session.getAttribute("role")%>'></c:set>
+<c:set var="permission" value='<%=session.getAttribute("permission")%>'></c:set>
+<c:set var="module" value='<%=session.getAttribute("module")%>'></c:set>
+<c:set var="roleList" value='<%=session.getAttribute("roleList")%>'></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html ng-app="ngModule">
 <head>
@@ -15,6 +20,9 @@
         <div class="right_block">
 
             <h1 class="heading">Patient Listing</h1>
+            <div data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'create'">
+                <button type="button" class="btn btn-default" ng-click="addPatient(patient)">Add Patient</button>
+            </div>
             <table class="table centered_form table-bordered table-responsive">
                 <thead>
                   <tr>
@@ -22,6 +30,7 @@
                     <th>First Name</th>
                     <th>Sex</th>
                     <th>DOB</th>
+                    <th>Patient Type</th>
                     <th>Blood Group</th>
                     <th width="20">Options</th>
                   </tr>
@@ -32,12 +41,14 @@
                     <td>{{patient.patientName}}</td>
                     <td>{{patient.patientGender}}</td>
                     <td>{{patient.patientDob | date:'dd-MM-yyyy'}}</td>
+                    <td>{{patient.patientType}}</td>
                     <td>{{patient.bloodGroup}}</td>
-                    <td class="dropdown"><span data-toggle="dropdown">Action</span>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">View</a></li>
-                        <li><a href="#">Edit</a></li>
-                        <li><a href="#">Delete</a></li>
+                    <td class="dropdown" ><span data-toggle="dropdown">Action</span>
+                      <ul class="dropdown-menu" >
+                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'read'" ><a ng-click="viewPatient(patient.patientId)">View</a></li>
+                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'update'" ><a href="#">Edit</a></li>
+                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'delete'" ><a href="#">Delete</a></li>
+                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'delete'" ><a href="#">Discharge</a></li>
                       </ul>
                     </td>
                    </tr>
@@ -51,6 +62,5 @@
             <p>2016 Copy rights</p>
         </div>
     </footer>
-    </div>
 </body>
 </html>

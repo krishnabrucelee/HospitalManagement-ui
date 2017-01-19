@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,45 +48,26 @@ public class DoctorRestController {
 		return doctorRestService.addDoctor(doctor);
 	}
 
+	@RequestMapping(value = "/listDoctor", method = RequestMethod.GET)
+	public String listDoctor(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Doctor/listDoctor";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
 	/**
 	 * List doctor.
 	 * 
 	 * @param doctor
 	 * @return doctor
 	 */
-	@RequestMapping(value = "/listDoctor")
-	public ModelAndView listDoctor(HttpSession session) {
-		ModelAndView model = new ModelAndView("listDoctor");
+	@RequestMapping(value = "/listDoctorDetails")
+	public @ResponseBody HashMap<String, Object> listDoctorDetails() {
 		HashMap<String, Object> doctor = doctorRestService.listDoctor();
-		model.addObject("doctor", doctor.get("Doctor"));
 		System.out.println(doctor.get("Doctor"));
-		
-		if (doctor.containsKey("Doctor")) {
-			ArrayList<HashMap<String, Object>> doctorsList = (ArrayList<HashMap<String, Object>>) doctor.get("Doctor");
-
-			for (HashMap<String, Object> hasRole : doctorsList) {
-				System.out.println("Role is : " + hasRole.get("role"));
-				session.setAttribute("role", hasRole.get("role"));
-				
-				if (hasRole.containsKey("role")) {
-					HashMap<String, Object> role = (HashMap<String, Object>) hasRole.get("role");
-					
-					ArrayList<HashMap<String, Object>> roleList = (ArrayList<HashMap<String, Object>>) role.get("permissionList");
-
-					session.setAttribute("roleList", roleList);
-					
-					/*for (HashMap<String, Object> hasPermission : roleList) {
-						System.out.println("permission is : " + hasPermission.get("action") + " for module " + hasPermission.get("module"));
-						session.setAttribute("permission", hasPermission.get("action"));
-						session.setAttribute("module", hasPermission.get("module"));
-					}*/
-				}
-			}
-
-		}
-		
-		model.addObject(session);
-		return model;
+		return doctor;
 	}
 	
 	/**

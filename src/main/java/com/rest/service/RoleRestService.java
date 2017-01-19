@@ -3,6 +3,8 @@
  */
 package com.rest.service;
 
+import java.util.HashMap;
+
 import org.json.simple.JSONObject;
 
 
@@ -13,35 +15,14 @@ import org.json.simple.JSONObject;
 public interface RoleRestService {
 
 	/**
-	 * Create Role.
-	 * 
-	 * @param role
-	 * @return role
+	 * @return
 	 */
-	public JSONObject addRole(JSONObject role);
+	public HashMap<String, Object> listRoleDetails();
 
 	/**
-	 * List Role.
-	 * 
 	 * @param role
-	 * @return role
+	 * @return
 	 */
-	public JSONObject listRole();
-
-	/**
-	 * Update Role.
-	 * 
-	 * @param role
-	 * @return role
-	 */
-	public JSONObject updateRole(JSONObject role);
-
-	/**
-	 * Delete Role.
-	 * 
-	 * @param role
-	 * @return role
-	 */
-	public JSONObject deleteRole(JSONObject roleId);
+	public HashMap<String, Object> createRole(HashMap<String, Object> role);
 
 }
