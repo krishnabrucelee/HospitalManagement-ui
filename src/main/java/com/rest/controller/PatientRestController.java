@@ -40,9 +40,7 @@ public class PatientRestController {
 	}
 	
 	@RequestMapping(value = "/createPatient", method = RequestMethod.POST)
-	public @ResponseBody HashMap<String, Object> createPatient(@RequestBody HashMap<String, Object> patient, HttpSession session) {
-	
-		
+	public @ResponseBody HashMap<String, Object> createPatient(@RequestBody HashMap<String, Object> patient, HttpSession session) {	
 		System.out.println(patient);
 		HashMap<String, Object> addPatient = patientRestService.addPatient(patient);
 		System.out.println(addPatient);
