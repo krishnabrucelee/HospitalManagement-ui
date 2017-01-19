@@ -27,7 +27,7 @@ public class LoginRestController {
 	@Autowired
 	private LoginService loginService;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/log", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		return "login";
 	}

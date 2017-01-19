@@ -21,6 +21,17 @@
                     <li><a href="#">Patient Listing</a></li>
                 </ul>
             </li>
+            
+            <li><a href="#">Pharmacy</a>
+                <ul>
+                    <li><a href="#">Issue Order</a></li>
+                    <li><a href="#">Add Master Entry</a></li>
+                    <li><a href="#">Pharmacy Enquiry</a></li>
+                      <li><a href="#">Issue Order</a></li>
+                    <li><a href="#">Medicine To Patient</a></li>
+                    <li><a href="#">Medicine Return</a></li>
+                </ul>
+            </li>
             <li><a href="#">Inpatient</a>
                 <ul>
                     <li><a href="#">Patient Registration</a></li>
