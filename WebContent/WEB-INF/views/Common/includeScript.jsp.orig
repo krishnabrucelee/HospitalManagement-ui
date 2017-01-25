@@ -12,11 +12,18 @@
     <script src="resources/js/1.5.8_angular-sanitize.js" ></script>
     <script src="resources/js/ui-bootstrap-tpls-2.3.1.min.js" ></script>
     <script src="resources/js/ngApp.js" ></script>
-     <script src="resources/js/myfile.js"></script>
-     <script src="resources/js/datetimepicker.js"></script>
+<<<<<<< Updated upstream
+    <link rel="stylesheet" href="resources/css/3.3.7_bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <script type="text/javascript" src="resources/js/ngDialog.js"></script>
-    <script src="resources/js/datetime-picker.js"></script>
-    <script src="resources/js/ngDialog.min.js" ></script>
+    <script type="text/javascript" src="resources/js/datetimepicker.js"></script>
    
   
     
+=======
+     <script src="resources/js/myfile.js"></script>
+     <script src="resources/js/datetimepicker.js"></script>
+      <script src="resources/js/datetime-picker.js"></script>
+         <script src="resources/js/ngDialog.min.js" ></script>
+   
+>>>>>>> Stashed changes
