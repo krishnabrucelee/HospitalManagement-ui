@@ -77,7 +77,31 @@
 							<img  src="resources/images/icons.png">
 						</a>
 					</div>
-					</c:if>									
+					</c:if>		
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listStockLedger()">
+							<h4>List Stock Ledger</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>		
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listProcument()">
+							<h4>List Procument</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>	
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listSupplier()">
+							<h4>List Supplier</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>								
 				<c:if test="${role.roleName eq 'Regular'}">
 					<div class="col-md-3">
 						<a href="#">

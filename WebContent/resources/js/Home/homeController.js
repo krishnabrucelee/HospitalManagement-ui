@@ -32,4 +32,16 @@ ngApp.controller('homeCtrl', function($scope, $http) {
 	$scope.addBilling = function() {
 		window.location.href="addBillingChart";
 	}
+	
+	$scope.listStockLedger = function() {
+		window.location.href="listStock";
+	}
+	
+	$scope.listProcument = function() {
+		window.location.href="listProcument";
+	}
+	
+	$scope.listSupplier = function() {
+		window.location.href="listSupplier";
+	}
 });
