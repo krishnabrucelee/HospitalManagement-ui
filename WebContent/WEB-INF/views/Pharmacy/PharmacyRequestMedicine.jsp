@@ -51,10 +51,11 @@
 	<form class="form-inline">
      <div  ng-repeat="input in medicineList"> 
       <div class="form-group">
-      <label class="control-label">Medicine Id:</label>   
-       <select ng-model="input.medicineId" >
-       <option ng-repeat="master in masterdata" value="{{master.medicineId}}">{{master.medicineName}}</option>
+      <label class="control-label">Medicine Name:</label>         
+       <select class="form-control"  ng-model="input.medicineId" >
+       <option ng-repeat="master in masteritem" value="{{master.medicineId}}">{{master.medicineName}}</option>
        </select>
+       
       </div>
      <!-- <div class="form-group">
       <label class="control-label">Medicine Id:</label>    
@@ -74,15 +75,17 @@
      </form>
     
       
-    
    
-    <button class="addfields" ng-click="addList()"> <img src="resources/images/add_icon.png" width="20" />Request Medicine</button>
+   
+    <button class="addfields" class="btn btn-primary col-md-4" ng-click="addList()"> <img src="resources/images/add_icon.png" width="20" />Request Medicine</button>
     <!-- <button ng-click="log()">Log</button> -->
+    <hr>
 </div>
 			
 			  <div class="row">
                 <div class="col-md-4">
-                    <button type="button" class="btn btn-default col-md-4" ng-click="addMedicineRequest(pharmacyrequest)">Add</button>  
+                <!-- <hr> -->
+                    <button type="button" class="btn btn-primary col-md-4" ng-click="addMedicineRequest(pharmacyrequest)">Add</button>  
                 </div>       
               </div>
 
