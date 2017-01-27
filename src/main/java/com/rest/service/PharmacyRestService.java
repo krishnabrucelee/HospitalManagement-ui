@@ -6,6 +6,38 @@ import org.json.simple.JSONObject;
 
 public interface PharmacyRestService {
 	
+	
+	/**
+	 * Create MedicineItemMaster.
+	 * 
+	 * @param medicineItemMaster
+	 * @return medicineItemMaster
+	 */
+	public HashMap<String, Object> saveMasterMedicineItem(HashMap<String, Object> masterMedicineItem);
+	
+	/**
+	 * List MedicineItemMaster.
+	 * 
+	 * 
+	 * @return medicineItemMaster
+	 */
+	public HashMap<String, Object> listMasterMedicineItem();
+	
+	/**
+	 * Create PharmacyMasterEntry.
+	 * 
+	 * @param medicineItemMaster
+	 * @return medicineItemMaster
+	 */
+	public HashMap<String, Object> savePharmacyMasterEntry(HashMap<String, Object> pharmacyMasterEntry);
+	
+	/**
+	 * List PharmacyMasterEntry.
+	 * 
+	 * 
+	 * @return PharmacyMasterEntry
+	 */
+	public HashMap<String, Object> listPharmacyMasterEntry();
 	/**
 	 * Create MasterMedicineOrder.
 	 * 
