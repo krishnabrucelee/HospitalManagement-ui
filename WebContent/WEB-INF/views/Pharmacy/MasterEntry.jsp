@@ -142,23 +142,23 @@
 				
 					 <form class="centered_form">
                <div class="row">
-               		<div class="form-group col-md-5">
+               		<div class="form-group col-md-4">
 				    <label>Medicine Id:</label>
 				    <input type="number" ng-model="masterentry.medicineId" name="" class="form-control">
 				  </div>
 
-				  <div class="form-group col-md-5 col-md-offset-1">
+				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label>Medicine Name:</label>
 				    <input type="text" name="" ng-model="masterentry.medicineName" class="form-control" placeholder="Enter Medicine Name">
 				  </div>
                </div>
 
                <div class="row">
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
                     <label>Purchase date: {{myDateTime}} </label>
                   
                     
-                     <div class="col-sm-14">
+                     <div class="col-sm-12">
 			               <p class="input-group">
 							    <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="masterentry.purchaseDate" is-open="isOpen" datepicker-options="datePickerOption" />
 							    <span class="input-group-btn">
@@ -169,7 +169,7 @@
                    
                   </div>
                   
-                  <div class="form-group col-md-5 col-md-offset-1">
+                  <div class="form-group col-md-4 col-md-offset-1">
                     <label>Manufacturing Date: {{myDate}}</label>
                     
                       <div class="col-sm-14">
@@ -185,10 +185,10 @@
               </div>
 
               <div class="row">
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
                     <label>Expiry Date:</label>
                  
-                      <div class="col-sm-14">
+                      <div class="col-sm-12">
                       <p class="input-group">
 							    <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="masterentry.expiryDate" enable-time="false"  is-open="expDate" datepicker-options="datePickerOption"  />
 							    <span class="input-group-btn">
@@ -199,43 +199,43 @@
             </div>
                   </div>
                   
-                  <div class="form-group col-md-5 col-md-offset-1">
+                  <div class="form-group col-md-4 col-md-offset-1">
                     <label>Supplier Name:</label>
                     <input type="text" name="" ng-model="masterentry.supplierName" class="form-control" placeholder="Supplier Name">
                   </div>    
               </div>
 
 			  <div class="row">
-			  		<div class="form-group col-md-5" >
+			  		<div class="form-group col-md-4" >
 				    <label>Company Name:</label>
 				    <input type="text" name="" ng-model="masterentry.companyName" class="form-control" placeholder="Enter Company Name">
 				  </div>
 
-				  <div class="form-group col-md-5 col-md-offset-1">
+				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label>Medicine Power:</label>
 				    <input type="text" name="" ng-model="masterentry.medicinePower" class="form-control" placeholder="Enter Medicine Power">
 				  </div>
 			  </div>
 
 			  <div class="row">
-			  		<div class="form-group col-md-5">
+			  		<div class="form-group col-md-4">
 				    <label>Batch Id:</label>
 				    <input type="text" name="" ng-model="masterentry.medicineBatchId" class="form-control" placeholder="Enter Batch Id">
 				  </div>
 
-				  <div class="form-group col-md-5 col-md-offset-1">
+				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label>Medicine Composition:</label>
 				    <input type="text" ng-model="masterentry.medicineComposition"class="form-control" placeholder="Enter Medicine Composition">
 				  </div>
 			  </div>
 			  
 			  <div class="row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-4">
                     <label>Price:</label>
                     <input type="number" name="" ng-model="masterentry.medicinePrice"class="form-control" placeholder="Enter Price">
                   </div>
 
-                  <div class="form-group col-md-5 col-md-offset-1">
+                  <div class="form-group col-md-4 col-md-offset-1">
                     <label>Quantity:</label>
                     <input type="number" ng-model="masterentry.medicineCount" class="form-control" placeholder="Enter total Quantity">
                   </div>
@@ -243,11 +243,11 @@
 
 			  <div class="row">
 			  
-			  <div class="form-group col-md-5 ">
+			  <div class="form-group col-md-4 ">
 				    <label>Medicine Type:</label>
 				    <input type="text" ng-model="masterentry.medicineType"class="form-control" placeholder="Enter Medicine Type">
 				  </div>
-                <div class="col-md-5  col-md-offset-1">
+                <div class="col-md-4  col-md-offset-1">
                 	  <label></label>
                     <button type="button" class="btn btn-primary col-md-6" ng-click="addMasterEntry(masterentry)">Add</button>  
                 </div>       

@@ -23,7 +23,7 @@
 				    <input type="text" name="" class="form-control" placeholder="Enter ID">
 				  </div>
 
-				  <div class="form-group col-md-4 col-md-offset-2">
+				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label>Patient Name:</label>
 				    <input type="text" name="" data-ng-model="patient.patientName" class="form-control" placeholder="Enter Patient Name">
 				  </div>
@@ -35,7 +35,7 @@
 				    <input type="text" name="" data-ng-model="format" class="form-control">
 				  </div>
 
-				  <div class="form-group col-md-4 col-md-offset-2">
+				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label>Age:</label>
 				    <input type="text" name="" data-ng-model="patient.patientAge" class="form-control" placeholder="Enter Age">
 				  </div>
@@ -48,7 +48,7 @@
 				    <label class="radio-inline"><input type="radio" data-ng-model="patient.patientGender" name="gender" value="Male">Male</label>
 				  </div>
 
-				  <div class="form-group col-md-4 col-md-offset-2">
+				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label>Email ID:</label>
 				    <input type="email" class="form-control" data-ng-model="patient.email" placeholder="Enter Email ID">
 				  </div>
@@ -60,7 +60,7 @@
 				    <input type="text" name="" class="form-control" data-ng-model="patient.phoneNumber" placeholder="Enter Mobile/Phone number">
 				  </div>
 				  
-				  <div class="form-group col-md-4 col-md-offset-2">
+				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label>Blood Group:</label>
 				    <input type="text" name="" class="form-control" data-ng-model="patient.bloodGroup" placeholder="Blood Group">
 				  </div>	
@@ -75,7 +75,7 @@
 					  </select>
 				  </div>
 
-				  <div class="form-group col-md-4 col-md-offset-2">
+				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label>Parent/Guardian Name:</label>
 				    <input type="text" name="" class="form-control" data-ng-model="patient.patientGuardian" placeholder="Enter Parent/Guardian Name">
 				  </div>
@@ -102,7 +102,7 @@
 					  </select>
 				  </div>
 
-				  <div class="form-group col-md-4 col-md-offset-2">
+				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label>Enter Floor:</label>
 				    <input type="text" name="" class="form-control" data-ng-model="floor" placeholder="Enter Floor Number">
 				  </div>

@@ -18,26 +18,33 @@
             <h1 class="heading">Billing Chart Registration</h1>
             <form class="centered_form" name="addBillingForm" data-ng-submit="saveBillingChart(billing)">
                <div class="row">
-
-				  <div class="form-group col-md-4 col-md-offset-2">
+				 <div class="col-md-4">
+				  <div class="form-group">
 				    <label>Modules:</label>
 				     	<select class="form-control" data-ng-model="billing.moduleService" >
 								<option  data-ng-repeat="modules in moduleList" >{{modules.moduleName}}</option>
 						</select>
 						
 				  </div>
-				  <div class="form-group col-md-4 col-md-offset-2">
+				 </div> 
+				 <div class="col-md-4 col-md-offset-1">
+				  <div class="form-group">
 				    <label>Module Service:</label>
 				     	<select class="form-control" data-ng-model="billing.moduleService" >
 								<option  data-ng-repeat="modules in moduleList" >{{modules.moduleName}}</option>
 						</select>
 						
 				  </div>
+				 </div> 
                </div>
 
 			  	<div class="row">
-				    <label>Price:</label>
-				    <input type="text" name="" data-ng-model="billing.price" class="form-control" placeholder="Enter Price">
+			  		<div class="col-md-4">
+			  			<div class="form-group">
+						    <label>Price:</label>
+						    <input type="text" name="" data-ng-model="billing.price" class="form-control" placeholder="Enter Price">
+						</div>    
+				    </div>
 				</div>
 			<div class="row">
                 <div class="col-md-4">

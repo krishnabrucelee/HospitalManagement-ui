@@ -19,6 +19,7 @@
 		<img src="resources/images/banner.jpg" width="100%">
 	</div>
 
+  <div class="bg_color">
 	<div class="container">
 			<div class="main_container clear col-md-12">
 
@@ -28,53 +29,60 @@
 			<div class="dashboard_block clear">
 				<div class="col-md-3">
 						<a data-ng-click="listPatient()">
-							<h4>Patient</h4>
+							
 							<img  src="resources/images/icons.png">
+							<h4>Patient</h4>
 						</a>
 					</div>
 					<div class="col-md-3">
 						<a data-ng-click="listDoctor()">
-							<h4>Doctor</h4>
+							
 							<img  src="resources/images/icons.png">
+							<h4>Doctor</h4>
 						</a>
 					</div>
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="addStaff()">
-							<h4>Add Staff</h4>
+							
 							<img  src="resources/images/icons.png">
+							<h4>Add Staff</h4>
 						</a>
 					</div>
 				</c:if>
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="addDepartment()">
-							<h4>Add Department</h4>
+							
 							<img  src="resources/images/icons.png">
+							<h4>Add Department</h4>
 						</a>
 					</div>
 					</c:if>
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="addRole()">
-							<h4>Add Role</h4>
+							
 							<img  src="resources/images/icons.png">
+							<h4>Add Role</h4>
 						</a>
 					</div>
 					</c:if>
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="addRoom()">
-							<h4>Add Room</h4>
+							
 							<img  src="resources/images/icons.png">
+							<h4>Add Room</h4>
 						</a>
 					</div>
 					</c:if>		
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="addBilling()">
-							<h4>Add Billing Chart</h4>
+							
 							<img  src="resources/images/icons.png">
+							<h4>Add Billing Chart</h4>
 						</a>
 					</div>
 					</c:if>		
@@ -105,111 +113,125 @@
 				<c:if test="${role.roleName eq 'Regular'}">
 					<div class="col-md-3">
 						<a href="#">
-							<h4>Lab</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>Lab</h4>
 						</a>
 					</div>
 				</c:if>
 				<c:if test="${role.roleName eq 'Regular'}">
 					<div class="col-md-3">
 						<a href="#">
-							<h4>Billing</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>Billing</h4>
 						</a>
 					</div>
 </c:if>
 			<c:if test="${role.roleName eq 'Regular'}">
 					<div class="col-md-3">
 						<a href="#">
-							<h4>Blood Bank</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>Blood Bank</h4>
 						</a>
 					</div>
 					</c:if>
 <c:if test="${role.roleName eq 'Regular'}">
 					<div class="col-md-3">
 						<a href="#">
-							<h4>Ward</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>Ward</h4>
 						</a>
 					</div>
 </c:if>
 
 					<div class="col-md-3">
 						<a data-ng-click="addAppointment()">
-							<h4>Appointment</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>Appointment</h4>
 						</a>
 					</div>
 <c:if test="${ module eq 'Laboratory'}">
 					<div class="col-md-3">
 						<a href="#">
+							
+							<img src="resources/images/icons.png">
 							<h4>Doctor</h4>
-							<img src="resources/images/icons.png">
 						</a>
 					</div>
 </c:if>
 <c:if test="${role.roleName eq 'Limited'}">
 					<div class="col-md-3">
 						<a href="#">
+							
+							<img src="resources/images/icons.png">
 							<h4>EMR</h4>
-							<img src="resources/images/icons.png">
 						</a>
 					</div>
 </c:if>
 <c:if test="${role.roleName eq 'Limited'}">
 					<div class="col-md-3">
 						<a href="#">
-							<h4>Pharmacy</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>Pharmacy</h4>
 						</a>
 					</div>
 </c:if>
 <c:if test="${ module eq 'Nurse'}">
 					<div class="col-md-3">
 						<a href="#">
-							<h4>Nurse</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>Nurse</h4>
 						</a>
 					</div>
 </c:if>
 <c:if test="${ module eq 'HR'}">
 					<div class="col-md-3">
 						<a href="#">
-							<h4>HR</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>HR</h4>
 						</a>
 					</div>
 					</c:if>
 <c:if test="${ module eq 'House Keeping'}">
 					<div class="col-md-3">
 						<a href="#">
-							<h4>House Keeping</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>House Keeping</h4>
 						</a>
 					</div>
 </c:if>
 <c:if test="${ module eq 'Inventory'}">
 					<div class="col-md-3">
 						<a href="#">
+							
+							<img src="resources/images/icons.png">
 							<h4>Inventory</h4>
-							<img src="resources/images/icons.png">
 						</a>
 					</div>
 </c:if>
 <c:if test="${role.roleName eq 'Limited'}">
 					<div class="col-md-3">
 						<a href="#">
+							
+							<img src="resources/images/icons.png">
 							<h4>Front Office</h4>
-							<img src="resources/images/icons.png">
 						</a>
 					</div>
 </c:if>
 <c:if test="${role.roleName eq 'Limited'}">
 					<div class="col-md-3">
 						<a href="#">
-							<h4>Report</h4>
+							
 							<img src="resources/images/icons.png">
+							<h4>Report</h4>
 						</a>
 					</div>
 					</c:if>
@@ -223,6 +245,7 @@
 		
 		</div>
 	</div>
+  </div>	
 	<footer>	
 		<div class="container-fluid text-center">
 			<p>2016 Copy rights</p>

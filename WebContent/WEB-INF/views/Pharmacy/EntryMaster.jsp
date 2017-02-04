@@ -25,45 +25,41 @@
             <form class="centered_form">
                <div class="row">
                		<div class="form-group col-md-4">
-				    <label>Medicine Id:</label>
-				    <input type="number" ng-model="masterentry.medicineId" name="" class="form-control">
-				  </div>
+        				    <label>Medicine Id:</label>
+        				    <input type="number" ng-model="masterentry.medicineId" name="" class="form-control">
+        				  </div>
 
-				  <div class="form-group col-md-4 col-md-offset-1">
-				    <label>Medicine Name:</label>
-				    <input type="text" name="" ng-model="masterentry.medicineName" class="form-control" placeholder="Enter Medicine Name">
-				  </div>
+        				  <div class="form-group col-md-4 col-md-offset-1">
+        				    <label>Medicine Name:</label>
+        				    <input type="text" name="" ng-model="masterentry.medicineName" class="form-control" placeholder="Enter Medicine Name">
+        				  </div>
                </div>
 
                <div class="row">
                 <div class="form-group col-md-4">
                     <label>Purchase date:</label>
-                  
-                    
                    
-            <div class="col-sm-14">
-                <p class="input-group">
-                    <input type="text" class="form-control" datetime-picker="MM/dd/yyyy HH:mm" ng-model="masterentry.purchaseDate.date" is-open="pharmacyCtrl.purchaseDate.open" />
-              <span class="input-group-btn">
-                  <button type="button" class="btn btn-default" ng-click="pharmacyCtrl.openCalendar($event, 'purchaseDate')"><i class="fa fa-calendar"></i></button>
-              </span>
-                </p>
-            </div>
+                <div class="col-sm-12">
+                    <p class="input-group">
+                        <input type="text" class="form-control" datetime-picker="MM/dd/yyyy HH:mm" ng-model="masterentry.purchaseDate.date" is-open="pharmacyCtrl.purchaseDate.open" />
+                  <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-click="pharmacyCtrl.openCalendar($event, 'purchaseDate')"><i class="fa fa-calendar"></i></button>
+                  </span>
+                    </p>
+                </div>
                     
                   </div>
                   
                   <div class="form-group col-md-4 col-md-offset-1">
                     <label>Manufacturing Date:</label>
-                  
-                  
-            <div class="col-sm-14">
-                <p class="input-group">
-                    <input type="text" class="form-control" datetime-picker="mediumDate" ng-model="masterentry.manufactureDate" is-open="pharmacyCtrl.manufactureDate.open" enable-time="false" datepicker-options="pharmacyCtrl.picker1.datepickerOptions" close-on-date-selection="false" datepicker-append-to-body="true" />
-              <span class="input-group-btn">
-                  <button type="button" class="btn btn-default" ng-click="pharmacyCtrl.openCalendar($event, 'manufactureDate')"><i class="fa fa-calendar"></i></button>
-              </span>
-                </p>
-            </div>
+                    <div class="col-sm-12">
+                        <p class="input-group">
+                            <input type="text" class="form-control" datetime-picker="mediumDate" ng-model="masterentry.manufactureDate" is-open="pharmacyCtrl.manufactureDate.open" enable-time="false" datepicker-options="pharmacyCtrl.picker1.datepickerOptions" close-on-date-selection="false" datepicker-append-to-body="true" />
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="pharmacyCtrl.openCalendar($event, 'manufactureDate')"><i class="fa fa-calendar"></i></button>
+                      </span>
+                        </p>
+                    </div>
                    
                   </div>    
               </div>
@@ -72,15 +68,14 @@
                 <div class="form-group col-md-4">
                     <label>Expiry Date:</label>
                   
-                         
-            <div class="col-sm-14">
-                <p class="input-group">
-                    <input type="text" class="form-control" datetime-picker="mediumDate" ng-model="masterentry.expiryDate.date" is-open="pharmacyCtrl.expiryDate.open" enable-time="false" datepicker-options="pharmacyCtrl.picker1.datepickerOptions" close-on-date-selection="false" datepicker-append-to-body="true" />
-              <span class="input-group-btn">
-                  <button type="button" class="btn btn-default" ng-click="pharmacyCtrl.openCalendar($event, 'expiryDate')"><i class="fa fa-calendar"></i></button>
-              </span>
-                </p>
-            </div>
+                    <div class="col-sm-12">
+                        <p class="input-group">
+                            <input type="text" class="form-control" datetime-picker="mediumDate" ng-model="masterentry.expiryDate.date" is-open="pharmacyCtrl.expiryDate.open" enable-time="false" datepicker-options="pharmacyCtrl.picker1.datepickerOptions" close-on-date-selection="false" datepicker-append-to-body="true" />
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="pharmacyCtrl.openCalendar($event, 'expiryDate')"><i class="fa fa-calendar"></i></button>
+                      </span>
+                        </p>
+                    </div>
                   </div>
                   
                   <div class="form-group col-md-4 col-md-offset-1">

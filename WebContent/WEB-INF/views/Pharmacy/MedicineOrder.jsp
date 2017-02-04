@@ -34,14 +34,14 @@
            <form class="centered_form" name="addMedicineorderForm" >
                <div class="row">
                		<div class="form-group col-md-4">
-				    <label>Medicine Name:</label>
-				    <input type="text" name="" ng-model="medicineorder.medicineName" class="form-control" placeholder="Enter Medicine Name">
-				  </div>
+        				    <label>Medicine Name:</label>
+        				    <input type="text" name="" ng-model="medicineorder.medicineName" class="form-control" placeholder="Enter Medicine Name">
+        				  </div>
 
-				  <div class="form-group col-md-4 col-md-offset-1">
-				    <label>Supplier Name:</label>
-				    <input type="text" name="" ng-model="medicineorder.supplierName" class="form-control" placeholder="Enter Supplier Name">
-				  </div>
+        				  <div class="form-group col-md-4 col-md-offset-1">
+        				    <label>Supplier Name:</label>
+        				    <input type="text" name="" ng-model="medicineorder.supplierName" class="form-control" placeholder="Enter Supplier Name">
+        				  </div>
                </div>
 
 			  <div class="row">
@@ -67,12 +67,13 @@
 				    <input type="text"  ng-model="medicineorder.medicinePower"  class="form-control" placeholder="Enter Medicine Power">
 				  </div>
 			
-				    <div class="form-group col-md-4 col-md-offset-1">
-				    <label>Order Date:</label>
-				    <input type="text" name=""  ng-model="medicineorder.orderDate" class="form-control">
-				  </div> 	 
 			  </div>
-
+        <div class="row">
+            <div class="form-group col-md-4">
+              <label>Order Date:</label>
+              <input type="text" name=""  ng-model="medicineorder.orderDate" class="form-control">
+            </div>
+        </div>
 			  <div class="row">
                 <div class="col-md-4">
                     <button type="button" class="btn btn-default col-md-4" ng-click="addMedicine(medicineorder)">Add</button>  

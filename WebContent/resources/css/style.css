@@ -3,8 +3,11 @@ body{
 	margin: 0;
 	overflow-x: hidden;
 	font-family: Segoe UI;
-	background-color: #e7e7e7;
+	background-color: #011638;
 	color: #011638;
+}
+.bg_color{
+    background-color: #e7e7e7;
 }
 .clear:after{
 	display: block;
@@ -35,7 +38,7 @@ h1.heading{
     font-size: 24px;
 }
 .centered_form{
-	width: 75%;
+	width: 85%;
 	margin:10px auto;
 }
 .modal-body label, .centered_form label{
@@ -215,6 +218,7 @@ header{
 	float: left;
 	padding: 0 10px;
 	color: #e7e7e7;
+    min-width: 210px;
 }
 .notification, .email{
 	float: left;
@@ -430,10 +434,12 @@ footer p{
 .right_block{
 	width: calc(100% - 230px);
     float: left;
+    background-color: #e7e7e7;
+    min-height: 100vh;
 }
 .Registration form{
-	width: 70%;
-    margin: 20px auto;
+	/* width: 70%;
+        margin: 20px auto; */
 }
 .limited_lists{
 	padding-left: 20px;
@@ -483,4 +489,8 @@ footer p{
 }
 .date_only .datetimepicker-wrapper, .date_only .datetimepicker-wrapper > input{
 	width: 100%;
+}
+
+footer{
+    background-color: #e7e7e7;
 }
