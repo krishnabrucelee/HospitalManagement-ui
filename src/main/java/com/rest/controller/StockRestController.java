@@ -3,14 +3,19 @@
  */
 package com.rest.controller;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.rest.service.StockRestService;
 
 /**
  * @author Krishna
@@ -19,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class StockRestController {
 
+	@Autowired
+	private StockRestService stockRestService;
+	
 	@RequestMapping(value = "/addStock", method = RequestMethod.GET)
 	public String addStock(Locale locale, Model model, HttpSession session) {
 		if (session.getAttribute("role") != null) {
@@ -28,10 +36,10 @@ public class StockRestController {
 		}
 	}
 	
-	@RequestMapping(value = "/listStock", method = RequestMethod.GET)
-	public String listStock(Locale locale, Model model, HttpSession session) {
+	@RequestMapping(value = "/listStockRequest", method = RequestMethod.GET)
+	public String listStockRequest(Locale locale, Model model, HttpSession session) {
 		if (session.getAttribute("role") != null) {
-			return "Stock/listStock";
+			return "Stock/listStockRequest";
 		} else {
 			return "Logout/accessDenied";
 		}

@@ -27,4 +27,13 @@ public class ProcumentRestController {
 			return "Logout/accessDenied";
 		}
 	}
+	
+	@RequestMapping(value = "/addProcument", method = RequestMethod.GET)
+	public String addProcument(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Procument/addProcument";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
 }

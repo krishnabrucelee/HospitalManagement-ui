@@ -12,9 +12,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.rest.service.LoginService;
 
 /**
@@ -27,15 +30,19 @@ public class LoginRestController {
 	@Autowired
 	private LoginService loginService;
 	
-	@RequestMapping(value = "/log", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String main(Locale locale, Model model) {
 		return "login";
 	}
 	
 	@RequestMapping(value = "/loginUser", method = RequestMethod.POST)
-	public String checkLogin(@RequestParam HashMap<String,Object> user, HttpSession session) {
+//	public @ResponseBody HashMap<String, Object> checkLogin(@RequestBody HashMap<String, Object> user, HttpSession session)
+	public @ResponseBody HashMap<String, Object> checkLogin(@RequestBody HashMap<String,Object> user, HttpSession session) {
 		System.out.println(user);
 
+//		if (user.get("").equals("") && user.get("").equals("")) {
+//			
+//		}
 		HashMap<String, Object> login = loginService.checkLoginUser(user);
 		System.out.println(login);
 		if (login.get("user") != null && login.get("result").equals(true)) {
@@ -84,9 +91,10 @@ public class LoginRestController {
 					}
 				}
 			}
-			return "home";
+//			login.put("session", session.toString());
+			return login;
 		} else {
-			return "Logout/accessDenied";
+			return login;
 		}
 		// Userr userStatus =null;
 		// try {
@@ -145,5 +153,15 @@ public class LoginRestController {
 		// m.addFlashAttribute("error","Either User name or Password is wrong");
 		// }
 		
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home(Locale locale, Model model) {
+		return "home";
+	}
+	
+	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
+	public String accessDenied(Locale locale, Model model) {
+		return "Logout/accessDenied";
 	}
 }

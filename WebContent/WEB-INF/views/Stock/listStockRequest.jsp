@@ -21,22 +21,18 @@
             <table class="table centered_form table-bordered table-responsive">
                 <thead>
                   <tr>
-                    <th>ID</th>
-                     <th>Item name</th>
-                    <th>Department</th>
-                    <th>Purpose</th>
+                    <th>Medicine Id</th>
                     <th>Quantity</th>
+                    <th>Status</th>
                     <th width="20">Options</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                  <td>1</td>
-                  <td>Gloves</td>
-                  <td>Eye</td>
-                  <td>For Doctor use</td>
-                  <td>17</td>
+                  <tr data-ng-repeat="pharmacy in medicineList">
                   
+                  <td>{{pharmacy.medicineId}}</td>
+                  <td>{{pharmacy.quantity}}</td>
+                  <td>{{pharmacy.status}}</td>
                     <td class="dropdown" ><span data-toggle="dropdown">Action</span>
                       <ul class="dropdown-menu" >
                         <li><a ng-click="stockAdjustment()">Stock Adjustment</a></li>

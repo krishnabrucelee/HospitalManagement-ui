@@ -137,4 +137,15 @@ public class PharmacyRestController {
 		public String medicineToPatient(Locale locale, Model model) {	
 			return pharmacyRootFolder+"/MedicineToPatient";		
 		}
+	 
+	 @RequestMapping(value = "/listPharamacyRequest", method = RequestMethod.GET)
+		public String listPharamacyRequest(Locale locale, Model model) {	
+			return pharmacyRootFolder+"/listPharamacyRequest";		
+		}
+
+	 	@RequestMapping(value = "/listPharamacyRequestDetails")
+		public @ResponseBody HashMap<String, Object> listPharamacyRequestDetails(HttpSession session) {			
+		return ipharmacy.listPharamacyRequestDetails();
+		
+		}
 }

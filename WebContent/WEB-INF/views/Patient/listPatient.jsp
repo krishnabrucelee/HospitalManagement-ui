@@ -40,7 +40,7 @@
                     <td>{{patient.patientRefNumber}}</td>
                     <td>{{patient.patientName}}</td>
                     <td>{{patient.patientGender}}</td>
-                    <td>{{patient.patientDob | date:'dd-MM-yyyy'}}</td>
+                    <td>{{patient.patientDob | date:'dd-MM-yyyy HH:mm:ss'}}</td>
                     <td>{{patient.patientType}}</td>
                     <td>{{patient.bloodGroup}}</td>
                     <td class="dropdown" ><span data-toggle="dropdown">Action</span>

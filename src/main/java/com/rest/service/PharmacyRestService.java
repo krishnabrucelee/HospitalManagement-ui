@@ -100,5 +100,10 @@ public interface PharmacyRestService {
 	 */
 	public HashMap<String, Object> updatePharmacyRequestByPharmacy(HashMap<String, Object> pharmacyUpdateStatus);
 
+	/**
+	 * @return
+	 */
+	public HashMap<String, Object> listPharamacyRequestDetails();
+
 
 }
