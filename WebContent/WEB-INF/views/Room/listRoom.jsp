@@ -14,10 +14,12 @@
     <div class="clear">
         <div class="right_block">
 
-            <h1 class="heading">Patient Listing</h1>
-            <div>
-                <button type="button" class="btn btn-default" ng-click="addRoom(room)">Add Room</button>
-            </div>
+            <h1 class="heading">Patient Listing
+                <div class="modal-demo">
+                    <button type="button" class="btn btn-default" ng-click="addRoom(room)">Add Room</button>
+                </div>
+            </h1>
+            
             <table class="table centered_form table-bordered table-responsive">
                 <thead>
                   <tr>

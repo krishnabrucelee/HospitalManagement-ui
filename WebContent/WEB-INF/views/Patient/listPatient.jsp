@@ -19,10 +19,14 @@
     <div class="clear">
         <div class="right_block">
 
-            <h1 class="heading">Patient Listing</h1>
-            <div data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'create'">
+            <h1 class="heading">Patient Listing
+                
+                <div class="modal-demo" data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'create'">
                 <button type="button" class="btn btn-default" ng-click="addPatient(patient)">Add Patient</button>
             </div>
+            
+            </h1>
+            
             <table class="table centered_form table-bordered table-responsive">
                 <thead>
                   <tr>

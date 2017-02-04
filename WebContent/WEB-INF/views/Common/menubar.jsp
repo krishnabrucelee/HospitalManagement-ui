@@ -35,89 +35,92 @@
                         <div class="menu dropdown">
                             <img src="resources/images/grid.png" width="24" class="dropdown-toggle" data-toggle="dropdown">
                             <div class="dashboard_block clear dropdown-menu">
-                                <div class="col-md-3">
-                                    <a href="view.html">
-                                        <h4>Patient</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Lab</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Billing</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Blood Bank</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Ward</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Doctor</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>EMR</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Pharmacy</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Nurse</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>HR</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>House Keeping</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Inventory</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Front Office</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <h4>Report</h4>
-                                        <img src="resources/images/icons.png">
-                                    </a>
+                                <div class="inner_block">
+                                    <div class="col-md-4">
+                                        <a href="view.html">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Patient</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Lab</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Billing</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Blood Bank</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Ward</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Doctor</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>EMR</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Pharmacy</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Nurse</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>HR</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>House Keeping</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Inventory</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Front Office</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Report</h4>
+                                        </a>
+                                    </div>
+                                    <span class="more">More</span>
                                 </div>
                             </div>
                         </div>

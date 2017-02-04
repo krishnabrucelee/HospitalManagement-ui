@@ -16,11 +16,13 @@
 			<div class="Registration">
 				<form class="centered_form" id="my-profile" name="staffForm" data-ng-submit="saveStaff(staffForm, staff)"> 
 					
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1">Name:</label>
-						<div class="col-sm-5">
-							<input type="text" class="form-control" name="staffName"
-								data-ng-model="staff.staffName" placeholder="Enter your name">
+					<div class="row">
+						<div class="form-group clear">
+							<label class="control-label col-sm-3">Name:</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" name="staffName"
+									data-ng-model="staff.staffName" placeholder="Enter your name">
+							</div>
 						</div>
 					</div>
 					<!-- <div class="form-group">
@@ -31,11 +33,13 @@
 								placeholder="Enter your Phone number">
 						</div>
 					</div> -->
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" for="pwd">Password:</label>
-						<div class="col-sm-5">	
-							<input type="password" class="form-control" data-ng-model="staff.password"
-								placeholder="Enter password">
+					<div class="row">
+						<div class="form-group clear">
+							<label class="control-label col-sm-3" for="pwd">Password:</label>
+							<div class="col-sm-4">	
+								<input type="password" class="form-control" data-ng-model="staff.password"
+									placeholder="Enter password">
+							</div>
 						</div>
 					</div>
 					<!-- 					<div class="form-group">
@@ -46,14 +50,16 @@
 								placeholder="Enter password">
 						</div>
 					</div> -->
-				<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" >Profession Type:</label>
-						<div class="col-sm-5">
-							<select class="form-control" name="professionType" data-ng-model="staff.staffRole">
-								<option data-ng-repeat="profession in professionType track by $index">{{profession.name}}</option>
-							</select>
+					<div class="row">
+					<div class="form-group clear">
+							<label class="control-label col-sm-3" >Profession Type:</label>
+							<div class="col-sm-4">
+								<select class="form-control" name="professionType" data-ng-model="staff.staffRole">
+									<option data-ng-repeat="profession in professionType track by $index">{{profession.name}}</option>
+								</select>
+							</div>
 						</div>
-					</div>
+					</div>	
 					
 				<div data-ng-if=" staff.staffRole == 'Doctor'">
 					<div class="row">
@@ -111,6 +117,17 @@
 								<option value="">Select</option>
 							</select>
                     </div>
+
+                    <div class="form-group col-md-4 col-md-offset-1">
+                        <label>Date of Joining:</label>
+                        <div  class="datetimepicker date_only">
+                            <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
+                            <datetimepicker ng-model="staff.staffDoj" date-format="{{format}}" show-spinners="true" date-options="options" hidden-time="true">
+                                <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
+                            </datetimepicker>
+                        </div>
+                    </div>
+
 <!--                     <div class="form-group col-md-4 col-md-offset-4 col-md-offset-1">
                         <label>D.O.B:</label>
                         <div  class="datetimepicker date_only">
@@ -146,26 +163,25 @@
                         <label>Description:</label>
                         <textarea class="form-control" rows="5" data-ng-model="staff.doctor.doctorDescription" placeholder="Enter the Description"> </textarea>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-4 col-md-offset-1">
                         <label>Address:</label>
                         <textarea class="form-control" rows="5" data-ng-model="staff.staffAddress" placeholder="Enter Address"> </textarea>
                     </div>
                 </div>
                 <div class="row">
+                	<!-- <div class="form-group col-md-4">
+                	                        <label>Date of Joining:</label>
+                	                        <div  class="datetimepicker date_only">
+                	                            <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre>
+                	                            <datetimepicker ng-model="staff.staffDoj" date-format="{{format}}" show-spinners="true" date-options="options" hidden-time="true">
+                	                                Use date-ng-click="open($event, opened)" to override date ng-click
+                	                            </datetimepicker>
+                	                        </div>
+                	                    </div> -->
                 	<div class="form-group col-md-4">
-                        <label>Date of Joining:</label>
-                        <div  class="datetimepicker date_only">
-                            <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
-                            <datetimepicker ng-model="staff.staffDoj" date-format="{{format}}" show-spinners="true" date-options="options" hidden-time="true">
-                                <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
-                            </datetimepicker>
-                        </div>
-                    </div>
-                </div>
-                	<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1"  >User
+						<label class="control-label"  >User
 							Type:</label>
-						<div class="col-sm-5">
+						<div class="">
 							<select class="form-control" name="userType" data-ng-model="staff.doctor.userType">
 								<option>DOMAIN_ADMIN</option>
 								<option>DOMAIN_USER</option>
@@ -173,23 +189,18 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" >Role:</label>
-						<div class="col-sm-5">
+					<div class="form-group col-md-offset-1 col-md-4">
+						<label class="control-label" >Role:</label>
+						<div class="">
 							<select class="form-control" name="professionType" data-ng-model="staff.doctor.role" data-ng-options="role.roleName for role in roleList" >
 								<option value="">Select</option>
 							</select>
 						</div>
-					</div>
-					
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-7 text-right">
-							<button type="submit" class="btn btn-default">Submit</button>
-						</div>
-					</div>
-					            
+					</div>                    
+                </div>
+                	        
             		<div data-ng-repeat="role in roleList">
-                  		<div class="col-md-12 col-md-12" style="background-color:#fff" data-ng-show="staff.doctor.role == role">
+                  		<div class="col-md-12 col-md-12" data-ng-show="staff.doctor.role == role">
 								<label class="control-label">Note :</label>
 								<ul class="list-group" >
 								<p>{{role.roleDescription}}</p>
@@ -197,6 +208,13 @@
 								</ul>
 						</div>
 					</div>
+
+					<div class="row">
+						<div class="col-md-4">
+							<button type="submit" class="btn btn-default col-md-4">Submit</button>
+						</div>
+					</div>
+
 				</div>
 	<!-- +============================================================================================+ -->			
 			<div data-ng-if=" staff.staffRole == 'Nurse'">
@@ -273,9 +291,7 @@
                         <label>Address:</label>
                         <textarea class="form-control" rows="5" data-ng-model="staff.staffAddress" placeholder="Enter Address"> </textarea>
                     </div>
-                </div>
-                <div class="row">
-                	<div class="form-group col-md-4">
+                    <div class="form-group col-md-4 col-md-offset-1">
                         <label>Date of Joining:</label>
                         <div  class="datetimepicker date_only">
                             <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
@@ -284,11 +300,13 @@
                             </datetimepicker>
                         </div>
                     </div>
+
                 </div>
-                	<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1"  >User
+                <div class="row">
+                	<div class="form-group col-md-4">
+						<label class="control-label"  >User
 							Type:</label>
-						<div class="col-sm-5">
+						<div class="">
 							<select class="form-control" name="userType" data-ng-model="staff.nurse.userType">
 								<option>DOMAIN_ADMIN</option>
 								<option>DOMAIN_USER</option>
@@ -296,18 +314,20 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" >Role:</label>
-						<div class="col-sm-5">
+					<div class="form-group col-md-4 col-md-offset-1">
+						<label class="control-label" >Role:</label>
+						<div class="">
 							<select class="form-control" name="professionType" data-ng-model="staff.nurse.role" data-ng-options="role.roleName for role in roleList" >
 								<option value="">Select</option>
 							</select>
 						</div>
 					</div>
+                </div>
+                	
 
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-7 text-right">
-							<button type="submit" class="btn btn-default">Submit</button>
+					<div class="row">
+						<div class="col-md-4">
+							<button type="submit" class="btn btn-default col-md-4">Submit</button>
 						</div>
 					</div>
             
@@ -350,7 +370,15 @@
 	                </div>
 	                
 	                <div class="row">
-	                    
+	                    <div class="form-group col-md-4">
+	                        <label>Date of Joining:</label>
+	                        <div  class="datetimepicker date_only">
+	                            <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
+	                            <datetimepicker ng-model="staff.staffDoj" date-format="{{format}}" show-spinners="true" date-options="options" hidden-time="true">
+	                                <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
+	                            </datetimepicker>
+	                        </div>
+	                    </div>
 	                    <div class="form-group col-md-4 col-md-offset-1">
 	                        <label>Work:</label>
 							<input type="text" name="" data-ng-model="staff.staffWork" class="form-control" placeholder="Enter Staff Work">
@@ -363,7 +391,7 @@
 								<option value="">Select</option>
 							</select>
                     </div>
-                    <div class="form-group col-md-4 col-md-offset-4 col-md-offset-1">
+                    <div class="form-group col-md-4 col-md-offset-1">
                         <label>D.O.B:</label>
                         <div  class="datetimepicker date_only">
                             <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
@@ -373,28 +401,12 @@
                         </div>
                     </div>
                 </div>
-             
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label>Address:</label>
-                        <textarea class="form-control" rows="5" data-ng-model="staff.staffAddress" placeholder="Enter Address"> </textarea>
-                    </div>
-                </div>
-                <div class="row">
-                	<div class="form-group col-md-4">
-                        <label>Date of Joining:</label>
-                        <div  class="datetimepicker date_only">
-                            <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
-                            <datetimepicker ng-model="staff.staffDoj" date-format="{{format}}" show-spinners="true" date-options="options" hidden-time="true">
-                                <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
-                            </datetimepicker>
-                        </div>
-                    </div>
-                </div>
-                	<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1"  >User
+             	
+             	<div class="row">
+             		<div class="form-group col-md-4">
+						<label class="control-label"  >User
 							Type:</label>
-						<div class="col-sm-5">
+						<div class="">
 							<select class="form-control" name="userType" data-ng-model="staff.receptionist.userType">
 								<option>DOMAIN_ADMIN</option>
 								<option>DOMAIN_USER</option>
@@ -402,18 +414,39 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" >Role:</label>
-						<div class="col-sm-5">
+
+					<div class="form-group col-md-4 col-md-offset-1">
+						<label class="control-label" >Role:</label>
+						<div class="">
 							<select class="form-control" name="professionType" data-ng-model="staff.receptionist.role" data-ng-options="role.roleName for role in roleList" >
 								<option value="">Select</option>
 							</select>
 						</div>
 					</div>
+             	</div>
 
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-7 text-right">
-							<button type="submit" class="btn btn-default">Submit</button>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label>Address:</label>
+                        <textarea class="form-control" rows="5" data-ng-model="staff.staffAddress" placeholder="Enter Address"> </textarea>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                	<div class="form-group col-md-4">
+                        <label>Date of Joining:</label>
+                        <div  class="datetimepicker date_only">
+                            <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre>
+                            <datetimepicker ng-model="staff.staffDoj" date-format="{{format}}" show-spinners="true" date-options="options" hidden-time="true">
+                                Use date-ng-click="open($event, opened)" to override date ng-click
+                            </datetimepicker>
+                        </div>
+                    </div>
+                </div> -->
+                	
+
+					<div class="row">
+						<div class="col-md-4">
+							<button type="submit" class="col-md-4 btn btn-default">Submit</button>
 						</div>
 					</div>
             
@@ -454,13 +487,6 @@
 	                    </div>
 	                </div>
 	                
-	                <div class="row">
-	                    
-	                    <div class="form-group col-md-4 col-md-offset-1">
-	                        <label>Work:</label>
-							<input type="text" name="" data-ng-model="staff.staffWork" class="form-control" placeholder="Enter Staff Work">
-	                    </div>
-	                </div>
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label>Depeartment ID:</label>
@@ -484,9 +510,7 @@
                         <label>Address:</label>
                         <textarea class="form-control" rows="5" data-ng-model="staff.staffAddress" placeholder="Enter Address"> </textarea>
                     </div>
-                </div>
-                <div class="row">
-                	<div class="form-group col-md-4">
+                    <div class="form-group col-md-4 col-md-offset-1">
                         <label>Date of Joining:</label>
                         <div  class="datetimepicker date_only">
                             <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
@@ -496,41 +520,51 @@
                         </div>
                     </div>
                 </div>
-                	<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1"  >User
+                <div class="row">
+                	<div class="form-group col-md-4">
+	                        <label>Work:</label>
+							<input type="text" name="" data-ng-model="staff.staffWork" class="form-control" placeholder="Enter Staff Work">
+	                    </div>
+	                <div class="form-group col-md-offset-1 col-md-4">
+						<label class="control-label"  >User
 							Type:</label>
-						<div class="col-sm-5">
+						<div class="">
 							<select class="form-control" name="userType" data-ng-model="staff.finance.userType">
 								<option>DOMAIN_ADMIN</option>
 								<option>DOMAIN_USER</option>
 								<option>USER</option>
 							</select>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" >Role:</label>
-						<div class="col-sm-5">
+					</div>    
+                </div>
+                <div class="row">	
+					<div class="form-group col-sm-4">
+						<label class="control-label" >Role:</label>
+						<div class="">
 							<select class="form-control" name="professionType" data-ng-model="staff.finance.role" data-ng-options="role.roleName for role in roleList" >
 								<option value="">Select</option>
 							</select>
 						</div>
 					</div>
-
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-7 text-right">
-							<button type="submit" class="btn btn-default">Submit</button>
-						</div>
-					</div>
-            
-            <div data-ng-repeat="role in roleList">
+				</div>
+				<div class="row">
+					<div data-ng-repeat="role in roleList">
                   <div class="col-md-12 col-md-12" data-ng-show="staff.finance.role == role">
-								<label class="control-label">Note :</label>
-								<ul class="list-group" >
-								<p>{{role.roleDescription}}</p>
-									<li data-ng-repeat="permissionList in role.permissionList"> {{permissionList.module}} Module --> Can {{permissionList.action}} a {{permissionList.module}}</li>
-								</ul>
+						<label class="control-label">Note :</label>
+						<ul class="list-group" >
+						<p>{{role.roleDescription}}</p>
+							<li data-ng-repeat="permissionList in role.permissionList"> {{permissionList.module}} Module --> Can {{permissionList.action}} a {{permissionList.module}}</li>
+						</ul>
 						</div>
 					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<button type="submit" class="btn btn-default col-md-4">Submit</button>
+					</div>
+				</div>
+            
+            
 				</div>
 				
 												
@@ -559,13 +593,7 @@
 	                    </div>
 	                </div>
 	                
-	                <div class="row">
-	                    
-	                    <div class="form-group col-md-4 col-md-offset-1">
-	                        <label>Work:</label>
-							<input type="text" name="" data-ng-model="staff.staffWork" class="form-control" placeholder="Enter Staff Work">
-	                    </div>
-	                </div>
+	                
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label>Depeartment ID:</label>
@@ -589,9 +617,7 @@
                         <label>Address:</label>
                         <textarea class="form-control" rows="5" data-ng-model="staff.staffAddress" placeholder="Enter Address"> </textarea>
                     </div>
-                </div>
-                <div class="row">
-                	<div class="form-group col-md-4">
+                    <div class="form-group col-md-4 col-md-offset-1">
                         <label>Date of Joining:</label>
                         <div  class="datetimepicker date_only">
                             <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
@@ -601,10 +627,15 @@
                         </div>
                     </div>
                 </div>
-                	<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1"  >User
+                <div class="row">
+	                <div class="form-group col-md-4">
+	                    <label>Work:</label>
+						<input type="text" name="" data-ng-model="staff.staffWork" class="form-control" placeholder="Enter Staff Work">
+	                </div>
+	                <div class="form-group col-md-4 col-md-offset-1">
+						<label class="control-label"  >User
 							Type:</label>
-						<div class="col-sm-5">
+						<div class="">
 							<select class="form-control" name="userType" data-ng-model="staff.inventory.userType">
 								<option>DOMAIN_ADMIN</option>
 								<option>DOMAIN_USER</option>
@@ -612,22 +643,19 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" >Role:</label>
-						<div class="col-sm-5">
+	            </div>
+                <div class="row">
+					<div class="form-group col-md-4">
+						<label class="control-label" >Role:</label>
+						<div class="">
 							<select class="form-control" name="professionType" data-ng-model="staff.inventory.role" data-ng-options="role.roleName for role in roleList" >
 								<option value="">Select</option>
 							</select>
 						</div>
 					</div>
-
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-7 text-right">
-							<button type="submit" class="btn btn-default">Submit</button>
-						</div>
-					</div>
-            
-            <div data-ng-repeat="role in roleList">
+                </div>
+                	
+                	<div data-ng-repeat="role in roleList">
                   <div class="col-md-12 col-md-12" data-ng-show="staff.inventory.role == role">
 								<label class="control-label">Note :</label>
 								<ul class="list-group" >
@@ -636,6 +664,15 @@
 								</ul>
 						</div>
 					</div>
+
+
+					<div class="row">
+						<div class="col-md-4">
+							<button type="submit" class="btn btn-default col-md-4">Submit</button>
+						</div>
+					</div>
+            
+            
 				</div>
 				
 				
@@ -664,13 +701,7 @@
 	                    </div>
 	                </div>
 	                
-	                <div class="row">
-	                    
-	                    <div class="form-group col-md-4 col-md-offset-1">
-	                        <label>Work:</label>
-							<input type="text" name="" data-ng-model="staff.staffWork" class="form-control" placeholder="Enter Staff Work">
-	                    </div>
-	                </div>
+	                
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label>Depeartment ID:</label>
@@ -694,9 +725,7 @@
                         <label>Address:</label>
                         <textarea class="form-control" rows="5" data-ng-model="staff.staffAddress" placeholder="Enter Address"> </textarea>
                     </div>
-                </div>
-                <div class="row">
-                	<div class="form-group col-md-4">
+                    <div class="form-group col-md-4 col-md-offset-1">
                         <label>Date of Joining:</label>
                         <div  class="datetimepicker date_only">
                             <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
@@ -706,10 +735,15 @@
                         </div>
                     </div>
                 </div>
-                	<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1"  >User
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label>Work:</label>
+						<input type="text" name="" data-ng-model="staff.staffWork" class="form-control" placeholder="Enter Staff Work">
+                    </div>
+                    <div class="form-group col-md-offset-1 col-md-4">
+						<label class="control-label"  >User
 							Type:</label>
-						<div class="col-sm-5">
+						<div class="">
 							<select class="form-control" name="userType" data-ng-model="staff.labTechnician.userType">
 								<option>DOMAIN_ADMIN</option>
 								<option>DOMAIN_USER</option>
@@ -717,18 +751,21 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" >Role:</label>
-						<div class="col-sm-5">
+                </div>
+
+                <div class="row">	
+					<div class="form-group col-md-4">
+						<label class="control-label" >Role:</label>
+						<div class="">
 							<select class="form-control" name="professionType" data-ng-model="staff.labTechnician.role" data-ng-options="role.roleName for role in roleList" >
 								<option value="">Select</option>
 							</select>
 						</div>
 					</div>
-
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-7 text-right">
-							<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+					<div class="row">
+						<div class="col-md-4">
+							<button type="submit" class="btn btn-default col-md-4">Submit</button>
 						</div>
 					</div>
             
@@ -769,13 +806,6 @@
 	                    </div>
 	                </div>
 	                
-	                <div class="row">
-	                    
-	                    <div class="form-group col-md-4 col-md-offset-1">
-	                        <label>Work:</label>
-							<input type="text" name="" data-ng-model="staff.staffWork" class="form-control" placeholder="Enter Staff Work">
-	                    </div>
-	                </div>
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label>Depeartment ID:</label>
@@ -799,9 +829,7 @@
                         <label>Address:</label>
                         <textarea class="form-control" rows="5" data-ng-model="staff.staffAddress" placeholder="Enter Address"> </textarea>
                     </div>
-                </div>
-                <div class="row">
-                	<div class="form-group col-md-4">
+                    <div class="form-group col-md-4 col-md-offset-1">
                         <label>Date of Joining:</label>
                         <div  class="datetimepicker date_only">
                             <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
@@ -811,10 +839,15 @@
                         </div>
                     </div>
                 </div>
-                	<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1"  >User
+                <div class="row">
+                	<div class="form-group col-md-4">
+                        <label>Work:</label>
+						<input type="text" name="" data-ng-model="staff.staffWork" class="form-control" placeholder="Enter Staff Work">
+                    </div>
+                    <div class="form-group col-md-4 col-md-offset-1">
+						<label class="control-label"  >User
 							Type:</label>
-						<div class="col-sm-5">
+						<div class="">
 							<select class="form-control" name="userType" data-ng-model="staff.pharmacist.userType">
 								<option>DOMAIN_ADMIN</option>
 								<option>DOMAIN_USER</option>
@@ -822,18 +855,22 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" >Role:</label>
-						<div class="col-sm-5">
-							<select class="form-control" name="professionType" data-ng-model="staff.pharmacist.role" data-ng-options="role.roleName for role in roleList" >
-								<option value="">Select</option>
-							</select>
+                </div>
+                	
+					<div class="row">
+						<div class="form-group col-md-4">
+							<label class="control-label" >Role:</label>
+							<div class="">
+								<select class="form-control" name="professionType" data-ng-model="staff.pharmacist.role" data-ng-options="role.roleName for role in roleList" >
+									<option value="">Select</option>
+								</select>
+							</div>
 						</div>
 					</div>
 
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-7 text-right">
-							<button type="submit" class="btn btn-default">Submit</button>
+					<div class="row">
+						<div class="col-md-4">
+							<button type="submit" class="btn btn-default col-md-4">Submit</button>
 						</div>
 					</div>
             
@@ -923,9 +960,7 @@
                         <label>Address:</label>
                         <textarea class="form-control" rows="5" data-ng-model="staff.staffAddress" placeholder="Enter Address"> </textarea>
                     </div>
-                </div>
-                <div class="row">
-                	<div class="form-group col-md-4">
+                    <div class="form-group col-md-4 col-md-offset-1">
                         <label>Date of Joining:</label>
                         <div  class="datetimepicker date_only">
                             <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
@@ -935,10 +970,11 @@
                         </div>
                     </div>
                 </div>
-                	<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1"  >User
+                <div class="row">
+                	<div class="form-group col-md-4">
+						<label class="control-label"  >User
 							Type:</label>
-						<div class="col-sm-5">
+						<div class="">
 							<select class="form-control" name="userType" data-ng-model="staff.houseKeeper.userType">
 								<option>DOMAIN_ADMIN</option>
 								<option>DOMAIN_USER</option>
@@ -946,18 +982,20 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3 col-sm-offset-1" >Role:</label>
-						<div class="col-sm-5">
+					<div class="form-group col-md-offset-1 col-md-4">
+						<label class="control-label" >Role:</label>
+						<div class="">
 							<select class="form-control" name="professionType" data-ng-model="staff.houseKeeper.role" data-ng-options="role.roleName for role in roleList" >
 								<option value="">Select</option>
 							</select>
 						</div>
 					</div>
+                </div>
+                	
 
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-7 text-right">
-							<button type="submit" class="btn btn-default">Submit</button>
+					<div class="row">
+						<div class="col-md-4">
+							<button type="submit" class="btn btn-default col-md-4">Submit</button>
 						</div>
 					</div>
             
