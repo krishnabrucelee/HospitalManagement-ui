@@ -157,3 +157,27 @@ ngApp.controller('pharmacyCtrl', function($scope, $http, uibDateParser, $timeout
 	}*/
 
 });
+
+
+ngApp.controller('pharmacyListCtrl', function($scope, $http, uibDateParser, $timeout,ngDialog) {
+	
+	
+	
+	$http.get('listPharamacyRequestDetails').then(function(data) {
+		$scope.pharamacyRequestList = [];
+		$scope.medicineList = [];
+		$scope.result = data.data;
+//		console.log($scope.result.PharmacyRequest);
+		$scope.pharamacyRequestList = $scope.result.PharmacyRequest;
+		
+		console.log("33", $scope.pharamacyRequestList);
+		
+		angular.forEach($scope.pharamacyRequestList, function(data){
+//			console.log("1",data);
+				$scope.medicineList.push(data.medicineList);
+			
+		});
+		console.log($scope.medicineList);
+		
+	});
+});

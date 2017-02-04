@@ -17,6 +17,7 @@
     <script type="text/javascript" src="resources/js/ngDialog.js"></script>
     <script src="resources/js/datetime-picker.js"></script>
     <script src="resources/js/ngDialog.min.js" ></script>
+    <script src="resources/js/Home/homeController.js" ></script>
    
   
     

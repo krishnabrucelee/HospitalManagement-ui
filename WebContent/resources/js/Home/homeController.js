@@ -1,6 +1,22 @@
 
 ngApp.controller('homeCtrl', function($scope, $http) {
 	
+//	$scope.sessionDetails = $scope.result.sessionDetails;
+	
+	   $scope.signIn = function(login) {
+		   console.log(login);
+	       	$http.post("loginUser",login).success(function(data){
+    			console.log("hgfdsd", data);
+    			if (data.result == true) {
+    				$scope.sessionDetails = data.session;
+    				console.log("hgfdsd", $scope.sessionDetails);
+    				window.location.href="home";
+    			} else {
+    				window.location.href="accessDenied";
+    			}
+    		});
+	   }
+	   
 	$scope.listPatient = function() {
 		window.location.href="listPatient";
 	}
@@ -33,8 +49,8 @@ ngApp.controller('homeCtrl', function($scope, $http) {
 		window.location.href="addBillingChart";
 	}
 	
-	$scope.listStockLedger = function() {
-		window.location.href="listStock";
+	$scope.listStockRequest = function() {
+		window.location.href="listStockRequest";
 	}
 	
 	$scope.listProcument = function() {
@@ -44,4 +60,7 @@ ngApp.controller('homeCtrl', function($scope, $http) {
 	$scope.listSupplier = function() {
 		window.location.href="listSupplier";
 	}
+	
+	
 });
+

@@ -1,40 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="hospitalModule">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ngModule">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Sign in</title>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="font/css/font-awesome.css">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-  <script type="text/javascript" src="resources/js/angular.js"  ></script>
-  <!-- <script type="text/javascript" src="resources/js/uirouter.js"  ></script>
-  
-   <script type="text/javascript" src="resources/scripts/app.js"></script> -->
-   
-   <script type="text/javascript">
-   
-   var hospitalModule = angular.module('hospitalModule',[]);
-   hospitalModule.controller('sampleCtrl',sampleCtrl);
-   
-   function sampleCtrl($scope,$http)
-   {
-	   $scope.name="prakash";
-	   $http.get('http://ip.jsontest.com/').success(function(data){
-		   $scope.result = data;
-	   })
-	   
-   }
-   
-   
-   
-   
-   </script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="ngModule">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<%@ include file="../views/Common/includeScript.jsp" %>
+     <script src="resources/js/Home/homeController.js" ></script>
+</head>
    
 <style>
 	body,html{
@@ -43,12 +17,9 @@
 </style>
 </head>
 
-<body ng-controller="sampleCtrl">
+<body ng-controller="homeCtrl">
 
 <div class="well">
-<h2>Angular Route Area</h2>
-
-{{result.ip}} {{name}}
 <!--  <ul class="nav navbar-nav">
         <li><a ui-sref="login">Login</a></li>
         <li><a ui-sref="dashboard">Dashboard</a></li>
@@ -61,14 +32,14 @@
         <h4>DASHBOARD</h4>
         	<div class="main">
         		    <img src="images/admin.jpg" width="150" class="logo">
-                <form role="form" id="demo-form" data-parsley-validate="" action="loginUser"  method="post">
+                <form role="form" id="demo-form" data-parsley-validate="">
                   <div class="form-group email_icon">
                     <span><img src="images/email.png" width="20"></span>
-                    <input type="email" name="userEmail" class="form-control" placeholder="Email" data-parsley-trigger="change" required="">
+                    <input type="email" data-ng-model="login.userEmail" class="form-control" placeholder="Email" data-parsley-trigger="change" required="">
                   </div>
                   <div class="form-group pass_icon">
                     <span><img src="images/password_icon.png" width="15"></span>
-                    <input type="password" name="password" class="form-control" placeholder="password">
+                    <input type="password" data-ng-model="login.password" class="form-control" placeholder="password">
                   </div>
                   <div class="form-group">
                     <b href="#" class="pull-right forget_pass">Forgot Password?</b>
@@ -76,7 +47,7 @@
                   <div class="checkbox remember">
                     <label><input type="checkbox"> Remember me</label>
                   </div>
-                  <button type="submit" class="btn btn-default login">Sign In </button>
+                  <button type="submit" class="btn btn-default login" data-ng-click="signIn(login)">Sign In </button>
                     <b href="#" class="text-right login_back" style="display:none;">Back to login</b>
                 </form>
             </div>

@@ -23,7 +23,7 @@
 			<div class="main_container clear col-md-12">
 
 			<h2 class="page_heading">
-				Dashboard 
+				Dashboard {{sessionDetails}}
 			</h2>
 			<div class="dashboard_block clear">
 				<div class="col-md-3">
@@ -80,8 +80,8 @@
 					</c:if>		
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
-						<a data-ng-click="listStockLedger()">
-							<h4>List Stock Ledger</h4>
+						<a data-ng-click="listStockRequest()">
+							<h4>List Stock Request</h4>
 							<img  src="resources/images/icons.png">
 						</a>
 					</div>
