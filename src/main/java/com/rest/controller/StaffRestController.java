@@ -50,17 +50,17 @@ public class StaffRestController {
 		}
 	}
 
-//	/**
-//	 * List staff.
-//	 * 
-//	 * @param staff
-//	 * @return staff
-//	 */
-//	@RequestMapping(value = "/listStaff")
-//	public @ResponseBody JSONObject listStaff() {
-//		return staffRestService.listStaff();
-//	}
-//	
+	/**
+	 * List staff.
+	 * 
+	 * @param staff
+	 * @return staff
+	 */
+	@RequestMapping(value = "/listStaff")
+	public @ResponseBody HashMap<String, Object> listStaff() {
+		return staffRestService.listStaff();
+	}
+	
 //	/**
 //	 * Update Staff.
 //	 * 

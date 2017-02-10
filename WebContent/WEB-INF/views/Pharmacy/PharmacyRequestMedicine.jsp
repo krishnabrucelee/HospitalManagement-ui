@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="ngModule">
+<html ng-app="ngModule"  ng-cloak>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Medicine Order</title>
@@ -20,10 +20,19 @@
             <h1 class="heading">Medicine Request Form</h1>
            <form class="centered_form" name="addMedicineorderForm" >
             
-
+			<!--  <div class="form-group">
+      <label class="control-label">Department Id:</label>         
+       <select class="form-control"  ng-model="pharmacyrequest.departmentId" >
+       <option ng-repeat="department in departments" value="{{department.departmentId}}">{{department.departmentName}}</option>
+       </select>
+       
+      </div> -->
 			  <div class="row">
 			  		<div class="form-group col-md-4" >
 				    <label>Department ID:</label>
+				     <select ng-model="pharmacyrequest.departmentId">
+				        <option ng-repeat="department in listdepartments" value="{{department.departmentId}}">{{department.departmentName}}</option>
+				     </select>				    
 				    <input type="text" name="" ng-model="pharmacyrequest.departmentId" class="form-control" placeholder="Department Id">
 				  </div>
 
@@ -69,7 +78,8 @@
         <input type="text" class="form-control"  ng-model="input.medicineTypes"> </div> -->
         <div class="form-group">
         <label class="control-label">Quantity:</label>
-        <input type="number" class="form-control"  ng-model="input.quantity"></div>
+        <input type="number" class="form-control"  ng-model="input.quantity">        
+        </div>
         <!-- <button class="addfields" ng-click="add()"> <img src="resources/images/add_icon.png" width="20" />Add Medicine</button> -->
     </div>
      </form>

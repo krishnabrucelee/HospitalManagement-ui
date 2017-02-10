@@ -66,7 +66,7 @@ public class DoctorRestController {
 	@RequestMapping(value = "/listDoctorDetails")
 	public @ResponseBody HashMap<String, Object> listDoctorDetails() {
 		HashMap<String, Object> doctor = doctorRestService.listDoctor();
-		System.out.println(doctor.get("Doctor"));
+		
 		return doctor;
 	}
 	
