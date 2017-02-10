@@ -29,7 +29,8 @@ public class DepartmentRestController {
 	private DepartmentRestService departmentRestService;
 	
 	@RequestMapping(value = "/addDepartment", method = RequestMethod.GET)
-	public String department(Locale locale, Model model, HttpSession session) {
+	public String department(Locale locale, Model model, HttpSession session) {				
+		
 		if (session.getAttribute("role") != null) {
 			return "Department/addDepartment";
 		} else {

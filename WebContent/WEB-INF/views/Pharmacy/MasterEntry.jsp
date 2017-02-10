@@ -18,8 +18,7 @@
       <div class="clear">
         <div class="right_block">
         <h1 class="heading">Master Entry Form</h1>
-        <div class="buttons" align="right">
-				<!-- <a  ng-click="open()" class="demo">Demo</a> -->
+        <div class="buttons" align="right">				
 				<a  ng-click="second()" class="demo">Add new</a>
 			</div>
            <!--  <form class="centered_form">
@@ -137,6 +136,7 @@
 
 			</form> -->
 			
+			
 		<script type="text/ng-template" id="secondDialog">
 			<div class="ngdialog-message">
 				
@@ -144,6 +144,10 @@
                <div class="row">
                		<div class="form-group col-md-4">
 				    <label>Medicine Id:</label>
+
+					<select ng-repeat="master in masterstock" ng-model="masterentry.medicineId >
+			   <option value="master.medicineId">{{master.medicineName}}</option>
+			</select>
 				    <input type="number" ng-model="masterentry.medicineId" name="" class="form-control">
 				  </div>
 

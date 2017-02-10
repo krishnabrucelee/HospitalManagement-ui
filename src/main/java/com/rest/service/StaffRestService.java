@@ -21,13 +21,13 @@ public interface StaffRestService {
 	 */
 	public HashMap<String, Object> addStaff(HashMap<String, Object> staff);
 
-//	/**
-//	 * List Staff.
-//	 * 
-//	 * @param staff
-//	 * @return staff
-//	 */
-//	public JSONObject listStaff();
+	/**
+	 * List Staff.
+	 * 
+	 * @param staff
+	 * @return staff
+	 */
+	public HashMap<String, Object> listStaff();
 //
 //	/**
 //	 * Update Staff.

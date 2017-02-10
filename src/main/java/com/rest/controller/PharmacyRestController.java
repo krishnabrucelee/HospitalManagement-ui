@@ -7,7 +7,6 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,7 +47,7 @@ public class PharmacyRestController {
 		return ipharmacy.addMedicineOrder(medicineorder);
 	}
 	
-	@RequestMapping(value = "/masterItem", method = RequestMethod.GET)
+	@RequestMapping(value = "/pharmacyMasterConfiguration", method = RequestMethod.GET)
 	public String showMasterItemForm(Locale locale, Model model) {	
 		return pharmacyRootFolder+"/MedicineItem";		
 	}
@@ -58,13 +57,25 @@ public class PharmacyRestController {
 		return ipharmacy.saveMasterMedicineItem(masterMedicineItem);
 		}
 		
+		@RequestMapping(value = "/updateMasterMedicineItem", method = RequestMethod.POST)
+		public @ResponseBody HashMap<String, Object> updateMasterMedicineItem(@RequestBody HashMap<String, Object> masterMedicineItemupdate) {				
+		return ipharmacy.updateMasterMedicineItem(masterMedicineItemupdate);
+		}
+		
+		
 		
 		@RequestMapping(value = "/listMasterMedicineItem")
 		public 	@ResponseBody HashMap<String, Object> listMasterMedicineItem(){					
 		return ipharmacy.listMasterMedicineItem();
 		}
 		
-		@RequestMapping(value = "/pharmacyMaster", method = RequestMethod.GET)
+		@RequestMapping(value = "/deleteMasterMedicineItem", method = RequestMethod.POST)
+		public @ResponseBody HashMap<String, Object> deleteMasterMedicineItem(@RequestBody HashMap<String, Object> masterMedicineItemdelete) {				
+		return ipharmacy.deleteMasterMedicineItem(masterMedicineItemdelete);
+		}
+		
+		
+		@RequestMapping(value = "/pharmacyMasterStockEntry", method = RequestMethod.GET)
 		public String showPharmacyMaster(Locale locale, Model model) {	
 			return pharmacyRootFolder+"/PharmacyMasterEntry";
 							
@@ -73,7 +84,8 @@ public class PharmacyRestController {
 		@RequestMapping(value = "/savePharmacyMasterEntry", method = RequestMethod.POST)
 		public @ResponseBody HashMap<String, Object> savePharmacyMasterEntry(@RequestBody HashMap<String, Object> pharmacyMasterEntry) {				
 		 System.out.println("Form value="+pharmacyMasterEntry);
-			//return null;
+		 System.out.println("Inside web controller =");
+		//return null;
 			return ipharmacy.savePharmacyMasterEntry(pharmacyMasterEntry);
 		}
 		
@@ -82,8 +94,17 @@ public class PharmacyRestController {
 		public 	@ResponseBody HashMap<String, Object> listPharmacyMasterEntry(){					
 		return ipharmacy.listPharmacyMasterEntry();
 		}
-	 
-		@RequestMapping(value = "/Order")//call angular  get method getAgentFlightBooking table
+		
+		@RequestMapping(value = "/updatePharmacyMasterEntry", method = RequestMethod.POST)
+		public @ResponseBody HashMap<String, Object> updatePharmacyMasterEntry(@RequestBody HashMap<String, Object> pharmacyMasterEntryupdate) {				
+		return ipharmacy.updatePharmacyMasterEntry(pharmacyMasterEntryupdate);
+		}
+		
+		@RequestMapping(value = "/deletePharmacyMasterEntry", method = RequestMethod.POST)
+		public @ResponseBody HashMap<String, Object> deletePharmacyMasterEntry(@RequestBody HashMap<String, Object> pharmacyMasterEntrydelete) {				
+		return ipharmacy.deletePharmacyMasterEntry(pharmacyMasterEntrydelete);
+		}
+		@RequestMapping(value = "/Order")
 		@ResponseBody
 		public org.json.simple.JSONObject addDoctorData(@RequestBody HashMap<String, Object> medicineorder)throws Exception {			
 			org.json.simple.JSONObject obj = new org.json.simple.JSONObject();			
@@ -106,8 +127,7 @@ public class PharmacyRestController {
 		}
 	 
 	 @RequestMapping(value = "/addMasterEntry", method = RequestMethod.POST)
-		public @ResponseBody HashMap<String, Object> addMasterEntry(@RequestBody HashMap<String, Object> masterEntry) {			
-		 System.out.println("Inside addMasterEntry controller FROM value="+masterEntry);			
+		public @ResponseBody HashMap<String, Object> addMasterEntry(@RequestBody HashMap<String, Object> masterEntry) {						
 		return ipharmacy.addMasterEntry(masterEntry);
 		//return null;
 		}
@@ -116,26 +136,28 @@ public class PharmacyRestController {
 		public 	@ResponseBody HashMap<String, Object> listMedicineMaster(){					
 		 return ipharmacy.listMedicineMaster();
 		}
-	 
+	
 	 @RequestMapping(value = "/getMedicineId")
 		public 	@ResponseBody HashMap<String, Object> getMedicineId(){					
 		 return ipharmacy.getMedicineId();
 		}
 	 
-	 @RequestMapping(value = "/pharmacyRequest", method = RequestMethod.GET)
+	 @RequestMapping(value = "/pharmacyRequestMedicine", method = RequestMethod.GET)
 		public String PharmacyRequest(Locale locale, Model model) {	
 			return pharmacyRootFolder+"/PharmacyRequestMedicine";		
 		}
 	 
 	 @RequestMapping(value = "/medicineRequestPharmacy", method = RequestMethod.POST)
 		public @ResponseBody HashMap<String, Object> pharmacyMedicineRequest(@RequestBody HashMap<String, Object> medicineRequest) {			
-		 System.out.println("Inside pharmacyRequestMedicine LIST controller FROM value="+medicineRequest);			
-		return ipharmacy.pharmacyMedicineRequest(medicineRequest);
+		 System.out.println("Inside pharmacyRequestMedicine  controller FROM value="+medicineRequest);			
+		 return ipharmacy.pharmacyMedicineRequest(medicineRequest);
 		
 		}
-	 @RequestMapping(value = "/medicineToPatient", method = RequestMethod.GET)
-		public String medicineToPatient(Locale locale, Model model) {	
-			return pharmacyRootFolder+"/MedicineToPatient";		
+	
+	 
+	 @RequestMapping(value = "/pharmacyBill", method = RequestMethod.GET)
+		public String medicineBill(Locale locale, Model model) {	
+			return pharmacyRootFolder+"/PharmacyBill";		
 		}
 	 
 	 @RequestMapping(value = "/listPharamacyRequest", method = RequestMethod.GET)
@@ -148,4 +170,21 @@ public class PharmacyRestController {
 		return ipharmacy.listPharamacyRequestDetails();
 		
 		}
+		
+		@RequestMapping(value = "/savePharmacyBill", method = RequestMethod.POST)
+		public @ResponseBody HashMap<String, Object> savePharmacyBill(@RequestBody HashMap<String, Object> medicineRequest) {			
+		 System.out.println("Inside pharmacyRequestMedicine LIST controller FROM value="+medicineRequest);			
+		return ipharmacy.savePharmacyBill(medicineRequest);		
+		}
+	 @RequestMapping(value = "/listPharmacyBill")
+		public 	@ResponseBody HashMap<String, Object> listPharmacyBill(){					
+		 return ipharmacy.listPharmacyBill();
+		}
+		
+	 
+	 @RequestMapping(value = "/expiryMedicine", method = RequestMethod.GET)
+		public String medicine(Locale locale, Model model) {	
+			return pharmacyRootFolder+"/ExpiryMedicine";		
+		}
+	 
 }

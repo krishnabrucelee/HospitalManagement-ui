@@ -190,8 +190,9 @@ public class PharmacyRestServiceImpl implements PharmacyRestService {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public HashMap<String, Object> savePharmacyMasterEntry(
+	public HashMap<String, Object> savePharmacyMasterEntry(		
 			HashMap<String, Object> pharmacyMasterEntry) {
+		System.out.println("Connect web service=");
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(pharmacyMasterEntry, headers);
@@ -244,7 +245,141 @@ public class PharmacyRestServiceImpl implements PharmacyRestService {
 		}
 		return result;
 	}
-	
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, Object> savePharmacyBill(HashMap<String, Object> pharmacyBillDatas) {
+		System.out.println("Connect web service=");
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(pharmacyBillDatas, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {			
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "savePharmacyBill"), request,HashMap.class);
+			System.out.println("Add savePharmacyMasterEntry=" + result);
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, Object> updateMasterMedicineItem(
+			HashMap<String, Object> masterMedicineItemupdate) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(masterMedicineItemupdate, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {			
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "updateMasterMedicineItem"), request,HashMap.class);
+			System.out.println("Add savePharmacyMasterEntry=" + result);
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, Object> deleteMasterMedicineItem(
+			HashMap<String, Object> masterMedicineItemdelete) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(masterMedicineItemdelete, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {			
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "updatePharmacyMasterEntry"), request,HashMap.class);
+			System.out.println("Add savePharmacyMasterEntry=" + result);
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, Object> updatePharmacyMasterEntry(
+			HashMap<String, Object> pharmacyMasterEntryupdate) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(pharmacyMasterEntryupdate, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {			
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "updatePharmacyMasterEntry"), request,HashMap.class);
+			System.out.println("Add savePharmacyMasterEntry=" + result);
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, Object> deletePharmacyMasterEntry(
+			HashMap<String, Object> pharmacyMasterEntrydelete) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(pharmacyMasterEntrydelete, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {			
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "updatePharmacyMasterEntry"), request,HashMap.class);
+			System.out.println("Add savePharmacyMasterEntry=" + result);
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, Object> listPharmacyBill() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
 
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "listPharmacyBill"), request,
+					HashMap.class);
+
+			System.out.println("List PharmacyBill=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, Object> saveExpiryMedicine(
+			HashMap<String, Object> expiryMedicineList) {
+		System.out.println("Connect web service=");
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(expiryMedicineList, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {			
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "saveExpiryMedicine"), request,HashMap.class);
+			System.out.println("Add savePharmacyMasterEntry=" + result);
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, Object> listExpiryMedicine() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "listExpiryMedicine"), request,
+					HashMap.class);
+
+			System.out.println("List ExpiryMedicine=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	
 }

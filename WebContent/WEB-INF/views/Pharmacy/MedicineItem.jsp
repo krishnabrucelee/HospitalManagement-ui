@@ -87,12 +87,7 @@
 				    <input type="number" ng-model="masteritementry.rack" name="" class="form-control">
 				  </div>
 				 </div>	 
-			 <!--  <div class="row">
-               		<div class="form-group col-md-8">
-				    <label> ChemicalComposition:</label>
-				    <input type="text" ng-model="masteritementry.chemicalComposition" name="" class="form-control">
-				  </div>
-				 </div> -->			  
+					  
 			
 			 <div class="row">
                		<div class="form-group col-md-10">
@@ -118,8 +113,8 @@
 		 <tr class="success" ng-repeat="item in masteritem">
 		  <td>{{item.medicineId}}</td>
 		    <td>{{item.medicineName}}</td>
-		     <td>{{item.genericName}}</td>
-		     <td>{{item.companyName}}</td>		
+		    <td>{{item.companyName}}</td>	
+		     <td>{{item.genericName}}</td>		    	
 		     <td>{{item.itemType}}</td>					 
 		 <td>{{item.itemDescription}}</td>
 		
