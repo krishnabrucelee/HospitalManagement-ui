@@ -17,4 +17,9 @@ public interface SupplierRestService {
 	 */
 	HashMap<String, Object> addSupplierDetails(HashMap<String, Object> supplier);
 
+	/**
+	 * @return
+	 */
+	HashMap<String, Object> listSupplierDetails();
+
 }

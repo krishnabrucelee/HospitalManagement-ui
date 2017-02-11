@@ -262,10 +262,19 @@ ngApp.controller('pharmacyCtrl', function($scope, $http, uibDateParser, $timeout
     	var dataObjects ={};
     	$scope.medicineList.push(dataObjects);
     }
+    
+	var hasDepartment = $http.get('listDepartmentDetails');
+	hasDepartment.then(function(data) {
+		$scope.result = data.data;
+		$scope.departmentList = $scope.result.Department;
+		console.log($scope.departmentList);
+	});
+	
 	$scope.pharmacyrequest={};
    	$scope.addMedicineRequest=function(pharmacyrequest){
    		$scope.pharmacyrequest.medicineList = $scope.medicineList; 
    		console.log(pharmacyrequest);
+   		pharmacyrequest.department_id = pharmacyrequest.department.departmentId;
     	$http.post("medicineRequestPharmacy",$scope.pharmacyrequest).success(function(data){
     		
     	});

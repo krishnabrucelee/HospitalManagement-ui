@@ -54,12 +54,4 @@ public class StockRestController {
 		}
 	}
 	
-	@RequestMapping(value = "/addPurchaseOrder", method = RequestMethod.GET)
-	public String addPurchaseOrder(Locale locale, Model model, HttpSession session) {
-		if (session.getAttribute("role") != null) {
-			return "Stock/addPurchaseOrder";
-		} else {
-			return "Logout/accessDenied";
-		}
-	}
 }

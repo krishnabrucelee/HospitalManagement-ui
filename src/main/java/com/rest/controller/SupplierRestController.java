@@ -53,4 +53,11 @@ public class SupplierRestController {
 		System.out.println(supplierDetails.get("Supplier"));
 		return supplierDetails;
 	}
+	
+	@RequestMapping(value = "/listSupplierDetails", method = RequestMethod.GET)
+	public @ResponseBody HashMap<String, Object> listSupplierDetails() {
+		HashMap<String, Object> supplierDetails = supplierRestService.listSupplierDetails();
+		System.out.println(supplierDetails.get("Supplier"));
+		return supplierDetails;
+	}
 }

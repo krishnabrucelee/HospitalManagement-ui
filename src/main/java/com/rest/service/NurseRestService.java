@@ -3,6 +3,8 @@
  */
 package com.rest.service;
 
+import java.util.HashMap;
+
 import org.json.simple.JSONObject;
 
 
@@ -12,13 +14,13 @@ import org.json.simple.JSONObject;
  */
 public interface NurseRestService {
 
-	/**
-	 * Create Nurse.
-	 * 
-	 * @param nurse
-	 * @return nurse
-	 */
-	public JSONObject addNurse(JSONObject nurse);
+//	/**
+//	 * Create Nurse.
+//	 * 
+//	 * @param nurse
+//	 * @return nurse
+//	 */
+//	public JSONObject addNurse(JSONObject nurse);
 
 	/**
 	 * List Nurse.
@@ -26,28 +28,28 @@ public interface NurseRestService {
 	 * @param nurse
 	 * @return nurse
 	 */
-	public JSONObject listNurse();
+	public HashMap<String, Object> listNurse();
 
-	/**
-	 * Update Nurse.
-	 * 
-	 * @param nurse
-	 * @return nurse
-	 */
-	public JSONObject updateNurse(JSONObject nurse);
-
-	/**
-	 * Delete Nurse.
-	 * 
-	 * @param nurse
-	 * @return nurse
-	 */
-	public JSONObject deleteNurse(JSONObject nurseId);
-
-	/**
-	 * @param nurseId
-	 * @return
-	 */
-	public JSONObject listByNurseId(JSONObject nurseId);
+//	/**
+//	 * Update Nurse.
+//	 * 
+//	 * @param nurse
+//	 * @return nurse
+//	 */
+//	public JSONObject updateNurse(JSONObject nurse);
+//
+//	/**
+//	 * Delete Nurse.
+//	 * 
+//	 * @param nurse
+//	 * @return nurse
+//	 */
+//	public JSONObject deleteNurse(JSONObject nurseId);
+//
+//	/**
+//	 * @param nurseId
+//	 * @return
+//	 */
+//	public JSONObject listByNurseId(JSONObject nurseId);
 
 }

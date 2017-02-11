@@ -53,14 +53,24 @@ ngApp.controller('homeCtrl', function($scope, $http) {
 		window.location.href="listStockRequest";
 	}
 	
-	$scope.listProcument = function() {
-		window.location.href="listProcument";
+	$scope.listPurchaseOrder = function() {
+		window.location.href="listPurchaseOrder";
 	}
 	
 	$scope.listSupplier = function() {
 		window.location.href="listSupplier";
 	}
 	
+	$scope.requestMrn = function() {
+		window.location.href="requestMrn";
+	}	
 	
+	$scope.addSurgeryRoom = function() {
+		window.location.href="addSurgeryRoom";
+	}
+	
+	$scope.addSurgery = function() {
+		window.location.href="addSurgery";
+	}
 });
 

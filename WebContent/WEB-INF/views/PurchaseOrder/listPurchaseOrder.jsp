@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ include file="../Common/includeScript.jsp" %>
-    <script src="resources/js/Procument/procumentController.js" ></script>
+    <script src="resources/js/PurchaseOrder/purchaseOrderController.js" ></script>
 <title>Insert title here</title>
 </head>
-<body data-ng-controller="procumentListCtrl">
+<body data-ng-controller="purchaseOrderListCtrl">
     <%@ include file="../Common/menubar.jsp" %>
     <%@ include file="../Common/sidebar.jsp" %>
     <div class="clear">
@@ -16,7 +16,7 @@
 
             <h1 class="heading">Stock Ledger Listing</h1>
             <div >
-                <button type="button" class="btn btn-default" ng-click="addProcument()">Add New Procument</button>
+                <button type="button" class="btn btn-default" ng-click="addPurchaseOrder()">Add New PurchaseOrder</button>
             </div>
             <table class="table centered_form table-bordered table-responsive">
                 <thead>
@@ -24,18 +24,15 @@
                     <th>ID</th>
                      <th>Item name</th>
                     <th>Department</th>
-                    <th>Purpose</th>
-                    <th>Quantity</th>
                     <!-- <th width="20">Options</th> -->
                   </tr>
                 </thead>
-                <tbody>
+                <tbody data-ng-repeat="purchase in medicineItemMasterList">
+                
                   <tr>
-                  <td>1</td>
-                  <td>Gloves</td>
-                  <td>Eye</td>
-                  <td>For Doctor use</td>
-                  <td>17</td>
+                  <td>{{purchaseOrderRefNumber}}</td>
+                  <td>{{purchase.medicineName}}</td>
+                  <td>{{department.departmentName}}</td>
                   	
 <!--                     <td class="dropdown" ><span data-toggle="dropdown">Action</span>
                       <ul class="dropdown-menu" >

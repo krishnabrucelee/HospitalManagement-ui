@@ -96,12 +96,20 @@
 					</c:if>		
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
-						<a data-ng-click="listProcument()">
-							<h4>List Procument</h4>
+						<a data-ng-click="listPurchaseOrder()">
+							<h4>List PurchaseOrder</h4>
 							<img  src="resources/images/icons.png">
 						</a>
 					</div>
-					</c:if>	
+					</c:if>
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="requestMrn()">
+							<h4>Request Material Recieve Note</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>		
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="listSupplier()">
@@ -109,7 +117,23 @@
 							<img  src="resources/images/icons.png">
 						</a>
 					</div>
-					</c:if>								
+					</c:if>		
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="addSurgeryRoom()">
+							<h4>Add Surgery Room Configuration</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>		
+					<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="addSurgery()">
+							<h4>Add Surgery Schedule</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>										
 				<c:if test="${role.roleName eq 'Regular'}">
 					<div class="col-md-3">
 						<a href="#">
