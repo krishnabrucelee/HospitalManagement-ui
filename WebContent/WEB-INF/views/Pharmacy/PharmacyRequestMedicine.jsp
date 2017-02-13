@@ -33,9 +33,9 @@
 				    <select class="form-control"  data-ng-model="pharmacyrequest.department" data-ng-options="department.departmentName for department in departmentList">
 								<option value="">Select</option>
 						</select>
-						/** <select ng-model="pharmacyrequest.departmentId">
+<!-- 						 <select ng-model="pharmacyrequest.departmentId">
 				        <option ng-repeat="department in listdepartments" value="{{department.departmentId}}">{{department.departmentName}}</option>
-				     </select>*/
+				     </select> -->
 				  </div>
 
 				  <div class="form-group col-md-4 col-md-offset-1">
