@@ -8,6 +8,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,10 +38,14 @@ public class AppointmentRestController {
 		}
 	}
 	
-	@RequestMapping(value = "/createAppointment")
+	@RequestMapping(value = "/getDoctorAvaliablities", method = RequestMethod.POST)
+	public @ResponseBody JSONObject getDoctorAvaliablities(@RequestBody JSONObject doctor) {
+		return appointmentRestService.getDoctorAvaliablities(doctor);
+	}
+	
+	@RequestMapping(value = "/addAppointmentDetails")
 	public @ResponseBody HashMap<String, Object> addAppointmentDetails(@RequestBody HashMap<String, Object> appointment) {
 		HashMap<String, Object> patient = appointmentRestService.addAppointmentDetails(appointment);
-		System.out.println(patient.get("Appointment"));
 		return patient;
 	}
 	

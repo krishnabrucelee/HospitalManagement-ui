@@ -29,7 +29,22 @@ ngApp.controller('registrationCtrl', function($scope, $http, $timeout) {
 		console.log($scope.roleList);
 	});
 	
+	$scope.timings=[];
 	
+	$scope.addDefaultTime = function(Obj){		
+		$scope[Obj].scheduleName = Obj;
+		$scope.timings.push(angular.copy($scope[Obj],{}));
+		$scope[Obj]={};
+	};
+
+	$scope.removeDefaultTime = function(Obj,ind){
+		$scope.timings.splice(ind,1);
+	};
+
+
+	$scope.assiginDefaultTime=function(Obj,name){
+		Obj.timings = $scope.timings;
+	};
 	
 	$scope.saveStaff = function (staffForm, staff) {
 		console.log("staff111", staff);
@@ -37,6 +52,8 @@ ngApp.controller('registrationCtrl', function($scope, $http, $timeout) {
 		$scope.Nurse = [];
 
 		if (staff.staffRole == "Doctor") {
+			var obj = {};		
+			
 			$scope.Doctor = staff.doctor;
 			$scope.Doctor.department_id = staff.doctor.department.departmentId;
 			$scope.Doctor.role_id = staff.doctor.role.roleId;
@@ -44,10 +61,10 @@ ngApp.controller('registrationCtrl', function($scope, $http, $timeout) {
 			delete $scope.Doctor.role;
 			delete staff.doctor;
 			console.log("doctor", $scope.Doctor);
-			console.log("staff", staff);
-			var obj = {};
+			console.log("staff", staff);			
 			obj = staff;
 			obj.Doctor = $scope.Doctor;
+			$scope.assiginDefaultTime(obj);
 		}
 		
 		if (staff.staffRole == "Nurse") {

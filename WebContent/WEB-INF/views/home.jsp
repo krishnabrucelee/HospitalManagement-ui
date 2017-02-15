@@ -9,7 +9,7 @@
 <html data-ng-app="ngModule">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<%@ include file="../views/Common/includeScript.jsp" %>
+	<%@ include file="../views/Common/includeScript.jsp" %>
     <script src="resources/js/Home/homeController.js" ></script>
 <title>Hospital Management</title>
 </head>
@@ -178,6 +178,15 @@
 							<h4>Appointment</h4>
 						</a>
 					</div>
+
+					<div class="col-md-3">
+						<a data-ng-click="addNurseScheduling()">
+							
+							<img src="resources/images/icons.png">
+							<h4>Nurse Scheduling</h4>
+						</a>
+					</div>
+
 <c:if test="${ module eq 'Laboratory'}">
 					<div class="col-md-3">
 						<a href="#">

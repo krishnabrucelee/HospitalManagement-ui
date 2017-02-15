@@ -805,7 +805,6 @@
                      */
                     close: function (id, value) {
                         var $dialog = $el(document.getElementById(id));
-
                         if ($dialog.length) {
                             privateMethods.closeDialog($dialog, value);
                         } else {

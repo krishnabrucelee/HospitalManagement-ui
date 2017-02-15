@@ -40,6 +40,10 @@ ngApp.controller('homeCtrl', function($scope, $http) {
 	$scope.addAppointment = function() {
 		window.location.href="listAppointment";
 	}
+
+	$scope.addNurseScheduling = function() {
+		window.location.href="NurseSchedule";
+	}
 	
 	$scope.addRoom = function() {
 		window.location.href="listRoom";
