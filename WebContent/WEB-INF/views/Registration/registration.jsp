@@ -1,3 +1,4 @@
+Working Hours
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,6 +13,7 @@
     <%@ include file="../Common/menubar.jsp" %>
     <%@ include file="../Common/sidebar.jsp" %>
 		<div class="right_block">
+			<a href=""></a>
 			<h1 class="heading">Registration</h1>
 			<div class="Registration">
 				<form class="centered_form" id="my-profile" name="staffForm" data-ng-submit="saveStaff(staffForm, staff)"> 
@@ -61,7 +63,7 @@
 						</div>
 					</div>	
 					
-				<div data-ng-if=" staff.staffRole == 'Doctor'">
+				<div data-ng-show=" staff.staffRole == 'Doctor'">
 					<div class="row">
 	                    <div class="form-group col-md-4">
 	                        <label>Email Id:</label>
@@ -140,7 +142,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label>Appointment Start Time:</label>
+                        <label>Appointment Start Time </label>
                         <div>
                             <!-- <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre> -->
                             <datetimepicker ng-model="staff.doctor.appointmentStartTime" date-format="{{format}}" show-spinners="true" date-options="options">
@@ -198,7 +200,77 @@
 						</div>
 					</div>                    
                 </div>
-                	        
+
+                <div class="row">   
+                	<div class="form-group col-md-4">
+						<label class="control-label">Working Hours</label>
+						<div class="">
+							<label>From Time</label>
+							<input type="text" data-ng-model="WORKING_HOURS.startTime" class="form-control" placeholder="HH:mm">
+						</div>
+						<div class="">
+							<label>To Time</label>
+							<input type="text" data-ng-model="WORKING_HOURS.endTime" class="form-control" placeholder="HH:mm"> 							
+						</div>						
+						<div class="">							
+							<button type="button" class="btn btn-info" ng-click="addDefaultTime('WORKING_HOURS')">Add</button>
+						</div>	
+
+						<div ng-repeat="workingHour in timings">
+							<p ng-if="workingHour.scheduleName == 'WORKING_HOURS'">{{workingHour.startTime+" : "+workingHour.endTime}}
+								<button type="button" class="btn btn-danger btn-sm pull-right" ng-click="removeDefaultTime('WORKING_HOURS',$index)">
+							  		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+								</button>									
+							</p>
+						</div>
+					</div>             	
+                	<div class="form-group col-md-4">
+						<label class="control-label">Lunch Time</label>
+						<div class="">
+							<label>From Time</label>
+							<input type="text" data-ng-model="BREAK_TIME.startTime" class="form-control" placeholder="HH:mm">
+						</div>
+						<div class="">
+							<label>To Time</label>
+							<input type="text" data-ng-model="BREAK_TIME.endTime" class="form-control" placeholder="HH:mm">
+						</div>	
+						<div class="">							
+							<button type="button" class="btn btn-info" ng-click="addDefaultTime('BREAK_TIME')">Add</button>
+						</div>	
+						<div ng-repeat="lunchHour in timings">
+							<p ng-if="lunchHour.scheduleName == 'BREAK_TIME'">
+								{{lunchHour.startTime+" : "+lunchHour.endTime}}
+								<button type="button" class="btn btn-danger btn-sm pull-right" ng-click="removeDefaultTime('BREAK_TIME',$index)">
+							  		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+								</button>
+							</p>							
+						</div>					
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Break Time</label>
+						<div class="">
+							<label>From Time</label>
+							<input type="text" data-ng-model="LUNCH_TIME.startTime" class="form-control" placeholder="HH:mm">
+						</div>
+						<div class="">
+							<label>To Time</label>
+							<input type="text" data-ng-model="LUNCH_TIME.endTime" class="form-control" placeholder="HH:mm">
+						</div>	
+						<div class="">							
+							<button type="button" class="btn btn-info" ng-click="addDefaultTime('LUNCH_TIME')">Add</button>
+						</div>	
+						<div ng-repeat="breakHour in timings">
+							<p ng-if="breakHour.scheduleName == 'LUNCH_TIME'">
+								{{breakHour.startTime+" : "+breakHour.endTime}}
+								<button type="button" class="btn btn-danger btn-sm pull-right" ng-click="removeDefaultTime('LUNCH_TIME',$index)">
+							  		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+								</button>
+							</p>
+						</div>				
+					</div>                  
+                </div>                	    
+                	  
+
             		<div data-ng-repeat="role in roleList">
                   		<div class="col-md-12 col-md-12" data-ng-show="staff.doctor.role == role">
 								<label class="control-label">Note :</label>

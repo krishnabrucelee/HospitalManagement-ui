@@ -14,21 +14,14 @@ import org.json.simple.JSONObject;
  */
 public interface NurseRestService {
 
-//	/**
-//	 * Create Nurse.
-//	 * 
-//	 * @param nurse
-//	 * @return nurse
-//	 */
-//	public JSONObject addNurse(JSONObject nurse);
-
+	
 	/**
 	 * List Nurse.
 	 * 
 	 * @param nurse
 	 * @return nurse
 	 */
-	public HashMap<String, Object> listNurse();
+	public JSONObject listNurse();
 
 //	/**
 //	 * Update Nurse.

@@ -19,57 +19,53 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.rest.config.SpringRestConfig;
-import com.rest.service.RoleRestService;
+import com.rest.service.IScheduleService;
+
 
 /**
- * @author Krishna
+ * @author admin
  *
  */
 @Service
-public class RoleRestServiceImpl implements RoleRestService {
+public class ScheduleServiceImpl implements IScheduleService {
 
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@Override
-	public HashMap<String, Object> listRoleDetails() {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-
-		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
-		HashMap<String, Object> result = new HashMap<String, Object>();
-		try {
-			ResponseEntity<JSONObject> postRes = restTemplate.exchange(new URI(SpringRestConfig.restUrl + "listRole"), HttpMethod.GET, request,JSONObject.class);
-			
-			result = postRes.getBody();
-
-			System.out.println("list Role=" + result);
-
-		} catch (RestClientException | URISyntaxException e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
-	public HashMap<String, Object> createRole(HashMap<String, Object> role) {
+	public JSONObject generateNurseSchedule(JSONObject scheduleInformation) {
+		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(role, headers);
-		HashMap<String, Object> result = new HashMap<String, Object>();
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(scheduleInformation, headers);
+		JSONObject result = new JSONObject();
 		try {
-			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "addRole"), request,
-					HashMap.class);
-
-			System.out.println("Add Role=" + result);
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "generateNurseSchedule"), request, JSONObject.class);
 
 		} catch (RestClientException | URISyntaxException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
-}
 
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public JSONObject saveNurseSchedule(JSONObject scheduleInformation) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(scheduleInformation, headers);
+		JSONObject result = new JSONObject();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "saveNurseSchedule"), request, JSONObject.class);
+			
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+}

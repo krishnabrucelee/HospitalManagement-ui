@@ -49,6 +49,23 @@ public class AppointmentRestServiceImpl implements AppointmentRestService {
 		}
 		return result;
 	}
+	
+	@Override
+	public JSONObject getDoctorAvaliablities(JSONObject doctor) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(doctor, headers);
+		JSONObject result = new JSONObject();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "getDoctorAvaliablities"), request,
+					JSONObject.class);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	@Override
 	public HashMap<String, Object> listAppointmentDetails() {

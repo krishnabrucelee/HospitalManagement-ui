@@ -11,11 +11,12 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-
 import com.rest.config.SpringRestConfig;
 import com.rest.service.NurseRestService;
 
@@ -26,65 +27,29 @@ import com.rest.service.NurseRestService;
 @Service
 public class NurseRestServiceImpl  implements NurseRestService {
 	
+	/**
+	 * Nurse dao
+	 */
 	@Autowired
 	RestTemplate restTemplate;
-	
-	@Override
-	public HashMap<String, Object> listNurse() {
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-
-		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
-		HashMap<String, Object> result = new HashMap<String, Object>();
-		try {
-			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "listNurse"), request,
-					HashMap.class);
-
-			System.out.println("List doctors=" + result);
-
-		} catch (RestClientException | URISyntaxException e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-	
-	/*
-
-	*//**
-	 * Nurse dao
-	 *//*
-	@Autowired
-	private NurseDao nursedao;
-	
-	@Override
-	public JSONObject addNurse(JSONObject nurse) {
-		return nursedao.addNurse(nurse);
-	}
 
 	@Override
 	public JSONObject listNurse() {
-		return nursedao.listNurse();
-	}
+		JSONObject result = new JSONObject();
+		try {
+			
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
 
-	@Override
-	public JSONObject updateNurse(JSONObject nurse) {
-		return nursedao.updateNurse(nurse);
-	}
+			HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
+			
+			ResponseEntity<JSONObject> postRes = restTemplate.exchange(new URI(SpringRestConfig.restUrl + "listNurse"), HttpMethod.GET, request,JSONObject.class);				
+			result = postRes.getBody();
 
-	@Override
-	public JSONObject deleteNurse(JSONObject nurseId) {
-		return nursedao.deleteNurse(nurseId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;		
 	}
-
-	@Override
-	public Nurse addNurseFromStaff(Nurse nurse) {
-		return nursedao.addNurseFromStaff(nurse);
-	}
-
-	@Override
-	public JSONObject listByNurseId(JSONObject nurseId) {
-		return nursedao.listByNurseId(nurseId);
-	}
-
-*/}
+	
+}
