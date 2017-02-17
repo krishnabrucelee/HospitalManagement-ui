@@ -21,6 +21,16 @@ public class ScheduleController {
 		return "NurseSchedule";
 	}
 	
+	@RequestMapping(value="DoctorSchedule",method=RequestMethod.GET)
+	public String DoctorSchedule(){
+		return "DoctorSchedule";
+	}
+	
+	@RequestMapping(value="viewAttendance",method=RequestMethod.GET)
+	public String viewAttendance(){
+		return "ViewAttendance";
+	}
+	
 	@RequestMapping(value="generateNurseSchedule",method=RequestMethod.POST)
 	public @ResponseBody JSONObject generateNurseSchedule(@RequestBody JSONObject scheduleInformation){
 		return scheduleService.generateNurseSchedule(scheduleInformation);
@@ -31,4 +41,28 @@ public class ScheduleController {
 	{
 		return scheduleService.saveNurseSchedule(scheduleInformation);
 	}	
+	
+	@RequestMapping(value="generateDoctorSchedule",method=RequestMethod.POST)
+	public @ResponseBody JSONObject generateDoctorSchedule(@RequestBody JSONObject scheduleInformation){
+		return scheduleService.generateDoctorSchedule(scheduleInformation);
+	}
+	
+	@RequestMapping(value="saveDoctorSchedule",method=RequestMethod.POST)
+	public @ResponseBody JSONObject saveDoctorSchedule(@RequestBody JSONObject scheduleInformation)
+	{
+		return scheduleService.saveDoctorSchedule(scheduleInformation);
+	}
+	
+	
+	@RequestMapping(value="getCurrentMonthNurseSchedule",method=RequestMethod.POST)
+	public @ResponseBody JSONObject getCurrentMonthNurseSchedule(@RequestBody JSONObject nurseDetails)
+	{
+		return scheduleService.getCurrentMonthNurseSchedule(nurseDetails);
+	}
+	
+	@RequestMapping(value="getCurrentMonthDoctorSchedule",method=RequestMethod.POST)
+	public @ResponseBody JSONObject getCurrentMonthDoctorSchedule(@RequestBody JSONObject doctorDetails)
+	{
+		return scheduleService.getCurrentMonthDoctorSchedule(doctorDetails);
+	}
 }

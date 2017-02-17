@@ -4,9 +4,9 @@
 <html ng-app="ngModule">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>NurseSchdule</title>
+<title>Doctor Schedule</title>
 <%@ include file="Common/includeScript.jsp" %>
-<script src="resources/js/Schedule/NurseScheduleCtrl.js" ></script>
+<script src="resources/js/Schedule/DoctorScheduleCtrl.js" ></script>
 <style type="text/css">
   .employeeDispBox{
     height: 200px;
@@ -14,17 +14,17 @@
   }
 </style>
 </head>
-<body ng-controller="nurseScheduleCtrl">
+<body ng-controller="doctorScheduleCtrl">
     <%@ include file="Common/menubar.jsp" %>
     <%@ include file="Common/sidebar.jsp" %>
     <div class="clear">
         <div class="right_block">
-            <h1 class="heading">Nurse Shift Scheduling                     
+            <h1 class="heading">Doctor Shift Scheduling                     
             </h1>           
             <div class="container">               
                 <div class="row">
                     <div class="col-md-3">
-                       <h5>Employee List</h5>
+                       <h5>Doctor's List</h5>
                        <div class="employeeDispBox">
                           <div ng-repeat="details in employee">                          
                             <p><label>Name : </label>{{details.Name}}</p>

@@ -5,10 +5,14 @@ package com.rest.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,7 +66,7 @@ public class LoginRestController {
 					 HashMap<String, Object> doctorEmail = new HashMap<>();
 					 doctorEmail.put("email", hasRole.get("userEmail"));
 					 HashMap<String, Object> doctorDetails = loginService.getDoctorDetailsByEmail(doctorEmail);
-					 session.setAttribute("doctorDetails", doctorDetails.get("Doctor"));
+					 session.setAttribute("doctorDetails",doctorDetails.get("Doctor"));
 				 }
 				 
 				 if (hasRole.get("professionType").equals("Nurse")) {

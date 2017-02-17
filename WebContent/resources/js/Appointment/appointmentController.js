@@ -334,16 +334,31 @@ ngApp.factory("RestServices", ['$http','$q',
 
 ngApp.controller('appointmentListCtrl', function($scope, $http) {
 	
+	
 	$scope.appointmentList = [];
 
-	
-	$http.get('listAppointmentDetails').then(function(data) {
-		$scope.result = data.data
-		$scope.appointmentList = $scope.result.Appointment;
-		$scope.Doctor = $scope.result.Appointment.Doctor;
-		console.log($scope.appointmentList);
-	});
-	
+	if(type == "Doctor")
+		{
+			// Get Attendance Details
+			console.log(loggedInUserDetails);
+			var requestObj = {};			
+			var url = "";
+			if(type == "Doctor")
+			{
+				requestObj.doctorId = loggedInUserDetails[0].doctorId;				
+				url="getDoctorAppointmentForCurrentDate";
+			}
+
+			$http.post(url,requestObj).success(function(data){
+             	 $scope.appointmentList = data.result;
+            });
+		}
+		else
+		{
+			alert("This feature is currently enabled for Doctor Professional Only. But not for "+type);
+		}	
+
+
     $scope.addAppointment = function(name){
     	window.location.href="addAppointment";
     }

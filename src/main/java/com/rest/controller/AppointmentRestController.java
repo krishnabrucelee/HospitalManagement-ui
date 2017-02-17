@@ -64,4 +64,10 @@ public class AppointmentRestController {
 		System.out.println(patient.get("Appointment"));
 		return patient;
 	}
+	
+	@RequestMapping(value = "/getDoctorAppointmentForCurrentDate", method = RequestMethod.POST)
+	public @ResponseBody JSONObject getDoctorAppointmentForCurrentDate(@RequestBody JSONObject doctor) {
+		return appointmentRestService.getDoctorAppointmentForCurrentDate(doctor);
+	}
+	
 }

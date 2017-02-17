@@ -76,5 +76,9 @@ ngApp.controller('homeCtrl', function($scope, $http) {
 	$scope.addSurgery = function() {
 		window.location.href="addSurgery";
 	}
+
+	$scope.viewAttendance = function(){
+		window.location.href="viewAttendance";
+	}
 });
 

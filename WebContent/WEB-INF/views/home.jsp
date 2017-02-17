@@ -5,6 +5,9 @@
 <c:set var="permission" value='<%=session.getAttribute("permission")%>'></c:set>
 <c:set var="module" value='<%=session.getAttribute("module")%>'></c:set>
 <c:set var="roleList" value='<%=session.getAttribute("roleList")%>'></c:set>
+<c:set var="professionType" value='<%=session.getAttribute("type")%>'></c:set>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html data-ng-app="ngModule">
 <head>
@@ -24,7 +27,7 @@
 			<div class="main_container clear col-md-12">
 
 			<h2 class="page_heading">
-				Dashboard {{sessionDetails}}
+				Dashboard  
 			</h2>
 			<div class="dashboard_block clear">
 				<div class="col-md-3">
@@ -186,6 +189,15 @@
 							<h4>Nurse Scheduling</h4>
 						</a>
 					</div>
+<c:if test="${ professionType eq 'Doctor' || professionType eq 'Nurse' || professionType eq 'Admin'}">
+					<div class="col-md-3">
+
+						<a data-ng-click="viewAttendance()">							
+							<img src="resources/images/icons.png">
+							<h4>View Attendance</h4>
+						</a>
+					</div>
+</c:if>
 
 <c:if test="${ module eq 'Laboratory'}">
 					<div class="col-md-3">

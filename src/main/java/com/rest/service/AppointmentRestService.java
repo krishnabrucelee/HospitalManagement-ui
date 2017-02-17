@@ -25,5 +25,7 @@ public interface AppointmentRestService {
 	HashMap<String, Object> listAppointmentDetails();
 
 	JSONObject getDoctorAvaliablities(JSONObject doctor);
+	
+	JSONObject getDoctorAppointmentForCurrentDate(JSONObject doctor);
 
 }
