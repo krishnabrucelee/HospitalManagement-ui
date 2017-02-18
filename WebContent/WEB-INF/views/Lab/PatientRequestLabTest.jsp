@@ -39,7 +39,7 @@
 		       		   	   <div class="form-group col-md-2" >
 						    <label>Patient:</label>
 						     <select ng-model="labrequest.patientId" class="form-control col-md-2">
-						        <option ng-repeat="patient in listpatientdata" value="{{patient.patientId}}">{{patient.patientId}}</option>
+						        <option ng-repeat="patient in listpatientdata" value="{{patient.patientId}}">{{patient.patientName}}</option>
 						     </select>	
 						     <br>			    
 						    <!-- <input type="text" name="" ng-model="labrequest.patientId" class="form-control" > -->
@@ -57,7 +57,7 @@
 						   <div class="form-group col-md-2" >
 						    <label>Doctor:</label>
 						     <select ng-model="labrequest.doctorId" class="form-control col-md-2">
-						        <option ng-repeat="doctor in listdoctorsdata" value="{{doctor.doctorId}}">{{doctor.doctorId}}</option>
+						        <option ng-repeat="doctor in listdoctorsdata" value="{{doctor.doctorId}}">{{doctor.doctorName}}</option>
 						     </select>	
 						     <br>			    
 						  <!--   <input type="text" name="" ng-model="labrequest.doctorId" class="form-control" > -->
@@ -67,7 +67,7 @@
 						  <div class="form-group col-md-2" >
 						    <label>Department:</label>
 						     <select ng-model="labrequest.departmentId" class="form-control col-md-2">
-						        <option ng-repeat="department in listdepartments" value="{{department.departmentId}}">{{department.departmentId}}</option>
+						        <option ng-repeat="department in listdepartments" value="{{department.departmentId}}">{{department.departmentName}}</option>
 						     </select>
 						      <br>					    
 						   <!--  <input type="text" name="" ng-model="labrequest.departmentId" class="form-control" > -->

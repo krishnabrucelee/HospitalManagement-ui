@@ -64,7 +64,7 @@ ngApp.controller('labCtrl',function($scope,$http,$timeout,uibDateParser,ngDialog
 	$scope.addMaterLabTest=function(labmaster){
 		$scope.labmaster.labmastersubcategeries = $scope.labmastersubcategeries; 
 		console.log($scope.labmaster);
-		console.log("Save lab request");
+		
  	$http.post("saveMasterLabTest",$scope.labmaster).success(function(data){
  		
  	});
