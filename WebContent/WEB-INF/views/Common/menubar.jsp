@@ -133,7 +133,7 @@
                         <div class="profile">
                             <img src="resources/images/user.jpg">
                             <div class="dropdown">
-                                <b href="#" data-toggle="dropdown">${name}
+                                <b href="#" data-toggle="dropdown">${name} 
 							  <span class="caret"></span></b>
                                 <ul class="dropdown-menu">
                                     <li><a href="logout">Logout</a></li>

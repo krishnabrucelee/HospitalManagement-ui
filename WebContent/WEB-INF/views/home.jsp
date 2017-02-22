@@ -6,6 +6,7 @@
 <c:set var="module" value='<%=session.getAttribute("module")%>'></c:set>
 <c:set var="roleList" value='<%=session.getAttribute("roleList")%>'></c:set>
 <c:set var="professionType" value='<%=session.getAttribute("type")%>'></c:set>
+<c:set var="user" value='${userId}'></c:set>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -129,6 +130,14 @@
 						</a>
 					</div>
 					</c:if>		
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="activityLog()">
+							<h4>Activity Log</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>	
 					<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="addSurgery()">
@@ -136,7 +145,21 @@
 							<img  src="resources/images/icons.png">
 						</a>
 					</div>
-					</c:if>										
+					</c:if>	
+					<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listWaitingList()">
+							<h4>List Waiting List</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>	
+					<div class="col-md-3">
+						<a data-ng-click="editProfile(${user})">
+							<h4>Edit Profile</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>									
 				<c:if test="${role.roleName eq 'Regular'}">
 					<div class="col-md-3">
 						<a href="#">

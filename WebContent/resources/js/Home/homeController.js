@@ -80,5 +80,17 @@ ngApp.controller('homeCtrl', function($scope, $http) {
 	$scope.viewAttendance = function(){
 		window.location.href="viewAttendance";
 	}
+	
+	$scope.activityLog = function() {
+		window.location.href="listActivity";
+	}
+	
+	$scope.editProfile = function(userId) {
+		window.location.href="editProfile?id="+userId;
+	}
+	
+	$scope.listWaitingList = function() {
+		window.location.href="listWaitingList";
+	}
 });
 

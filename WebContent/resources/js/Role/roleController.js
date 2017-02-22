@@ -1,6 +1,6 @@
 
 
-ngApp.controller('roleCtrl', function($scope, $http, $timeout) {
+ngApp.controller('roleCtrl', function($scope, $http, $timeout, uibDateParser,ngDialog ) {
 	
 	$scope.saveRole = function (roleForm, role) {
 		
@@ -134,6 +134,7 @@ ngApp.controller('roleCtrl', function($scope, $http, $timeout) {
 		$http.post('createRole', addRole).success(function(data) {
 			$scope.result = data;
 			console.log($scope.result);
+			location.reload();
 		});
 		
 	}

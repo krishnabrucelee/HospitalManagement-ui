@@ -16,11 +16,7 @@
         <div class="right_block">
 			
 			<div data-ng-repeat="patient in patientList">
-            <h1 class="heading">Patient
-	            <div class="modal-demo">
-	            <button type="button" data-ng-click="editPatient(patient.patientId)" class="btn btn-default">Edit Patient</button>
-					<button type="button" data-ng-click="emrReport(patient.patientId)" class="btn btn-default">EMR</button>
-				</div>
+            <h1 class="heading">Edit Patient
 			</h1>
 
             <form class="centered_form" >
@@ -75,7 +71,7 @@
 			  </div>
 				  <div class="form-group col-md-4">
                             <label>Department :</label>
-                        <select class="form-control" data-ng-model="patient.department" disabled>
+                        <select class="form-control" data-ng-model="patient.department" data-ng-options="department.departmentName for department in departmentList">
 							</select>
 					</div>
 			  <div class="row">
@@ -99,7 +95,14 @@
 				    <textarea class="form-control" type="text" rows="5" data-ng-model="patient.patientAddress" placeholder="Enter Your Address" disabled></textarea>
 				  </div>
 			  </div>
-
+            <div class="row">
+                <div class="col-md-1">
+                    <button type="button" ng-click="editPatientDetails(patient)" class="btn btn-default">Save</button>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
 			</form>
 			</div>
         </div>

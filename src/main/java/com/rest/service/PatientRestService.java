@@ -45,4 +45,16 @@ public interface PatientRestService {
 	 * @return
 	 */
 	public HashMap<String, Object> listByPatientId(HashMap<String, Object> patientId);
+
+	/**
+	 * @param patient
+	 * @return
+	 */
+	public HashMap<String, Object> createDischargeSummary(HashMap<String, Object> patient);
+
+	/**
+	 * @param patient
+	 * @return
+	 */
+	public HashMap<String, Object> editPatientDetails(HashMap<String, Object> patient);
 }

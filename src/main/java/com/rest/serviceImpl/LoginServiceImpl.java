@@ -82,4 +82,59 @@ public class LoginServiceImpl implements LoginService {
 		return result;
 	}
 
+	@Override
+	public HashMap<String, Object> listActivityDetails() {
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "listActivityLog"), request,
+					HashMap.class);
+
+			System.out.println("List doctors=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> getUserById(HashMap<String, Object> user) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(user, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "getUserById"), request, HashMap.class);
+
+			System.out.println(result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> updateUser(HashMap<String,Object> user) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(user, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "updateUser"), request, HashMap.class);
+
+			System.out.println(result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
