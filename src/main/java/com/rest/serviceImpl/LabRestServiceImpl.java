@@ -235,7 +235,8 @@ public class LabRestServiceImpl implements LabRestService {
 			}
 			return result;
 	}
-
+	 
+	 @SuppressWarnings("unchecked")
 	@Override
 	public HashMap<String, Object> updatePatientRequestLabTest(HashMap<String, Object> labTestReport) {
 		HttpHeaders headers = new HttpHeaders();

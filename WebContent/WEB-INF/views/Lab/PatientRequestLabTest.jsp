@@ -39,7 +39,7 @@
 		       		   	   <div class="form-group col-md-2" >
 						    <label>Patient:</label>
 						     <select ng-model="labrequest.patientId" class="form-control col-md-2">
-						        <option ng-repeat="patient in listpatientdata" value="{{patient.patientId}}">{{patient.patientId}}</option>
+						        <option ng-repeat="patient in listpatientdata" value="{{patient.patientId}}">{{patient.patientName}}</option>
 						     </select>	
 						     <br>			    
 						    <!-- <input type="text" name="" ng-model="labrequest.patientId" class="form-control" > -->
@@ -57,7 +57,7 @@
 						   <div class="form-group col-md-2" >
 						    <label>Doctor:</label>
 						     <select ng-model="labrequest.doctorId" class="form-control col-md-2">
-						        <option ng-repeat="doctor in listdoctorsdata" value="{{doctor.doctorId}}">{{doctor.doctorId}}</option>
+						        <option ng-repeat="doctor in listdoctorsdata" value="{{doctor.doctorId}}">{{doctor.doctorName}}</option>
 						     </select>	
 						     <br>			    
 						  <!--   <input type="text" name="" ng-model="labrequest.doctorId" class="form-control" > -->
@@ -67,7 +67,7 @@
 						  <div class="form-group col-md-2" >
 						    <label>Department:</label>
 						     <select ng-model="labrequest.departmentId" class="form-control col-md-2">
-						        <option ng-repeat="department in listdepartments" value="{{department.departmentId}}">{{department.departmentId}}</option>
+						        <option ng-repeat="department in listdepartments" value="{{department.departmentId}}">{{department.departmentName}}</option>
 						     </select>
 						      <br>					    
 						   <!--  <input type="text" name="" ng-model="labrequest.departmentId" class="form-control" > -->
@@ -106,6 +106,29 @@
 						 </div>
 				    </div>
 
+                      <div class="row">
+					    <h4>Radiology Test</h4>		
+					    <div class="col-md-6">
+					    	<input type="text" ng-model="bagSearch" />
+						     <div
+						   	 ivh-treeview="listRadiologyTests"			    
+						   ivh-treeview-label-attribute="'radiologyTestName'"
+						    ivh-treeview-selected-attribute="'isSelected'"
+						    ivh-treeview-filter="bagSearch"
+						    ivh-treeview-expand-to-depth="-1" >
+						  </div>
+						</div>
+						</div>
+						
+						
+						 <div class="col-md-6">	
+						 	<div ng-repeat="radiology in listRadiologyTests">
+						 		<div class="Main" ng-if="radiology.__ivhTreeviewIndeterminate || radiology.isSelected">
+						 			<h4>{{radiology.radiologyTestName}}</h4>
+						 			
+						 		</div>
+						 	</div>
+						 </div> 
 				    <div class="row">
 		                <div >
 		                	<button type="button" class="btn btn-primary col-md-2" ng-click="addPatientLabRequest()">PatientLab Request</button>  

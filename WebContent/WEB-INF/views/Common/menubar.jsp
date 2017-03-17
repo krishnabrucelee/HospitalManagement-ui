@@ -114,6 +114,31 @@
                                             <h4>Front Office</h4>
                                         </a>
                                     </div>
+                                    
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>LAB</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Pharmacy</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Assettracking</h4>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#">
+                                            <img src="resources/images/icons.png">
+                                            <h4>Leave</h4>
+                                        </a>
+                                    </div>
                                     <div class="col-md-4">
                                         <a href="#">
                                             <img src="resources/images/icons.png">
