@@ -17,7 +17,8 @@ ngApp.directive('integer', function(){
 	           ctrl.$parsers.unshift(function(viewValue){
 	               return parseInt(viewValue, 10);
 	           });
-	   };
+	   }
+	   }
 	});
 
 

@@ -26,6 +26,8 @@ public interface EquipmentService {
 	
 	public HashMap<String, Object> getGroupByEquipment();
 	
+	public HashMap<String, Object> getLastEquipmentCheck(HashMap<String, Object> lastCheckt);
+	
 	public HashMap<String, Object> saveEquipmentCheckRequest(HashMap<String, Object> equipmentConfiguration);
 
 	public HashMap<String, Object> getPendingEquipmentMaintananceRequest();

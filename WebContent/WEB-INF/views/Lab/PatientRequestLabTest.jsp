@@ -106,6 +106,29 @@
 						 </div>
 				    </div>
 
+                      <div class="row">
+					    <h4>Radiology Test</h4>		
+					    <div class="col-md-6">
+					    	<input type="text" ng-model="bagSearch" />
+						     <div
+						   	 ivh-treeview="listRadiologyTests"			    
+						   ivh-treeview-label-attribute="'radiologyTestName'"
+						    ivh-treeview-selected-attribute="'isSelected'"
+						    ivh-treeview-filter="bagSearch"
+						    ivh-treeview-expand-to-depth="-1" >
+						  </div>
+						</div>
+						</div>
+						
+						
+						 <div class="col-md-6">	
+						 	<div ng-repeat="radiology in listRadiologyTests">
+						 		<div class="Main" ng-if="radiology.__ivhTreeviewIndeterminate || radiology.isSelected">
+						 			<h4>{{radiology.radiologyTestName}}</h4>
+						 			
+						 		</div>
+						 	</div>
+						 </div> 
 				    <div class="row">
 		                <div >
 		                	<button type="button" class="btn btn-primary col-md-2" ng-click="addPatientLabRequest()">PatientLab Request</button>  

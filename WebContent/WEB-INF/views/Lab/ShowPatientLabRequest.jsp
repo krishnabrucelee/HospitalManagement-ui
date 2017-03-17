@@ -35,7 +35,16 @@
        		 <div class="buttons" align="right">			
 				<a  class="demo">ListLabRequest</a>
 			</div>
-			
+			<div class="container">
+			    <div class="row">
+			         <div class="form-group col-md-2" >
+				        <label>Prepared By:</label>
+					     <select ng-model="update.staffId" class="form-control">
+					        <option ng-repeat="staff in staffdata" value="{{staff.staffId}}">{{staff.staffId}}</option>
+					     </select>	
+				  	</div>  
+			    </div>			
+			</div>
 			<div class="row">
 			    <div class="col-md-8 col-md-offset-2">
 					<table class="table table-bordered">
@@ -49,7 +58,7 @@
 					  	 	<td>{{labrequest.patient.patientName}}</td>
 					  	 	<td>{{labrequest.doctor.doctorName}}</td>
 					  	 	<td>
-					  	 		<p ng-repeat="testDetails in labrequest.patientLabTestStatus">								{{testDetails.testDetails.testName}}
+					  	 		<p ng-repeat="testDetails in labrequest.patientLabTestStatus">{{testDetails.testDetails.testName}}
 					  	 			<button ng-show="!testDetails.isTestCompleted" class="btn btn-info" ng-click="updateReport(testDetails,labrequest)">Update Report</button>	
 					  	 			<button ng-show="$last && labrequest.isAllTestCompleted" class="btn btn-info" ng-click="ViewReport(labrequest)"> View Report </button>	
 					  	 		</p>					  	 		
@@ -60,7 +69,7 @@
 			    </div>
 		    </div>
 			
-
+		<!--Update Labtest  -->
 			<script type="text/ng-template" id="updateReport"/>			
 				<div>
 						<h5>Test Details</h5>
@@ -82,7 +91,62 @@
 					  <button type="button" class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
 				</form>
 			</script>
-
+			
+			<!--Display Radiology test -->
+			<h1 class="heading">Patient Radiology Request List</h1>
+       		 <div class="buttons" align="right">			
+				<a  class="demo">ListRadiologyRequest</a>
+			</div>
+			
+			<div class="row">
+			    <div class="col-md-8 col-md-offset-2">
+					<table class="table table-bordered">
+					  <thead>
+					  	 <th>Patient Name</th>
+					  	 <th>Doctor Name</th>
+					  	 <th>Test Details</th>
+					  </thead>
+					  <tbody>
+					  	
+					  	 <tr ng-repeat="radiologyrequest in listPatientRadiologyRequest">					  	 	
+					  	 	<td>{{radiologyrequest.patient.patientName}}</td>
+					  	 	<td>{{radiologyrequest.doctor.doctorName}}</td>
+					  	 	<td>
+					  	 		<p ng-repeat="testDetails in radiologyrequest.patientRadiologyTestStatus">{{testDetails.testDetails.radiologyTestName}}
+					  	 			<button ng-show="!testDetails.isTestCompleted" class="btn btn-info" ng-click="updateRadiologyReport(testDetails,radiologyrequest)">Update Report</button>	
+					  	 			<button ng-show="$last && radiologyrequest.isAllTestCompleted" class="btn btn-info" ng-click="ViewRadiologyReport(radiologyrequest)"> View Report </button>	
+					  	 		</p>					  	 		
+					  	 	</td>
+					  	 </tr>
+					  
+					 </tbody>
+					</table>
+				</div>
+			</div>	
+			
+			<!--Update Radiologytest notes -->
+			<script type="text/ng-template" id="updateRadiologyReport"/>			
+				<div>
+						<h5>Radiology Test Details</h5>
+						<p>Name : {{update.testDetails.testDetails.radiologyTestName}}</p>
+						
+				</div>
+				<form>
+					  <div class="form-group">
+					    <label>Update Result</label>
+					    <input type="text" class="form-control" ng-model="update.testResult" placeholder="result">
+					  </div>
+					  <div class="form-group">
+					    <label>Notes</label>
+					    <input type="text" class="form-control" ng-model="update.notes" placeholder="Notes">
+					  </div>
+					  
+					  <button type="button" class="btn btn-default" ng-click="radiologyDataUpdate()">Save</button>
+					  <button type="button" class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
+				</form>
+			</script>
+				 
+			<!--View Labtest notes-->
 			<script type="text/ng-template" id="viewReport"/>	
 
 				Patient Name : {{selectedListLabRequest.patient.patientName}}					  	 	
@@ -102,6 +166,35 @@
 					  	 	<td>{{testDetails.testDetails.testName}}</td>
 					  	 	<td>{{testDetails.testDetails.testHigh}}</td>
 					  	 	<td>{{testDetails.testDetails.testLow}}</td>
+					  	 	<td>
+					  	 		{{testDetails.testResult}}					  	 		
+					  	 	</td>
+					  	 	<td>
+					  	 		{{testDetails.notes}}					  	 		
+					  	 	</td>
+					  	 </tr>
+					  </tbody>
+					</table>
+			</script>
+			
+			<!--View Radiologytest notes-->
+			<script type="text/ng-template" id="viewRadiologyReport"/>	
+
+				Patient Name : {{selectedListRadiologyRequest.patient.patientName}}					  	 	
+
+				Doctor Name : {{selectedListRadiologyRequest.doctor.doctorName}}		
+
+				<table class="table table-bordered">
+					  <thead>
+					  	 <th>Test Name</th>
+					  	
+					  	 <th>Result</th>
+					  	 <th>Notes</th>
+					  </thead>
+					  <tbody>
+					  	 <tr ng-repeat="testDetails in selectedListRadiologyRequest.patientRadiologyTestStatus">					  	 	
+					  	 	<td>{{testDetails.testDetails.radiologyTestName}}</td>
+					  	 	
 					  	 	<td>
 					  	 		{{testDetails.testResult}}					  	 		
 					  	 	</td>

@@ -37,7 +37,7 @@ public class EquipmentController {
 	
 	@RequestMapping(value = "/saveMaintananceConfig", method = RequestMethod.POST)
 	public @ResponseBody HashMap<String, Object> saveMaintananceConfig(@RequestBody HashMap<String, Object> maintananceConfiguration) {								
-		//return null;
+		
 		return iequipment.saveMaintananceConfiguration(maintananceConfiguration);
 	}
 	@RequestMapping(value="/showBuildingForm")
@@ -86,11 +86,16 @@ public class EquipmentController {
 		
 		return equipmentRootFolder+"/EquipmentCheckRequest";
 	}
+
+	@RequestMapping(value = "/getLastEquipmentCheck", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> getLastEquipmentCheck(@RequestBody HashMap<String, Object> equipmentcheck) {						
+	
+		return iequipment.getLastEquipmentCheck(equipmentcheck);
+	}
 	
 	@RequestMapping(value = "/saveEquipmentCheck", method = RequestMethod.POST)
 	public @ResponseBody HashMap<String, Object> saveEquipmentCheck(@RequestBody HashMap<String, Object> equipmentCheckRequest) {						
-		System.out.println("From value="+equipmentCheckRequest);
-		//return null;
+	
 		return iequipment.saveEquipmentCheckRequest(equipmentCheckRequest);
 	}
 	

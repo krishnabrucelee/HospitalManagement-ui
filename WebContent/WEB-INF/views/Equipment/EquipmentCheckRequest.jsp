@@ -41,19 +41,28 @@
                   </div> 
 
                   <div class="form-group col-md-2" >
-            <label>Check AssignedTO:</label>
+            <label>Check Assigned TO:</label>
              <select ng-model="equipmentcheck.staffId" integer class="form-control">
                 <option ng-repeat="staff in liststaffdata" value="{{staff.staffId}}">{{staff.staffId}}</option>
              </select>  
-              <br>            
-           
+              <br>                      
           </div>
 
+         <br>
+        <hr>
           <div class = "form-group">
-      <div class = "col-sm-offset-2 col-sm-10">
-         <button type = "submit" class = "btn btn-primary" ng-click="addEquipmentCheck(equipmentcheck)">Add Equipment</button>
-      </div>
-   </div>
+          <div class = "col-sm-offset-2 col-sm-10">
+             <button type = "submit" class = "btn btn-primary" ng-click="getLastCheck(equipmentcheck)">GetLast Check</button>
+          </div>
+       </div>
+
+          <div class = "form-group">
+		      <div class = "col-sm-offset-2 col-sm-10">
+		         <button type = "submit" class = "btn btn-primary" ng-click="addEquipmentCheck(equipmentcheck)">Equipment Check request</button>
+		      </div>
+   		 </div>
+   		 
+   		  
                 </form>
              </div>
              </div>

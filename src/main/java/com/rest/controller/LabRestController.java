@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rest.service.LabRestService;
+import com.rest.service.RadiologyRestService;
 /**
  * 
  * 
@@ -29,6 +30,9 @@ public class LabRestController {
 	@Autowired
 	LabRestService ilab;
 	
+	@Autowired
+	RadiologyRestService radiolody;
+	
 	private final String labRootFolder = "Lab";
 	
 	
@@ -37,16 +41,34 @@ public class LabRestController {
 		return labRootFolder+"/LabMasterTest";
 	}
 	
+	
+	
 	@RequestMapping(value = "/saveMasterLabTest", method = RequestMethod.POST)
 	public @ResponseBody HashMap<String, Object> saveMasterLabTest(@RequestBody HashMap<String, Object> masterLabTest) {						
 		return ilab.saveMasterLabTest(masterLabTest);
 	}
 	
+	
+	@RequestMapping(value="/showRadiology")
+	public String showRadiology(Model model){
+		return labRootFolder+"/Radiology";
+	}
+	
+	@RequestMapping(value = "/saveRadiology", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> saveRadiology(@RequestBody HashMap<String, Object> radiology) {						
+		System.out.println("Form value="+radiology);
+		return radiolody.saveRadiologyTest(radiology);
+	}
 	@RequestMapping(value = "/listMasterLabTest")
 	public @ResponseBody HashMap<String, Object> listMasterLabTest() {		
 		return ilab.listMasterLabTest();
 	}
 	
+	
+	@RequestMapping(value = "/listRadiologyTest")
+	public @ResponseBody HashMap<String, Object> listRadiologyTest() {		
+		return radiolody.listRadiologyTest();
+	}
 	@RequestMapping(value = "/getMasterLabTestById", method = RequestMethod.POST)
 	public @ResponseBody HashMap<String, Object> getMasterLabTestById(@RequestBody HashMap<String, Object> masterLabTestId) {						
 		return null;//ilab.saveMasterLabTest(masterLabTest);
@@ -91,7 +113,8 @@ public class LabRestController {
 	
 	@RequestMapping(value = "/savePatientLabRequest", method = RequestMethod.POST)
 	public @ResponseBody HashMap<String, Object> savePatientLabRequest(@RequestBody HashMap<String, Object> patientLabRequest) {						
-		System.out.println("savePatientLabRequest controller");
+		System.out.println("savePatientLabRequest controller="+patientLabRequest);
+		//return null;
 		return  ilab.savePatientLabRequest(patientLabRequest);				
 	}
 	
@@ -108,6 +131,7 @@ public class LabRestController {
 	
 	@RequestMapping(value = "/updatePatientRequestLabTest",method=RequestMethod.POST)
 	public @ResponseBody HashMap<String, Object> updatePatientRequestLabTest(@RequestBody HashMap<String, Object> labTestReport) {		
+		System.out.println("Form value="+labTestReport);
 		return ilab.updatePatientRequestLabTest(labTestReport);
 	}
 	

@@ -183,6 +183,7 @@ public class EquipmentServiceImpl implements EquipmentService {
 		}
 		return result;
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public HashMap<String, Object> saveBuildingConfiguration(
 			HashMap<String, Object> buildingConfiguration) {
@@ -192,6 +193,21 @@ public class EquipmentServiceImpl implements EquipmentService {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		try {			
 			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "saveBuilding"), request,HashMap.class);		
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public HashMap<String, Object> getLastEquipmentCheck(
+			HashMap<String, Object> lastCheckt) {
+		HttpHeaders headers = new HttpHeaders();		
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(lastCheckt, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {			
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "getLastCheckRequest"), request,HashMap.class);		
 		} catch (RestClientException | URISyntaxException e) {
 			e.printStackTrace();
 		}

@@ -65,6 +65,9 @@ ngApp.controller('equipmentCtrl',function($scope,$http,$timeout,uibDateParser,ng
 		}
 
 
+
+		
+
 		$scope.getEquipmentByDevicegroup=function(){
 			$http.get("getGroupByEquipment").success(function(data){
 				$scope.listEquipment = data.result;
@@ -73,6 +76,17 @@ ngApp.controller('equipmentCtrl',function($scope,$http,$timeout,uibDateParser,ng
 		}
 
 		$scope.getEquipmentByDevicegroup();
+
+		$scope.getLastCheck =function(equipmentcheck){
+			console.log("Form value")
+			console.log($scope.equipmentcheck);
+			$http.post("getLastEquipmentCheck",$scope.equipmentcheck).success(function(data){
+				$scope.lastCheckvalue = data.LastCheck;
+				console.log("db return status");
+				console.log($scope.lastCheckvalue);
+		});
+
+		}
 
 		$scope.addEquipmentCheck=function(equipmentcheck){
 			

@@ -44,11 +44,7 @@
 					<div  ng-repeat="lab in labmastersubcategeries">
 					   <form >
 					   <div class="row">
-				  		<!-- <div class="form-group col-sm-2" >
-					    <label>catogeryName:</label>
-					    <input type="text" class="form-control"  ng-model="lab.catogeryName"  >
-					  </div> -->
-	
+				  	
 					  <div class="form-group col-sm-2">
 					    <label>Name</label>
 					    <input type="text" class="form-control" ng-model="lab.testName">
@@ -107,10 +103,11 @@
 			  </div>
 			  <hr>
 			  	 <div class="row" align="left">
-                   <div >          
+                   <div>          
                     <button type="button" class="btn btn-primary col-md-2" ng-click="addMaterLabTest(labmaster)">Add Master Lab</button>  
                 </div> 
        		</div> 
+       		
         </div>
     </div>
   
