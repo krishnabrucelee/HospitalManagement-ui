@@ -48,7 +48,7 @@
                		<div class="form-group col-md-8">
 				    <label> Purchase date:</label>
 				    <p class="input-group">
-							    <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="masterstockdata.purchaseDate" is-open="isOpen" datepicker-options="datePickerOption" />
+							    <input type="text" class="form-control"  uib-datepicker-popup="dd-MM-yyyy" ng-model="masterstockdata.purchaseDate" is-open="isOpen" datepicker-options="datePickerOption" />
 							    <span class="input-group-btn">
 							        <button type="button" class="btn btn-default" ng-click="isOpen=!isOpen"><i class="fa fa-calendar"></i></button>
 							    </span>
@@ -59,7 +59,7 @@
                		<div class="form-group col-md-8">
 				    <label> Manufacture Date:</label>
 				   <p class="input-group">
-							    <input type="text" class="form-control" datetime-picker="dd MMM yyyy" data-ng-model="masterstockdata.manufactureDate" is-open="myDateOpen" datepicker-options="datePickerOption" />
+							    <input type="text" class="form-control"  uib-datepicker-popup="dd-MM-yyyy" data-ng-model="masterstockdata.manufactureDate" is-open="myDateOpen" datepicker-options="datePickerOption" />
 							    <span class="input-group-btn">
 							        <button type="button" class="btn btn-default" ng-click="myDateOpen=!myDateOpen"><i class="fa fa-calendar"></i></button>
 							    </span>
@@ -70,7 +70,7 @@
                		<div class="form-group col-md-8">
 				    <label>Expiry Date:</label>
 				   <p class="input-group">
-							    <input type="text" class="form-control" datetime-picker="mediumDate" data-ng-model="masterstockdata.expiryDate" is-open="expDate" datepicker-options="datePickerOption" />
+							    <input type="text" class="form-control"   uib-datepicker-popup="dd-MM-yyyy"  data-ng-model="masterstockdata.expiryDate" is-open="expDate" datepicker-options="datePickerOption" />
 							    <span class="input-group-btn">
 							        <button type="button" class="btn btn-default" ng-click="expDate=!expDate"><i class="fa fa-calendar"></i></button>
 							    </span>
