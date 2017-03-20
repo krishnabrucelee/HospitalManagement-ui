@@ -1,5 +1,5 @@
 
-ngApp.controller('registrationCtrl', function($scope, $http, $timeout) {
+ngApp.controller('registrationCtrl', function($scope, $http, $timeout, uibDateParser, 	ngDialog) {
 	
 //	$scope.dateTimeNow = function() {
 //        $scope.date = new Date();
@@ -12,6 +12,15 @@ ngApp.controller('registrationCtrl', function($scope, $http, $timeout) {
 	$scope.format = "dd-MM-yyyy"
 	$scope.professionType = [{name : "FrontOffice"}, {name : "Doctor"}, {name : "Nurse"}, {name : "Finance"}, {name : "Inventory"}, {name : "LabTechnician"}, {name : "Pharmacist"}, {name : "Laundry"}]
 	
+	
+	$scope.addRole = function () {
+		ngDialog.open({
+			template: 'secondDialog',
+			controller: 'roleCtrl',
+			className: 'ngdialog-theme-default ngdialog-theme-custom',
+			 width: 500
+		});
+	};
 	
 //	$scope.department
 	
@@ -170,4 +179,52 @@ ngApp.controller('registrationCtrl', function($scope, $http, $timeout) {
 			console.log($scope.result);
 		});
 	}
+	
+	var hasActivity = $http.get('listActivityDetails');
+	hasActivity.then(function(data) {
+		$scope.result = data.data;
+		$scope.activityLogList = $scope.result.ActivityLog;
+		console.log($scope.activityLogList);
+	});
+	
+	
+});
+
+ngApp.controller('userCtrl', function($scope, $http, $httpParamSerializer,  $timeout) {
+	
+    $scope.search = [];
+    console.log("ff", location.search);
+    $scope.searchParams = queryStringToJSON(location.search);
+
+    function queryStringToJSON(queryString) {
+
+        if (queryString.indexOf('?') > -1) {
+            queryString = queryString.split('?')[1];
+        }
+        var pairs = queryString.split('&');
+        var result = {};
+        pairs.forEach(function(pair) {
+            pair = pair.split('=');
+            pair[0] = pair[0].replace(/\+/g, '%20');
+            pair[1] = pair[1].replace(/\+/g, '%20');
+            result[pair[0]] = decodeURIComponent(pair[1] || '');
+        });
+        return result;
+    }
+	
+
+    $http.post('getUserById', $scope.searchParams).success(function(data) {
+		$scope.userList = data.User;
+		
+		console.log($scope.userList);
+		
+    });
+    
+    $scope.editUser = function(user) {
+    	console.log(user);
+    	$http.post('updateUser', user).success(function(data) {
+    		console.log(data);
+    	});
+    }
+    
 });

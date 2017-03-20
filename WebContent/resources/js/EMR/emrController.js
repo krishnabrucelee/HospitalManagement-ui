@@ -1,7 +1,7 @@
 ngApp.controller('emrCtrl', function($scope, $http, $httpParamSerializer) {
 	
 	
-	$scope.reportType = [{name : "Patient Treatment"}, {name : "Patient Examination"}, {name : "Patient History"}, {name : "Patient Diagnosis"}]
+	$scope.reportType = [{name : "Patient Treatment"}, {name : "Patient Examination"}, {name : "Patient History"}, {name : "Patient Diagnosis"}, {name : "Patient Lab Test"}, {name : "Patient Prescription"}]
 	$scope.reportTypeList = [];
 	$scope.list = [];
 	$scope.search = [];

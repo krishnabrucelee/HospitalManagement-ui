@@ -21,7 +21,7 @@
 
             <h1 class="heading">Patient Listing
                 
-                <div class="modal-demo" data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'create'">
+                <div class="modal-demo"> <data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'create'">
                 <button type="button" class="btn btn-default" ng-click="addPatient(patient)">Add Patient</button>
             </div>
             
@@ -50,9 +50,9 @@
                     <td class="dropdown" ><span data-toggle="dropdown">Action</span>
                       <ul class="dropdown-menu" >
                         <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'read'" ><a ng-click="viewPatient(patient.patientId)">View</a></li>
-                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'update'" ><a href="#">Edit</a></li>
+                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'update'" ><a data-ng-click="editPatient(patient.patientId)">Edit</a></li>
                         <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'delete'" ><a href="#">Delete</a></li>
-                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'delete'" ><a href="#">Discharge</a></li>
+                        <li><a ng-click="discharge(patient.patientId)">Discharge</a></li>
                       </ul>
                     </td>
                    </tr>

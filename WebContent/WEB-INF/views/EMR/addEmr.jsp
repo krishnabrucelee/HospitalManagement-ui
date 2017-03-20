@@ -49,6 +49,12 @@
 					    <textarea class="form-control" type="text" rows="5" data-ng-model="emr.description" placeholder="Enter Patient History" ></textarea>
 					  </div>
 				  </div>
+				  
+				  <div class="col-md-4 col-md-offset-1" data-ng-if="emr.medicalReport == 'Patient Lab Test'">	
+				  	<div class="form-group">
+					    <textarea class="form-control" type="text" rows="5" data-ng-model="emr.description" placeholder="Enter Patient History" ></textarea>
+					  </div>
+				  </div>
 			  </div>
 
 				

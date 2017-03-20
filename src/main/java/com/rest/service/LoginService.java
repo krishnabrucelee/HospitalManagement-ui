@@ -29,4 +29,21 @@ public interface LoginService {
 	 */
 	HashMap<String, Object> getNurseDetailsByEmail(HashMap<String, Object> nurseEmail);
 
+	/**
+	 * @return
+	 */
+	HashMap<String, Object> listActivityDetails();
+
+	/**
+	 * @param user
+	 * @return
+	 */
+	HashMap<String, Object> getUserById(HashMap<String, Object> user);
+
+	/**
+	 * @param user
+	 * @return
+	 */
+	HashMap<String, Object> updateUser(HashMap<String, Object> user);
+
 }

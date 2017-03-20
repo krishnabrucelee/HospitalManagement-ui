@@ -18,6 +18,7 @@
 			<div data-ng-repeat="patient in patientList">
             <h1 class="heading">Patient
 	            <div class="modal-demo">
+	            <button type="button" data-ng-click="editPatient(patient.patientId)" class="btn btn-default">Edit Patient</button>
 					<button type="button" data-ng-click="emrReport(patient.patientId)" class="btn btn-default">EMR</button>
 				</div>
 			</h1>
@@ -72,7 +73,11 @@
 				    <input type="text" name="" class="form-control" data-ng-model="patient.bloodGroup" placeholder="Blood Group" disabled>
 				  </div>	
 			  </div>
-
+				  <div class="form-group col-md-4">
+                            <label>Department :</label>
+                        <select class="form-control" data-ng-model="patient.department" disabled>
+							</select>
+					</div>
 			  <div class="row">
 			  		<div class="form-group col-md-4">
 				    <label>Patient Type:</label>

@@ -11,7 +11,8 @@
 <body data-ng-controller="purchaseOrderCtrl">
     <%@ include file="../Common/menubar.jsp" %>
     <%@ include file="../Common/sidebar.jsp" %>
-   <div class="container">
+     <div class="clear">
+        <div class="right_block">
         <!-- Purchase Order Start -->
         <div class="row">
             <h1>Purchase Order</h1>
@@ -28,7 +29,7 @@
 							</select>
                     </div>
                      <div class="form-group">
-                            <label>Depeartment :</label>
+                            <label>Department :</label>
                         <select class="form-control" data-ng-change="getItems(purchase.department)" data-ng-model="purchase.department" data-ng-options="department.departmentName for department in departmentList">
 								<option value="">Select</option>
 							</select>
@@ -135,6 +136,7 @@
                
        </form>
             </div>
+     </div>
      </div>
 </body>
 </html>

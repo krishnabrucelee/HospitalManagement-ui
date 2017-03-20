@@ -66,4 +66,12 @@ public class PurchaseOrderRestController {
 		System.out.println(purchaseOrderDetails);
 		return purchaseOrderDetails;
 	}
+	
+	@RequestMapping(value = "/listPurchaseOrderTransactionDetails")
+	public @ResponseBody HashMap<String, Object> listPurchaseOrderTransactionDetails() {
+		HashMap<String, Object> purchaseOrderDetails = purchaseOrderService.listPurchaseOrderTransactionDetails();
+		System.out.println(purchaseOrderDetails);
+		return purchaseOrderDetails;
+	}
+	
 }

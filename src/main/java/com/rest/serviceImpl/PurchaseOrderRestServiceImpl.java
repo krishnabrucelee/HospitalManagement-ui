@@ -91,4 +91,24 @@ public class PurchaseOrderRestServiceImpl implements PurchaseOrderRestService {
 		return result;
 	}
 
+	@Override
+	public HashMap<String, Object> listPurchaseOrderTransactionDetails() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			ResponseEntity<JSONObject> postRes = restTemplate.exchange(new URI(SpringRestConfig.restUrl + "listPurchaseOrderTransaction"), HttpMethod.GET, request,JSONObject.class);
+			
+			result = postRes.getBody();
+
+			System.out.println("list Stock Medicine=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

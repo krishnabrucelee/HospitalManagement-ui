@@ -1,22 +1,22 @@
 
-ngApp.controller('homeCtrl', function($scope, $http) {
+ngApp.controller('homeCtrl', function($scope, $http, $cookies, $cookieStore) {
 	
-//	$scope.sessionDetails = $scope.result.sessionDetails;
+	$scope.sessionDetails = {};
 	
 	   $scope.signIn = function(login) {
 		   console.log(login);
 	       	$http.post("loginUser",login).success(function(data){
-    			console.log("hgfdsd", data);
     			if (data.result == true) {
-    				$scope.sessionDetails = data.session;
-    				console.log("hgfdsd", $scope.sessionDetails);
     				window.location.href="home";
+    				$scope.sessionDetails = data.user;
+   				$cookies.putObject('sessions', $scope.sessionDetails);
     			} else {
     				window.location.href="accessDenied";
     			}
     		});
 	   }
-	   
+	 // Retrieving a cookie
+			  var session =$cookies.getObject('sessions');
 	$scope.listPatient = function() {
 		window.location.href="listPatient";
 	}
@@ -79,6 +79,70 @@ ngApp.controller('homeCtrl', function($scope, $http) {
 
 	$scope.viewAttendance = function(){
 		window.location.href="viewAttendance";
+	}
+	
+	$scope.activityLog = function() {
+		window.location.href="listActivity";
+	}
+	
+	$scope.editProfile = function(userId) {
+		window.location.href="editProfile?id="+userId;
+	}
+	
+	$scope.listWaitingList = function() {
+		window.location.href="listWaitingList";
+	}
+	
+	$scope.addBloodBankCamp = function() {
+		window.location.href="addBloodBankCamp";
+	}
+	
+	$scope.listDonor = function() {
+		window.location.href="listDonor";
+	}
+	
+	$scope.addBloodBank = function() {
+		window.location.href="addBloodBank";
+	}
+	
+	$scope.issueBlood = function() {
+		window.location.href="issueBlood";
+	}
+	
+	$scope.receivePayment = function() {
+		window.location.href="receivePayment";
+	}
+	
+	$scope.salesReceipt = function() {
+		window.location.href="salesReceipt";
+	}
+	
+	$scope.expense = function() {
+		window.location.href="expense";
+	}
+	
+	$scope.payBill = function() {
+		window.location.href="payBill";
+	} 
+	
+	$scope.listBill = function() {
+		window.location.href="listBill";
+	}
+	  
+	$scope.invoice = function() {
+		window.location.href="invoice";
+	}
+	
+	$scope.addCustomer = function() {
+		window.location.href="addCustomer";
+	}
+	
+	$scope.chartOfAccounts = function() {
+		window.location.href="chartOfAccounts";
+	}
+	
+	$scope.profitAndLossReport = function() {
+		window.location.href="profitAndLossReport";
 	}
 });
 

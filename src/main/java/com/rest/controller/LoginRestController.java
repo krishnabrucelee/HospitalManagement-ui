@@ -168,4 +168,43 @@ public class LoginRestController {
 	public String accessDenied(Locale locale, Model model) {
 		return "Logout/accessDenied";
 	}
+	
+	@RequestMapping(value = "/listActivity", method = RequestMethod.GET)
+	public String listActivity(Locale locale, Model model) {
+		return "listActivityLog";
+	}
+	
+	@RequestMapping(value = "/listActivityDetails")
+	public @ResponseBody HashMap<String, Object> listActivityDetails() {
+		HashMap<String, Object> activity = loginService.listActivityDetails();
+		System.out.println(activity.get("ActivityLog"));
+		return activity;
+	}
+	
+	@RequestMapping(value = "/editProfile", method = RequestMethod.GET)
+	public String editProfile(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Registration/editProfile";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
+	@RequestMapping(value = "/getUserById", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> getUserById(@RequestBody HashMap<String, Object> user, HttpSession session) {
+		
+		System.out.println(user.get("id"));
+
+		HashMap<String, Object> userSearch = loginService.getUserById(user);
+		System.out.println(userSearch);
+		return userSearch;
+	}
+	
+	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> updateUser(@RequestBody HashMap<String, Object> user, HttpSession session) {
+		
+		HashMap<String, Object> userSearch = loginService.updateUser(user);
+		System.out.println(userSearch);
+		return userSearch;
+	}
 }

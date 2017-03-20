@@ -10,9 +10,15 @@ ngApp.controller('roomListCtrl', function($scope, $http, $timeout) {
 });
 
 
-ngApp.controller('roomCtrl', function($scope, $http, $timeout) {
+ngApp.controller('roomCtrl', function($scope, $http, $timeout,uibDateParser, ngDialog) {
 	
-	
+	//
+	var hasDepartment = $http.get('listDepartmentDetails');
+	hasDepartment.then(function(data) {
+		$scope.result = data.data;
+		$scope.departmentList = $scope.result.Department;
+		console.log($scope.departmentList);
+	});
 
 	$scope.addRoomTypes = function(room) {
 		$scope.proceedToBedConfiguration = room;
@@ -220,4 +226,90 @@ ngApp.controller('roomCtrl', function($scope, $http, $timeout) {
 	    	});
 	  };
 	  
+		$scope.saveWaitingList = function(patient) {
+			
+			
+			console.log(patient);
+			
+			$http.post('addWaitingListDetails', patient).success(function(data) {
+				$scope.result = data;
+				console.log($scope.result);
+			});
+		}
+		
+		
+		$scope.rooms = [];
+		$scope.searchRoom = {};
+		$scope.changeStatus = function(classType, isAvailable, patient) {
+			
+			$scope.searchRoom.classType = classType;
+			$scope.searchRoom.isAvailable = isAvailable;
+			console.log( $scope.searchRoom);
+			$http.post('listRoomByFilter', $scope.searchRoom).then(function(data) {
+				
+				$scope.roomList = data.data.Floors;
+//				$scope.roomList = $scope.result.Patient;
+//				$scope.sessionDetails = $scope.result.sessionDetails;
+//				$scope.permissionList = $scope.result.sessionDetails.permissionList;
+				console.log("r", $scope.roomList);
+				angular.forEach($scope.roomList, function(data){	
+					console.log("1",data);
+						angular.forEach(data, function(data1) {
+							
+							if (data1.roomManagement != null) {
+								console.log("2:", data1.roomManagement);
+							$scope.rooms.push(data1.roomManagement);
+							}
+						});
+					
+				});
+				console.log("floorId", $scope.rooms);
+				
+				var object = {};
+				object.floorId = $scope.rooms.floorId;
+				console.log("floorIiiid", object);
+				//
+				$scope.addRoomToPatient = function(roomData) {
+					
+					
+					alert("hi");
+					$scope.room = roomData;
+					object.wardNumber = roomData.wardNumber;
+					console.log("hqqi", object);
+				}
+					$scope.save = function() {
+						
+						patient.wardNumber = object.wardNumber;
+						patient.floorId = object.floorId;
+						patient.status = "Booked"
+						console.log("Room Pa", patient);
+						
+						$http.post('createPatient', patient).success(function(data) {
+							$scope.result = data;
+							console.log($scope.result);
+						});
+					}
+			});
+			
+			ngDialog.open({
+				template: 'secondDialog',
+				scope : $scope,
+				className: 'ngdialog-theme-default ngdialog-theme-custom',
+				 width: 1000
+			});
+		}
+		
+	    $scope.viewPatient = function(patientId){
+	    	console.log(patientId);
+	    	var patientView = "patientView"; 
+				window.location.href="viewPatient?id="+patientId+"&view="+patientView;
+	    }
+	    
+		//
+		var hasWaitingList = $http.get('listWaitingListDetails');
+		hasWaitingList.then(function(data) {
+			$scope.result = data.data;
+			$scope.waitingList = $scope.result.WaitingList;
+			console.log($scope.waitingList);
+		});
 });

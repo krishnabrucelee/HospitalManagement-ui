@@ -59,8 +59,8 @@ public class PatientRestController {
 	@RequestMapping(value = "/listPatientDetails")
 	public @ResponseBody HashMap<String, Object> listPatient(HttpSession session) {
 		HashMap<String, Object> patient = patientRestService.listPatient();
-		/*patient.put("sessionDetails", session.getAttribute("role"));
-		System.out.println(patient.get("Patient"));*/
+		patient.put("sessionDetails", session.getAttribute("role"));
+		System.out.println(patient.get("Patient"));
 		return patient;
 	}
 	
@@ -71,6 +71,40 @@ public class PatientRestController {
 		} else {
 			return "Logout/accessDenied";
 		}
+	}
+	
+	@RequestMapping(value = "/editPatient", method = RequestMethod.GET)
+	public String editPatient(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Patient/editPatient";
+		} else {
+			return "Logout/accessDenied";
+		}
+	} 
+	
+	@RequestMapping(value = "/editPatientDetails", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> editPatientDetails(@RequestBody HashMap<String, Object> patient, HttpSession session) {	
+		System.out.println(patient);
+		HashMap<String, Object> editPatient = patientRestService.editPatientDetails(patient);
+		System.out.println(editPatient);
+		return editPatient;
+	}
+	
+	@RequestMapping(value = "/dischargeSummary", method = RequestMethod.GET)
+	public String dischargeSummary(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Patient/dischargeSummary";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
+	@RequestMapping(value = "/createDischargeSummary", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> createDischargeSummary(@RequestBody HashMap<String, Object> patient, HttpSession session) {	
+		System.out.println(patient);
+		HashMap<String, Object> dischargeSummary = patientRestService.createDischargeSummary(patient);
+		System.out.println(dischargeSummary);
+		return dischargeSummary;
 	}
 	
 	@RequestMapping(value = "/viewPatientById", method = RequestMethod.POST)
@@ -95,4 +129,5 @@ public class PatientRestController {
 		}
 		return patientSearch;
 	}
+	
 }

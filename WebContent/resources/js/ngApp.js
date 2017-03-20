@@ -1,6 +1,6 @@
 
 var ngApp = angular.module('ngModule', 
-	[ 'ngAnimate', 'ngSanitize', 'ui.bootstrap','ui.bootstrap.datetimepicker','ngDialog','mwl.calendar','ivh.treeview']);
+	[ 'ngAnimate', 'ngSanitize', 'ui.bootstrap','ui.bootstrap.datetimepicker','ngDialog','mwl.calendar','ivh.treeview', 'ngCookies']);
 
 ngApp.config(['calendarConfig', function(calendarConfig) {
 	

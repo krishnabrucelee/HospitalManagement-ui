@@ -64,4 +64,38 @@ public class RoomRestController {
 	public @ResponseBody HashMap<String, Object> listRoomByFilter(@RequestBody HashMap<String, Object> room) {
 		return roomRestService.listRoomByFilter(room);
 	}
+	
+	@RequestMapping(value = "/getRoomDetailsByWardNumber", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> getRoomDetailsByWardNumber(@RequestBody HashMap<String, Object> room) {
+		return roomRestService.getRoomDetailsByWardNumber(room);
+	}
+	
+	
+	@RequestMapping(value = "/addWaitingList", method = RequestMethod.GET)
+	public String addWaitingList(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Room/addWaitingList";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
+	@RequestMapping(value = "/addWaitingListDetails", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> addWaitingListDetails(@RequestBody HashMap<String, Object> room) {
+		return roomRestService.addWaitingListDetails(room);
+	}
+	
+	@RequestMapping(value = "/listWaitingList", method = RequestMethod.GET)
+	public String listWaitingList(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Room/listWaitingList";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
+	@RequestMapping(value = "/listWaitingListDetails")
+	public @ResponseBody HashMap<String, Object> listWaitingListDetails() {
+		return roomRestService.listWaitingListDetails();
+	}
 }

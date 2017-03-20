@@ -110,5 +110,43 @@ public class PatientRestServiceImpl  implements PatientRestService {
 		}
 		return result;
 	}
+
+	@Override
+	public HashMap<String, Object> createDischargeSummary(HashMap<String, Object> patient) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(patient, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "addDischargeSummary"), request,
+					HashMap.class);
+
+			System.out.println("Add Patient=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> editPatientDetails(HashMap<String, Object> patient) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(patient, headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "updatePatient"), request,
+					HashMap.class);
+
+			System.out.println("Add Patient=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
 }
