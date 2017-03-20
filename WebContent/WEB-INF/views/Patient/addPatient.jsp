@@ -185,6 +185,5 @@
             <p>2016 Copy rights</p>
         </div>
     </footer>
-    </div>
 </body>
 </html>

@@ -5,17 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ include file="../Common/includeScript.jsp" %>
-    <script src="resources/js/PurchaseOrder/purchaseOrderController.js" ></script>
+    <script src="resources/js/Payment/paymentController.js" ></script>
 <title>Insert title here</title>
 </head>
-<body data-ng-controller="purchaseOrderCtrl">
+<body data-ng-controller="payBillCtrl">
     <%@ include file="../Common/menubar.jsp" %>
     <%@ include file="../Common/sidebar.jsp" %>
      <div class="clear">
         <div class="right_block">
         <!-- Purchase Order Start -->
-        <div class="row">
-            <h1>Purchase Order</h1>
+            <h1>Expense</h1>
             <hr>
             <form role="form">
             <div class="col-md-8">
@@ -23,7 +22,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                        <label>Supplier Name :</label>
+                        <label>Patient Name :</label>
                         <select class="form-control"  data-ng-model="purchase" data-ng-options="supplier.displayName for supplier in supplierList">
 								<option value="">Select</option>
 							</select>
@@ -136,7 +135,6 @@
                
        </form>
             </div>
-     </div>
      </div>
 </body>
 </html>

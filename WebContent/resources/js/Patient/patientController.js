@@ -172,7 +172,7 @@ ngApp.controller('patientViewCtrl', function($scope, $http, $httpParamSerializer
 
 
 
-ngApp.controller('patientListCtrl', function($scope, $http, $httpParamSerializer) {
+ngApp.controller('patientListCtrl', function($scope, $http, $httpParamSerializer, $cookies) {
 	
 		$scope.patientList = [];
         

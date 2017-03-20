@@ -14,7 +14,7 @@
     <div class="clear">
         <div class="right_block">
 
-            <h1 class="heading">Stock Ledger Listing</h1>
+            <h1 class="heading">Purchase Order</h1>
             <div >
                 <button type="button" class="btn btn-default" ng-click="addPurchaseOrder()">Add New PurchaseOrder</button>
             </div>
@@ -24,25 +24,24 @@
                     <th>ID</th>
                      <th>Item name</th>
                     <th>Department</th>
-                    <!-- <th width="20">Options</th> -->
+                    <th width="20">Options</th>
                   </tr>
                 </thead>
-                <tbody data-ng-repeat="purchase in medicineItemMasterList">
-                
+                <tbody data-ng-repeat="purchase in purchaseOrderTransactionList">
                   <tr>
-                  <td>{{purchaseOrderRefNumber}}</td>
-                  <td>{{purchase.medicineName}}</td>
+                  <td>{{purchase.purchaseOrderTransactionId}}</td>
+                  <td>{{purchase.medicineItemMaster.medicineName}}</td>
                   <td>{{department.departmentName}}</td>
                   	
-<!--                     <td class="dropdown" ><span data-toggle="dropdown">Action</span>
+                    <td class="dropdown" ><span data-toggle="dropdown">Action</span>
                       <ul class="dropdown-menu" >
-                        <li><a ng-click="stockAdjustment()">Stock Adjustment</a></li>
+                        <li><a ng-click="billPayment(purchase)">Bill Payment</a></li>
                         <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'update'" ><a href="#">Edit</a></li>
                         <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'delete'" ><a href="#">Delete</a></li>
                         <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'delete'" ><a href="#">Discharge</a></li>
                       </ul>
-                    </td> -->
-                   </tr>
+                    </td> 
+                                       </tr>
                   
                 </tbody>
               </table>

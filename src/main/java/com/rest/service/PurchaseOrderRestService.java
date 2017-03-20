@@ -28,4 +28,9 @@ public interface PurchaseOrderRestService {
 	 */
 	HashMap<String, Object> listPurchaseOrderDetails();
 
+	/**
+	 * @return
+	 */
+	HashMap<String, Object> listPurchaseOrderTransactionDetails();
+
 }

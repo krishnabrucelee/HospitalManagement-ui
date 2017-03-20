@@ -17,7 +17,8 @@ ngApp.controller('purchaseOrderListCtrl', function($scope, $http, $timeout) {
     		$scope.department = value.department;
     		$scope.purchaseOrderRefNumber = value.purchaseOrderRefNumber;
     		$scope.purchaseOrderTransactionList = value.purchaseOrderTransaction;
-    		console.log("aa", $scope.purchaseOrderList);
+    		$scope.purchaseOrderTransactionList.purchaseOrderId = value.purchaseOrderId;
+    		console.log("aa", $scope.purchaseOrderTransactionList);
     		angular.forEach($scope.purchaseOrderTransactionList, function(value1) {
     			$scope.medicineItemMasterList.push(value1.medicineItemMaster);
     			console.log("dd", $scope.medicineItemMasterList);
@@ -25,6 +26,13 @@ ngApp.controller('purchaseOrderListCtrl', function($scope, $http, $timeout) {
     	});
 		
 	});
+	
+	$scope.billPayment = function (purchase) {
+		console.log(purchase);
+		
+		window.location.href="purchaseBill";
+		
+	}
 });
 
 ngApp.controller('purchaseOrderCtrl', function($scope, $http, $timeout, uibDateParser, $timeout) {
@@ -125,4 +133,6 @@ ngApp.controller('purchaseOrderCtrl', function($scope, $http, $timeout, uibDateP
        			console.log(data);
        		});
 	}
+	
 });
+

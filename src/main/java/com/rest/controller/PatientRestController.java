@@ -59,8 +59,8 @@ public class PatientRestController {
 	@RequestMapping(value = "/listPatientDetails")
 	public @ResponseBody HashMap<String, Object> listPatient(HttpSession session) {
 		HashMap<String, Object> patient = patientRestService.listPatient();
-		/*patient.put("sessionDetails", session.getAttribute("role"));
-		System.out.println(patient.get("Patient"));*/
+		patient.put("sessionDetails", session.getAttribute("role"));
+		System.out.println(patient.get("Patient"));
 		return patient;
 	}
 	
