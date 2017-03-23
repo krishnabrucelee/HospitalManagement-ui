@@ -187,7 +187,12 @@ ngApp.controller('registrationCtrl', function($scope, $http, $timeout, uibDatePa
 		console.log($scope.activityLogList);
 	});
 	
-	
+	var hasStaff = $http.get('listStaffDetails');
+	hasStaff.then(function(data) {
+		$scope.result = data.data;
+		$scope.staffList = $scope.result.Staff;
+		console.log($scope.staffList);
+	});
 });
 
 ngApp.controller('userCtrl', function($scope, $http, $httpParamSerializer,  $timeout) {

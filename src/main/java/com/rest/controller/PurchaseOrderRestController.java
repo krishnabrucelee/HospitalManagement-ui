@@ -46,6 +46,15 @@ public class PurchaseOrderRestController {
 		}
 	}
 	
+	@RequestMapping(value = "/getMrn", method = RequestMethod.GET)
+	public String getMrn(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "PurchaseOrder/getMrn";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
 	@RequestMapping(value = "/getItemsByDepartment")
 	public @ResponseBody HashMap<String, Object> getItemsByDepartment(@RequestBody HashMap<String, Object> department, HttpSession session) {
 		HashMap<String, Object> requestItemSearch = purchaseOrderService.getItemsByDepartment(department);

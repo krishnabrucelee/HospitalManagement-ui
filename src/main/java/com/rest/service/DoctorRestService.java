@@ -53,4 +53,9 @@ public interface DoctorRestService {
 	 * @return Doctor
 	 */
 	public HashMap<String, Object> listByDoctorId(HashMap<String, Object> doctorId);
+
+	/**
+	 * @return
+	 */
+	public HashMap<String, Object> listConsultantDetails();
 }

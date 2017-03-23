@@ -4,6 +4,9 @@
 package com.rest.controller;
 
 import java.util.HashMap;
+import java.util.Locale;
+
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,13 +53,21 @@ public class StaffRestController {
 		}
 	}
 
+	@RequestMapping(value = "/listStaff", method = RequestMethod.GET)
+	public String liststaff(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Registration/listStaff";
+		} else {
+			return "Logout/accessDenied";
+		}
+	} 
 	/**
 	 * List staff.
 	 * 
 	 * @param staff
 	 * @return staff
 	 */
-	@RequestMapping(value = "/listStaff")
+	@RequestMapping(value = "/listStaffDetails")
 	public @ResponseBody HashMap<String, Object> listStaff() {
 		return staffRestService.listStaff();
 	}

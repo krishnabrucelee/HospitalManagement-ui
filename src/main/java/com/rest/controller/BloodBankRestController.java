@@ -48,10 +48,29 @@ public class BloodBankRestController {
 		}
 	}
 	
+	@RequestMapping(value = "/listBloodBankCamp", method = RequestMethod.GET)
+	public String listBloodBankCamp(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "BloodBank/listBloodBankCamp";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
+	
 	@RequestMapping(value = "/issueBlood", method = RequestMethod.GET)
 	public String issueBlood(Locale locale, Model model, HttpSession session) {
 		if (session.getAttribute("role") != null) {
 			return "BloodBank/issueBlood";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
+	@RequestMapping(value = "/listBloodRequest", method = RequestMethod.GET)
+	public String listBloodRequest(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "BloodBank/listBloodRequest";
 		} else {
 			return "Logout/accessDenied";
 		}
@@ -79,4 +98,17 @@ public class BloodBankRestController {
 		HashMap<String, Object> bloodBankDetails = bloodBankRestService.issueBloodDetails(bloodBank);
 		return bloodBankDetails;
 	}
+	
+	@RequestMapping(value = "/listBloodBankCampDetails")
+	public @ResponseBody HashMap<String, Object> listBloodBankCampDetails() {
+		HashMap<String, Object> doctor = bloodBankRestService.listBloodBankCampDetails();
+		return doctor;
+	}
+	
+	@RequestMapping(value = "/listBloodRequestDetails")
+	public @ResponseBody HashMap<String, Object> listBloodRequestDetails() {
+		HashMap<String, Object> doctor = bloodBankRestService.listBloodRequestDetails();
+		return doctor;
+	}
+	
 }

@@ -25,6 +25,10 @@ ngApp.controller('homeCtrl', function($scope, $http, $cookies, $cookieStore) {
 		window.location.href="listDoctor";
 	}
 	
+	$scope.listStaff = function() {
+		window.location.href="listStaff";
+	}
+	
 	$scope.addStaff = function() {
 		window.location.href="registration";
 	}
@@ -73,6 +77,10 @@ ngApp.controller('homeCtrl', function($scope, $http, $cookies, $cookieStore) {
 		window.location.href="addSurgeryRoom";
 	}
 	
+	$scope.listConsultant = function() {
+		window.location.href="listConsultant";
+	}
+	
 	$scope.addSurgery = function() {
 		window.location.href="addSurgery";
 	}
@@ -95,6 +103,14 @@ ngApp.controller('homeCtrl', function($scope, $http, $cookies, $cookieStore) {
 	
 	$scope.addBloodBankCamp = function() {
 		window.location.href="addBloodBankCamp";
+	}
+	
+	$scope.listBloodBankCamp = function() {
+		window.location.href="listBloodBankCamp";
+	}
+	
+	$scope.listBloodRequest = function() {
+		window.location.href="listBloodRequest";
 	}
 	
 	$scope.listDonor = function() {
@@ -144,5 +160,22 @@ ngApp.controller('homeCtrl', function($scope, $http, $cookies, $cookieStore) {
 	$scope.profitAndLossReport = function() {
 		window.location.href="profitAndLossReport";
 	}
+	
+	$scope.cashFlowReport = function() {
+		window.location.href="cashFlowReport";
+	}
+	
+	$scope.listReceivePayment = function() {
+		window.location.href="listReceivePayment";
+	} 
+	
+	$scope.listSurgery = function() {
+		window.location.href="listSurgery";
+	} 
+	
+	$scope.listMrn = function() {
+		window.location.href="listMrn";
+	}
+	
 });
 

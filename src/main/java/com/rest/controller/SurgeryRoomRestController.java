@@ -51,6 +51,15 @@ public class SurgeryRoomRestController {
 		} else {
 			return "Logout/accessDenied";
 		}
+	} 
+	
+	@RequestMapping(value = "/listSurgery", method = RequestMethod.GET)
+	public String listSurgery (Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Surgery/listSurgery";
+		} else {
+			return "Logout/accessDenied";
+		}
 	}
 	
 	@RequestMapping(value = "/addSurgeryDetails")
@@ -67,4 +76,10 @@ public class SurgeryRoomRestController {
 		return doctor;
 	}
 	
+	@RequestMapping(value = "/listSurgeryDetails")
+	public @ResponseBody HashMap<String, Object> listSurgeryDetails() {
+		HashMap<String, Object> doctor = surgeryRoomRestService.listSurgeryDetails();
+		System.out.println(doctor.get("SurgeryRoom"));
+		return doctor;
+	}
 }

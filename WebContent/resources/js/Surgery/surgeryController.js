@@ -37,6 +37,13 @@ ngApp.controller('surgeryCtrl', function($scope, $http, $timeout) {
 		console.log($scope.surgeryRoomList);
 	});
 	
+	var hasSurgery = $http.get('listSurgeryDetails');
+	hasSurgery.then(function(data) {
+		$scope.result = data.data;
+		$scope.surgeryList = $scope.result.Surgery;
+		console.log("ss", $scope.surgeryList);
+	});
+	
 	$scope.addSurgery = function (surgery) {
 		console.log(surgery);
     	$http.post('addSurgeryDetails', surgery).success(function(data) {

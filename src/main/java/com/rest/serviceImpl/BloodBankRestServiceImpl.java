@@ -85,4 +85,44 @@ public class BloodBankRestServiceImpl implements BloodBankRestService {
 		return result;
 	}
 
+	@Override
+	public HashMap<String, Object> listBloodBankCampDetails() {
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "listBloodBankCamp"), request,
+					HashMap.class);
+
+			System.out.println("List doctors=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> listBloodRequestDetails() {
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "listBloodRequest"), request,
+					HashMap.class);
+
+			System.out.println("List doctors=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

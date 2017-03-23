@@ -21,6 +21,22 @@ ngApp.controller('bloodCtrl', function($scope, $http, $httpParamSerializer) {
 		
 	}
 	
+	
+	var hasDonor = $http.get('listBloodBankCampDetails');
+	hasDonor.then(function(data) {
+		$scope.result = data.data;
+		$scope.bloodCampList = $scope.result.BloodBankCamp;
+		console.log("bb", $scope.bloodCampList);
+	});
+	
+	var hasDonor = $http.get('listBloodRequestDetails');
+	hasDonor.then(function(data) {
+		$scope.result = data.data;
+		$scope.bloodRequestList = $scope.result.BloodRequest;
+		console.log("br", $scope.bloodRequestList);
+	});
+	
+	
 	//
 	var hasDonor = $http.get('listDonorDetails');
 	hasDonor.then(function(data) {

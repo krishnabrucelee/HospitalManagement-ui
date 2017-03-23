@@ -54,6 +54,15 @@
 						</a>
 					</div>
 				</c:if>
+			<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listStaff()">
+							
+							<img  src="resources/images/icons.png">
+							<h4>List Staff</h4>
+						</a>
+					</div>
+				</c:if>
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="addDepartment()">
@@ -137,7 +146,16 @@
 							<img  src="resources/images/icons.png">
 						</a>
 					</div>
-					</c:if>		
+					</c:if>	
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listConsultant()">
+							
+							<img  src="resources/images/icons.png">
+							<h4>List Consultant</h4>
+						</a>
+					</div>
+				</c:if>	
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="activityLog()">
@@ -154,6 +172,22 @@
 						</a>
 					</div>
 					</c:if>	
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listSurgery()">
+							<h4>List Surgery</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listMrn()">
+							<h4>List MRN</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>
 					<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="listWaitingList()">
@@ -170,6 +204,22 @@
 						</a>
 					</div>
 					</c:if>	
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listBloodBankCamp()">
+							<h4>List Blood Bank Camp</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listBloodRequest()">
+							<h4>List Blood Request</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
 						<a data-ng-click="issueBlood()">
@@ -220,6 +270,14 @@
 					</c:if>
 				<c:if test="${role.roleName eq 'Admin'}">
 					<div class="col-md-3">
+						<a data-ng-click="cashFlowReport()">
+							<h4>Cash Flow Report</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>
+				<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
 						<a data-ng-click="chartOfAccounts()">
 							<h4>Chart of Accounts</h4>
 							<img  src="resources/images/icons.png">
@@ -238,6 +296,14 @@
 					<div class="col-md-3">
 						<a data-ng-click="receivePayment()">
 							<h4>Receive Payment</h4>
+							<img  src="resources/images/icons.png">
+						</a>
+					</div>
+					</c:if>	
+					<c:if test="${role.roleName eq 'Admin'}">
+					<div class="col-md-3">
+						<a data-ng-click="listReceivePayment()">
+							<h4>List Receive Payment</h4>
 							<img  src="resources/images/icons.png">
 						</a>
 					</div>

@@ -125,4 +125,24 @@ public class DoctorRestServiceImpl implements DoctorRestService {
 		return result;
 	}
 
+	@Override
+	public HashMap<String, Object> listConsultantDetails() {
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+
+		HttpEntity<HashMap<String, Object>> request = new HttpEntity<HashMap<String, Object>>(headers);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = restTemplate.postForObject(new URI(SpringRestConfig.restUrl + "listConsultant"), request,
+					HashMap.class);
+
+			System.out.println("List doctors=" + result);
+
+		} catch (RestClientException | URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

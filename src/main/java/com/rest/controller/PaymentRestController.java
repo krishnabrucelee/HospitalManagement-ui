@@ -35,6 +35,15 @@ public class PaymentRestController {
 		} else {
 			return "Logout/accessDenied";
 		}
+	} 
+	
+	@RequestMapping(value = "/listReceivePayment", method = RequestMethod.GET)
+	public String listReceivePayment(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Payment/listReceivePayment";
+		} else {
+			return "Logout/accessDenied";
+		}
 	}
 	
 	@RequestMapping(value = "/salesReceipt", method = RequestMethod.GET)
@@ -173,6 +182,14 @@ public class PaymentRestController {
 		return patient;
 	}
 	
+	@RequestMapping(value = "/listReceivePaymentDetails")
+	public @ResponseBody HashMap<String, Object> listReceivePaymentDetails(HttpSession session) {
+		HashMap<String, Object> patient = paymentRestService.listReceivePaymentDetails();
+		patient.put("sessionDetails", session.getAttribute("role"));
+		System.out.println(patient.get("PurchaseBill"));
+		return patient;
+	}
+	
 	@RequestMapping(value = "/addReceivePayment", method = RequestMethod.POST)
 	public @ResponseBody HashMap<String, Object> addReceivePayment(@RequestBody HashMap<String, Object> purchase, HttpSession session) {	
 		System.out.println(purchase);
@@ -197,6 +214,16 @@ public class PaymentRestController {
 			return "Logout/accessDenied";
 		}
 	}
+	
+	@RequestMapping(value = "/cashFlowReport", method = RequestMethod.GET)
+	public String cashFlowReport(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Payment/cashFlowReport";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
 	@RequestMapping(value = "/generateFinancialReport", method = RequestMethod.POST)
 	public @ResponseBody HashMap<String, Object> generateFinancialReport(@RequestBody HashMap<String, Object> bill, HttpSession session) {	
 		System.out.println(bill);

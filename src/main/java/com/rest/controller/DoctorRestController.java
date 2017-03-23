@@ -57,6 +57,15 @@ public class DoctorRestController {
 		}
 	}
 	
+	@RequestMapping(value = "/listConsultant", method = RequestMethod.GET)
+	public String listConsultant(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Doctor/listConsultant";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
 	/**
 	 * List doctor.
 	 * 
@@ -66,6 +75,13 @@ public class DoctorRestController {
 	@RequestMapping(value = "/listDoctorDetails")
 	public @ResponseBody HashMap<String, Object> listDoctorDetails() {
 		HashMap<String, Object> doctor = doctorRestService.listDoctor();
+		
+		return doctor;
+	}
+	
+	@RequestMapping(value = "/listConsultantDetails")
+	public @ResponseBody HashMap<String, Object> listConsultantDetails() {
+		HashMap<String, Object> doctor = doctorRestService.listConsultantDetails();
 		
 		return doctor;
 	}
@@ -100,6 +116,16 @@ public class DoctorRestController {
 	 */
 	@RequestMapping(value = "/listDoctorById")
 	public @ResponseBody HashMap<String, Object> listByDoctorId(@RequestBody HashMap<String, Object> doctorId) {
+		System.out.println(doctorId);
 		return doctorRestService.listByDoctorId(doctorId);
+	}
+	
+	@RequestMapping(value = "/viewDoctor", method = RequestMethod.GET)
+	public String viewDoctor(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "Doctor/listConsultantDetails";
+		} else {
+			return "Logout/accessDenied";
+		}
 	}
 }

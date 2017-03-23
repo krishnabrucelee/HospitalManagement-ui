@@ -37,11 +37,37 @@ public class MaterialRecieveNoteRestController {
 		}
 	}
 	
+	@RequestMapping(value = "/listMrn", method = RequestMethod.GET)
+	public String listMrn(Locale locale, Model model, HttpSession session) {
+		if (session.getAttribute("role") != null) {
+			return "PurchaseOrder/listMrn";
+		} else {
+			return "Logout/accessDenied";
+		}
+	}
+	
 	@RequestMapping(value = "/addMrnDetails", method = RequestMethod.POST)
 	public @ResponseBody HashMap<String, Object> addMrnDetails(@RequestBody HashMap<String, Object> mrn, HttpSession session) {	
 		System.out.println(mrn);
 		HashMap<String, Object> addPatient = mrnService.addMrnDetails(mrn);
 		System.out.println(addPatient);
 		return addPatient;
+	}
+	
+	@RequestMapping(value = "/listMrnDetails")
+	public @ResponseBody HashMap<String, Object> listMrnDetails() {	
+		HashMap<String, Object> addPatient = mrnService.listMrnDetails();
+		System.out.println(addPatient);
+		return addPatient;
+	}
+	
+	@RequestMapping(value = "/getMrnByPurchaseId", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, Object> getMrnByPurchaseId(@RequestBody HashMap<String, Object> patient, HttpSession session) {
+		
+		System.out.println(patient.get("id"));
+
+		HashMap<String, Object> patientSearch = mrnService.getMrnByPurchaseId(patient);
+		System.out.println(patientSearch);
+		return patientSearch;
 	}
 }

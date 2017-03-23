@@ -32,6 +32,13 @@ ngApp.controller('purchaseOrderListCtrl', function($scope, $http, $timeout) {
 		
 		window.location.href="purchaseBill";
 		
+	} 
+	
+	$scope.getMrn = function (purchaseId) {
+		console.log(purchaseId);
+		//getMrnByPurchaseId
+		window.location.href="getMrn?id="+purchaseId;
+		
 	}
 });
 
@@ -90,7 +97,12 @@ ngApp.controller('purchaseOrderCtrl', function($scope, $http, $timeout, uibDateP
 		});
 	}
 	
-	
+	var hasDepartment = $http.get('listMrnDetails');
+	hasDepartment.then(function(data) {
+		$scope.result = data.data;
+		$scope.mrnList = $scope.result.MaterialRecieveNote;
+		console.log("dd", $scope.mrnList);
+	});
 	
 	//
 	var hasPurchaseOrder = $http.get('listPurchaseOrderDetails');
@@ -134,5 +146,32 @@ ngApp.controller('purchaseOrderCtrl', function($scope, $http, $timeout, uibDateP
        		});
 	}
 	
+	
+//	 $scope.search = [];
+//	    console.log("ff", location.search);
+//	    $scope.searchParams = queryStringToJSON(location.search);
+//
+//	    function queryStringToJSON(queryString) {
+//
+//	        if (queryString.indexOf('?') > -1) {
+//	            queryString = queryString.split('?')[1];
+//	        }
+//	        var pairs = queryString.split('&');
+//	        var result = {};
+//	        pairs.forEach(function(pair) {
+//	            pair = pair.split('=');
+//	            pair[0] = pair[0].replace(/\+/g, '%20');
+//	            pair[1] = pair[1].replace(/\+/g, '%20');
+//	            result[pair[0]] = decodeURIComponent(pair[1] || '');
+//	        });
+//	        return result;
+//	    }
+//		
+
+//	    $http.post('getMrnByPurchaseId', $scope.searchParams).success(function(data) {
+//			$scope.mrnPurchaseList = data.MaterialRecieveNote;
+//			
+//			console.log("mrn", $scope.mrnPurchaseList);
+//	    });
 });
 

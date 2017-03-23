@@ -146,6 +146,12 @@ ngApp.controller('patientViewCtrl', function($scope, $http, $httpParamSerializer
     	window.location.href="listEmr?id="+patientId+"&view="+emrView;
     }
     
+    $scope.editPatient = function(patientId) {
+    	console.log(patientId);
+    	var patientView = "patientView"; 
+			window.location.href="editPatient?id="+patientId+"&view="+patientView;
+    }
+    
     $scope.editPatientDetails = function(patient) {
     	console.log(patient);
     	
@@ -201,11 +207,5 @@ ngApp.controller('patientListCtrl', function($scope, $http, $httpParamSerializer
 				window.location.href="dischargeSummary?id="+patientId+"&view="+patientView;
 	    }
 	    
-	    $scope.editPatient = function(patientId) {
-	    	console.log(patientId);
-	    	var patientView = "patientView"; 
-				window.location.href="editPatient?id="+patientId+"&view="+patientView;
-	    }
- 
 	    
 });

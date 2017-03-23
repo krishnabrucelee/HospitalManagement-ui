@@ -219,6 +219,13 @@ ngApp.controller('receivePaymentCtrl', function($scope, $http, $httpParamSeriali
 //		console.log(data);
 //	});
   }
+	
+	var hasDepartment = $http.get('listReceivePaymentDetails');
+	hasDepartment.then(function(data) {
+		$scope.result = data.data;
+		$scope.receivePayList = $scope.result.ReceivePayment;
+		console.log("ss",$scope.receivePayList);
+	});
 });
 
 

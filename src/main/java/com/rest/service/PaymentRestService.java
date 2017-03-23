@@ -81,4 +81,9 @@ public interface PaymentRestService {
 	 */
 	HashMap<String, Object> generateFinancialReport(HashMap<String, Object> bill);
 
+	/**
+	 * @return
+	 */
+	HashMap<String, Object> listReceivePaymentDetails();
+
 }

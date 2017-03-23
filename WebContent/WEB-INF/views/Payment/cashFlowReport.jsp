@@ -5,13 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ include file="../Common/includeScript.jsp" %>
-    <script src="resources/js/Payment/profitAndLossReportController.js" ></script>
+    <script src="resources/js/Payment/cashFlowReportController.js" ></script>
 <title>Insert title here</title>
 </head>
-<body data-ng-controller="profitAndLossReportCtrl">
+<body data-ng-controller="cashFlowReportCtrl">
     <%@ include file="../Common/menubar.jsp" %>
     <%@ include file="../Common/sidebar.jsp" %>
-
 <div class="right_block">
 <h1 class="heading">Report</h1>
 <div class="ReportBlock">
@@ -52,7 +51,7 @@
         </div>
 
         <div class="centered_form">
-            <h3 class="text-center">PROFIT AND LOSS</h3>
+            <h3 class="text-center">Cash Flow Statement</h3>
             <h3 class="text-center">{{report.startDate | date:'dd-MM-yyyy'}} - {{report.endDate | date:'dd-MM-yyyy'}}</h3>
             <hr>
             <div class="row">
@@ -61,24 +60,24 @@
                 </div>
             </div>
 
-		<div data-ng-if="incomeList">
+		<div data-ng-if="operatingActivityList">
 			 <div class="col-md-12">
-                    <h4>INCOME</h4>
+                    <h4>Operating Activities</h4>
                 </div>
- 			<div class="row" data-ng-repeat="income in incomeList">
+ 			<div class="row" data-ng-repeat="operatingActivity in operatingActivityList">
                
                 <div class="col-md-8">
-                    <p>{{income.name}}</p>
+                    <p>{{operatingActivity.name}}</p>
                 </div>
                 <div class="col-md-4 text-right">
-                    <p>{{income.balance}}</p>
+                    <p>{{operatingActivity.balance}}</p>
                 </div>
             </div>
              <div class="col-md-8">
                     <h5>Total Income</h5>
                 </div>
                 <div class="col-md-4 text-right">
-                    <h5>{{incomeTotal}}</h5>
+                    <h5>{{operatingActivityTotal}}</h5>
                 </div>
 		</div>
             <div class="row">
@@ -87,24 +86,24 @@
                 </div>
             </div>
 
-       <div data-ng-if="costOfSalesList">
+       <div data-ng-if="investingActivityList">
 			 <div class="col-md-12">
                     <h4>COST OF SALES</h4>
                 </div>
- 			<div class="row" data-ng-repeat="costOfSales in costOfSalesList">
+ 			<div class="row" data-ng-repeat="investingActivity in investingActivityList">
                
                 <div class="col-md-8">
-                    <p>{{costOfSales.name}}</p>
+                    <p>{{investingActivity.name}}</p>
                 </div>
                 <div class="col-md-4 text-right">
-                    <p>{{costOfSales.balance}}</p>
+                    <p>{{investingActivity.balance}}</p>
                 </div>
             </div>
              <div class="col-md-8">
                     <h5>Total Cost Of Sales</h5>
                 </div>
                 <div class="col-md-4 text-right">
-                    <h5>{{costOfSalesTotal}}</h5>
+                    <h5>{{investingActivityTotal}}</h5>
                 </div>
 		</div>
 
@@ -114,24 +113,24 @@
                 </div>
             </div>
 
-       <div data-ng-if="expensesList">
+       <div data-ng-if="financingActivityList">
 			 <div class="col-md-12">
-                    <h4>Expenses</h4>
+                    <h4>COST OF SALES</h4>
                 </div>
- 			<div class="row" data-ng-repeat="expenses in expensesList">
+ 			<div class="row" data-ng-repeat="financingActivity in financingActivityList">
                
                 <div class="col-md-8">
-                    <p>{{expenses.name}}</p>
+                    <p>{{financingActivity.name}}</p>
                 </div>
                 <div class="col-md-4 text-right">
-                    <p>{{expenses.balance}}</p>
+                    <p>{{financingActivity.balance}}</p>
                 </div>
             </div>
              <div class="col-md-8">
                     <h5>Total Expenses</h5>
                 </div>
                 <div class="col-md-4 text-right">
-                    <h5>{{expensesTotal}}</h5>
+                    <h5>{{financingActivityTotal}}</h5>
                 </div>
 		</div>
 

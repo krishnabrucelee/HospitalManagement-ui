@@ -29,4 +29,14 @@ public interface BloodBankRestService {
 	 */
 	HashMap<String, Object> issueBloodDetails(HashMap<String, Object> bloodBank);
 
+	/**
+	 * @return
+	 */
+	HashMap<String, Object> listBloodBankCampDetails();
+
+	/**
+	 * @return
+	 */
+	HashMap<String, Object> listBloodRequestDetails();
+
 }

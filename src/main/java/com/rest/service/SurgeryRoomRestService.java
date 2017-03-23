@@ -28,4 +28,9 @@ public interface SurgeryRoomRestService {
 	 */
 	HashMap<String, Object> addSurgeryDetails(HashMap<String, Object> surgery);
 
+	/**
+	 * @return
+	 */
+	HashMap<String, Object> listSurgeryDetails();
+
 }

@@ -36,9 +36,7 @@
                     <td class="dropdown" ><span data-toggle="dropdown">Action</span>
                       <ul class="dropdown-menu" >
                         <li><a ng-click="billPayment(purchase)">Bill Payment</a></li>
-                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'update'" ><a href="#">Edit</a></li>
-                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'delete'" ><a href="#">Delete</a></li>
-                        <li data-ng-repeat="permission in permissionList" data-ng-if="permission.module == 'Patient' && permission.action == 'delete'" ><a href="#">Discharge</a></li>
+                        <li><a ng-click="getMrn(purchaseOrderTransactionList.purchaseOrderId)">Get Mrn</a></li>
                       </ul>
                     </td> 
                                        </tr>
